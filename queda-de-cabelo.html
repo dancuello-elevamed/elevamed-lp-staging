@@ -46,7 +46,7 @@ html{scroll-behavior:smooth}
 #topo .visual{height:auto;aspect-ratio:auto;border-radius:12px}
 #topo .visual>.foto{position:relative;height:auto;flex:none;aspect-ratio:2576/1444}
 #topo .visual>.ph-hero,#topo .painel{display:none}
-#topo .chip--topo{top:8px;right:8px;padding:6px 10px 6px 8px;font-size:12px}
+#topo .chip--topo{top:8px;right:8px;max-width:calc(100% - 16px);box-sizing:border-box;white-space:nowrap;padding:6px 10px 6px 8px;font-size:12px}
 #topo .chip img{width:16px;height:16px}
 }
 </style>
@@ -89,7 +89,7 @@ html{scroll-behavior:smooth}
         <div class="visual">
           <div class="ph escuro ph-hero"><b>FOTO DO HERO</b>img/fotos/hero-desk.webp · 980 × 1440 px<br>img/fotos/hero-mob.webp · 1104 × 680 px</div>
           <picture class="foto"><source media="(max-width:600px)" srcset="img/fotos/hero-queda-mob.webp" type="image/webp"><img src="img/fotos/hero-queda-desk.webp" width="490" height="720" alt="Comparação de cabelo com entradas e cabelo mais denso" fetchpriority="high" decoding="async" onerror="this.parentNode.remove()"></picture>
-          <span class="chip chip--topo"><img src="img/simbolo.webp" alt="" width="22" height="22">Avaliação médica inclusa</span>
+          <span class="chip chip--topo"><img src="img/simbolo.webp" alt="" width="22" height="22">Avaliação médica online</span>
           <div class="painel" aria-hidden="true">
             <div class="linha-p"><strong>Sua avaliação médica</strong><small>~5 min</small></div>
             <div class="passos-p"><i class="on"></i><i class="on"></i><i></i><i></i></div>
