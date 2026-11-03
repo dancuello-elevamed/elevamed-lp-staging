@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TBNN8FQJ');</script>
+<!-- End Google Tag Manager -->
+<script src="rastreio.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -21,6 +29,10 @@ h1,h2{letter-spacing:-.02em;text-wrap:balance}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBNN8FQJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <header class="nav"><div class="wrap navrow">
   <a href="index.html"><img src="img/logo.webp" alt="Elevamed" width="140" height="19"></a>
   <span class="mini" id="contador">Leva cerca de 5 minutos</span>
@@ -72,13 +84,16 @@ function opcoes(p){
   return '<button type="button" class="opcao'+(on?' on':'')+'" role="'+(multi?'checkbox':'radio')+'" aria-checked="'+on+'" data-v="'+o+'">'+o+'</button>';}).join('')+'</div>';
 }
 
+let iniciou=false,ultimaEtapa=-1;
 function desenhar(){
  const b=bloqueio();
- if(b)return final(b[0],b[1],false);
+ if(b){evento('quiz_nao_elegivel',{quiz_etapa:i+1});return final(b[0],b[1],false);}
  if(i>=PASSOS.length)return resultado();
  const p=PASSOS[i];
  $('progresso').style.width=Math.round(i/PASSOS.length*100)+'%';
  $('contador').textContent='Etapa '+(i+1)+' de '+PASSOS.length;
+ if(!iniciou){iniciou=true;evento('quiz_iniciado');}
+ if(i>ultimaEtapa){ultimaEtapa=i;evento('quiz_etapa',{quiz_etapa:i+1,quiz_total:PASSOS.length});}
  let h='<span class="rotulo cinza">AVALIAÇÃO MÉDICA</span><h2>'+p.t+'</h2>'+(p.s?'<p class="leve">'+p.s+'</p>':'');
  if(p.tipo==='avatar')h+='<div class="tipos">'+TIPOS.map((t,k)=>'<button type="button" class="tipo'+(R.tipo===k?' on':(R.tipo!==undefined?' apagado':''))+'" role="radio" aria-checked="'+(R.tipo===k)+'" data-k="'+k+'">'+avatar(k)+'<strong>'+t.n+'</strong><span>'+t.d+'</span></button>').join('')+'</div>';
  if(p.tipo==='unica'||p.tipo==='multi')h+=opcoes(p);
@@ -135,7 +150,8 @@ function final(t,s,ok){
 
 function resultado(){
  const alerta=(R.saude||[]).filter(x=>x!=='Nenhuma destas').length>0;
- salvarLead(Object.assign({origem:'avaliacao',tipoQueda:TIPOS[R.tipo].n},R,{tipo:undefined}));
+ salvarLead(Object.assign({origem:'avaliacao',tipoQueda:TIPOS[R.tipo].n},R,{tipo:undefined},{rastreio:origemDoClique()}));
+ evento('quiz_concluido');
  $('progresso').style.width='100%';$('acoes').hidden=true;$('contador').textContent='Avaliação enviada';
  $('tela').innerHTML=
   '<span class="rotulo cinza">AVALIAÇÃO ENVIADA</span><h2>Pronto, '+(R.nome.split(' ')[0]||'')+'! Seu caso está com o médico</h2>'+
@@ -146,7 +162,7 @@ function resultado(){
   '<p class="leve" style="font-size:14px">Avaliação médica, medicação manipulada (se prescrita) e suporte clínico.</p>'+
   '<div class="linha" style="gap:10px;align-items:baseline"><span style="font-size:15px;color:#56675C;text-decoration:line-through">[R$ PREÇO]</span><span style="font-size:30px;font-weight:500">[R$ COM DESCONTO]</span><span class="mini">/mês</span></div>'+
   '<span class="tag" style="align-self:flex-start">[X]% off no primeiro pedido</span>'+
-  '<a class="btn grande" href="#checkout" data-integracao="checkout">Garantir meu desconto</a>'+
+  '<a class="btn grande" href="#checkout" data-integracao="checkout" onclick="evento(\'checkout_iniciado\')">Garantir meu desconto</a>'+
   '<span class="mini">Você só paga a medicação se o médico prescrever. Cancele quando quiser. [Confirmar regras]</span></div>'+
   '<a class="linkbtn" href="tratamentos.html">Conhecer os tratamentos enquanto isso</a>';
  window.scrollTo({top:0});
