@@ -35,6 +35,21 @@ html{scroll-behavior:smooth}
 </style>
 <link rel="stylesheet" href="marca.css">
 <link rel="stylesheet" href="movimento.css">
+<style>
+@media (max-width:600px){
+#topo>div{padding:12px 16px 32px!important;gap:14px!important}
+#topo>div>div:nth-child(2){order:-1;flex:1 1 100%!important}
+#topo>div>div:first-child{gap:12px!important}
+#topo>div>div:first-child>div:first-of-type{order:5}
+#topo h1{font-size:32px!important}
+#topo p{font-size:16px!important;line-height:1.45!important}
+#topo .visual{height:auto;aspect-ratio:auto;border-radius:12px}
+#topo .visual>.foto{position:relative;height:auto;flex:none;aspect-ratio:2576/1444}
+#topo .visual>.ph-hero,#topo .painel{display:none}
+#topo .chip--topo{top:8px;right:8px;padding:6px 10px 6px 8px;font-size:12px}
+#topo .chip img{width:16px;height:16px}
+}
+</style>
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
