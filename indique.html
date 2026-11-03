@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Elevamed — indique um amigo</title>
+<meta name="description" content="Indique a Elevamed: seu amigo ganha desconto no primeiro pedido e você ganha crédito no seu tratamento.">
+<meta name="theme-color" content="#213632">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Indique a Elevamed">
+<meta property="og:image" content="https://elevamed-lp.vercel.app/img/og/og-indique.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Elevamed">
+<meta property="og:description" content="Indique a Elevamed: seu amigo ganha desconto no primeiro pedido e você ganha crédito no seu tratamento.">
+<link rel="icon" href="img/simbolo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+<style>
+.saldo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.saldo div{background:#fff;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.saldo strong{font-size:24px;font-weight:500}
+.codigo{display:flex;gap:10px;flex-wrap:wrap}
+.codigo input{flex:1 1 220px;min-height:52px;border:1px dashed #213632;border-radius:10px;padding:0 14px;font:500 15px 'Lexend',sans-serif;color:#213632;background:#fff;box-sizing:border-box;min-width:0}
+.passo{display:flex;gap:16px;align-items:flex-start}
+.num{flex:0 0 44px;height:44px;border-radius:999px;background:#CBD9B7;display:flex;align-items:center;justify-content:center;font-family:'Michroma',sans-serif;font-size:13px}
+.oferta{font-size:56px;font-weight:500;line-height:1}
+details{background:#fff;border:1px solid #DDE3D2;border-radius:10px;padding:18px 20px}
+details summary{font-weight:500;cursor:pointer;list-style:none}details summary::-webkit-details-marker{display:none}
+details p{margin-top:12px}
+.ok{font-size:13px;color:#213632;background:#CBD9B7;border-radius:999px;padding:6px 12px;align-self:flex-start}
+@media (max-width:600px){.oferta{font-size:44px}.saldo{gap:8px}.saldo div{padding:12px 10px}.saldo strong{font-size:20px}#copiar{flex:1 1 100%}}
+</style>
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="movimento.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="nav"><div class="wrap navrow">
+  <a href="index.html"><img src="img/logo.webp" alt="Elevamed" width="156" height="21"></a>
+  <nav class="links"><a href="index.html">Início</a><a href="tratamentos.html">Tratamentos</a><a href="#como">Como funciona</a><a href="#regras">Regras</a></nav>
+  <span class="mini">[Olá, Nome] · [Minha conta]</span>
+</div></header>
+
+<main id="conteudo">
+<section class="salvia padrao-escuro"><div class="wrap linha" style="padding:56px 24px;align-items:center;gap:40px">
+  <div class="col" style="flex:1 1 420px;gap:18px">
+    <span class="rotulo">INDIQUE UM AMIGO</span>
+    <h1>Cuidar do cabelo fica melhor em dupla</h1>
+    <p class="leve" style="max-width:520px">Seu amigo ganha desconto no primeiro pedido. Você ganha crédito para usar no seu tratamento. Sem limite de indicações.</p>
+    <div class="linha" style="gap:16px">
+      <div class="card" style="flex:1 1 180px;gap:6px"><span class="rotulo cinza">VOCÊ GANHA</span><span class="oferta">R$ [X]</span><span class="mini">em crédito por amigo que comprar</span></div>
+      <div class="card escuro" style="flex:1 1 180px;gap:6px"><span class="rotulo" style="color:#CBD9B7">SEU AMIGO GANHA</span><span class="oferta">[X]%</span><span class="mini" style="color:#EEF2E6">de desconto no 1º pedido</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="flex:1 1 380px;gap:18px;background:#F7F8F3;border:none">
+    <strong style="font-size:20px;font-weight:500">Seu link de indicação</strong>
+    <div class="codigo">
+      <label for="link" class="mini" style="flex:1 0 100%">Copie e envie para quem você quiser</label>
+      <input id="link" readonly value="elevamed-lp.vercel.app/?ref=[SEUCODIGO]">
+      <button class="btn grande" type="button" id="copiar">Copiar link</button>
+    </div>
+    <span class="ok" id="copiado" hidden>Link copiado</span>
+    <div class="linha" style="gap:10px">
+      <a class="btn claro" id="zap" href="#" target="_blank" rel="noopener" style="flex:1 1 140px">Enviar no WhatsApp</a>
+      <a class="btn contorno" id="mail" href="#" style="flex:1 1 140px">Enviar por e-mail</a>
+    </div>
+    <span class="mini">Prefere o código? Seu amigo digita <strong style="color:#213632">[SEUCODIGO]</strong> no fim da avaliação.</span>
+    <div class="saldo" aria-label="Seu saldo de indicações">
+      <div><span class="mini">Amigos indicados</span><strong>[0]</strong></div>
+      <div><span class="mini">Compraram</span><strong>[0]</strong></div>
+      <div><span class="mini">Seu crédito</span><strong>R$ [0]</strong></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap col" style="padding:64px 24px;gap:28px">
+  <div class="col" style="gap:10px"><span class="rotulo cinza">COMO FUNCIONA</span><h2>Três passos e o crédito é seu</h2></div>
+  <div class="grade3">
+    <div class="card"><div class="passo"><span class="num">01</span><div class="col" style="gap:6px"><strong style="font-weight:500;font-size:18px">Envie seu link</strong><p class="leve" style="font-size:15px">Mande pelo WhatsApp, e-mail ou redes. Quantas pessoas quiser.</p></div></div></div>
+    <div class="card"><div class="passo"><span class="num">02</span><div class="col" style="gap:6px"><strong style="font-weight:500;font-size:18px">Seu amigo começa</strong><p class="leve" style="font-size:15px">Ele faz a avaliação médica e o primeiro pedido com [X]% de desconto.</p></div></div></div>
+    <div class="card" style="background:#CBD9B7;border:none"><div class="passo"><span class="num" style="background:#fff">03</span><div class="col" style="gap:6px"><strong style="font-weight:500;font-size:18px">Você ganha crédito</strong><p class="leve" style="font-size:15px">R$ [X] entram na sua carteira quando o pedido dele é confirmado.</p></div></div></div>
+  </div>
+</div></section>
+
+<section class="padrao-claro" style="background-color:#213632;color:#fff"><div class="wrap linha" style="padding:56px 24px;align-items:center;gap:32px">
+  <div class="col" style="flex:1 1 380px;gap:12px">
+    <span class="rotulo" style="color:#CBD9B7">QUANTO VOCÊ ECONOMIZA</span>
+    <h2>Indique e veja seu tratamento ficar mais barato</h2>
+    <p class="leve" style="color:#EEF2E6">Arraste para simular. Valores ilustrativos com crédito de R$ <span id="vcred">150</span> por amigo e teto de R$ <span id="vteto">450</span> por pedido. [Ajustar aos valores Elevamed]</p>
+  </div>
+  <div class="card" style="flex:1 1 340px;background:#2F4A44;border:none;color:#fff">
+    <label for="qtd" style="font-size:15px">Amigos que compraram: <strong id="nq" style="font-size:22px;font-weight:500">3</strong></label>
+    <input type="range" id="qtd" min="1" max="10" value="3" style="width:100%;accent-color:#CBD9B7;min-height:44px">
+    <div class="linha" style="gap:12px">
+      <div class="col" style="flex:1 1 120px;gap:2px"><span class="mini" style="color:#CBD9B7">Crédito total</span><strong id="tot" style="font-size:28px;font-weight:500">R$ 450</strong></div>
+      <div class="col" style="flex:1 1 120px;gap:2px"><span class="mini" style="color:#CBD9B7">Pedidos com desconto</span><strong id="ped" style="font-size:28px;font-weight:500">1</strong></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="regras"><div class="wrap linha" style="padding:64px 24px;gap:40px">
+  <div class="col" style="flex:2 1 480px;gap:12px">
+    <span class="rotulo cinza">REGRAS E DÚVIDAS</span>
+    <h2 style="margin-bottom:8px">Simples e transparente</h2>
+    <details open><summary>Quando o crédito entra na minha conta?</summary><p class="leve" style="font-size:15px">Quando o primeiro pedido do seu amigo é confirmado e pago. Indicações sem compra não geram crédito.</p></details>
+    <details><summary>Posso sacar o crédito?</summary><p class="leve" style="font-size:15px">Não. O crédito vira desconto nos seus próximos pedidos de tratamento, até R$ [teto] por pedido.</p></details>
+    <details><summary>O crédito vence?</summary><p class="leve" style="font-size:15px">[Definir validade, ex.: 12 meses a partir da data em que entrou.]</p></details>
+    <details><summary>Meu amigo precisa de receita?</summary><p class="leve" style="font-size:15px">Ele passa pela mesma avaliação médica online. O desconto vale só se o médico indicar tratamento.</p></details>
+    <details><summary>Posso indicar a mim mesmo ou alguém da mesma casa?</summary><p class="leve" style="font-size:15px">Autoindicação não vale. Indicações para o mesmo endereço, cartão ou CPF de um cliente já ativo podem ser recusadas.</p></details>
+  </div>
+  <div class="card" style="flex:1 1 280px;background:#EEF2E6;border:none;align-self:flex-start">
+    <img src="img/simbolo.webp" alt="" width="36">
+    <strong style="font-size:18px;font-weight:500">Indicação com responsabilidade</strong>
+    <p class="leve" style="font-size:14px">Indique tratamento, não remédio. Quem decide se seu amigo precisa de medicação é sempre o médico, depois da avaliação.</p>
+    <a class="mini" href="#">[Regulamento completo da promoção]</a>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="ft" id="rodape">
+  <div class="ft-in">
+    <div class="ft-topo">
+      <div class="ft-duvida">
+        <p class="ft-titulo">Ficou alguma dúvida?</p>
+        <a class="ft-ajuda" href="index.html#faq">
+          <span class="ft-ico" aria-hidden="true">?</span>
+          <span><b>Visite nossa central de ajuda</b><small>Encontre respostas para as suas perguntas</small></span>
+        </a>
+      </div>
+      <nav class="ft-col" aria-label="Tratamentos">
+        <p class="ft-rotulo">Tratamentos</p>
+        <a href="tratamentos.html">Queda capilar</a>
+        <a href="tratamentos.html">Consulta avulsa</a>
+        <a href="tratamentos.html">Já tem receita?</a>
+      </nav>
+      <nav class="ft-col" aria-label="Elevamed">
+        <p class="ft-rotulo">Elevamed</p>
+        <a href="index.html#como">Como funciona</a>
+        <a href="index.html#planos">Planos</a>
+        <a href="index.html#ciencia">Ciência</a>
+        <a href="indique.html">Indique um amigo</a>
+      </nav>
+      <nav class="ft-col" aria-label="Suporte">
+        <p class="ft-rotulo">Suporte</p>
+        <a href="index.html#faq">Perguntas frequentes</a>
+        <a href="avaliacao.html">Começar avaliação</a>
+        <a href="#rodape">Política de privacidade</a>
+      </nav>
+    </div>
+
+    <div class="ft-marca">
+      <img src="img/logo-claro.webp" alt="Elevamed" width="150">
+      <p class="ft-assina">Cuidado em outro nível</p>
+      <a class="ft-social" href="https://www.instagram.com/elevamedsaude/" rel="noopener" aria-label="Instagram da Elevamed">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+
+    <div class="ft-legal">
+      <div class="ft-farmacia">
+        <span class="ft-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span><b>Farmácias credenciadas</b><small>[Razão social · CNPJ · Resp. técnico]</small></span>
+      </div>
+      <p>A Elevamed não é uma farmácia. Os produtos são manipulados por farmácias credenciadas, de acordo com as normas da Anvisa.</p>
+      <p>Responsável técnico: [Nome do médico · CRM/UF]</p>
+      <p class="ft-copy">© 2026 Elevamed. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="ui.js" defer></script>
+<script src="movimento.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+const link='https://'+$('link').value;
+const msg='Comecei meu tratamento capilar com a Elevamed. Avaliação médica online e entrega em casa. Use meu link e ganhe [X]% no primeiro pedido: '+link;
+$('zap').href='https://wa.me/?text='+encodeURIComponent(msg);
+$('mail').href='mailto:?subject='+encodeURIComponent('Um desconto para você cuidar do cabelo')+'&body='+encodeURIComponent(msg);
+$('copiar').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(link);}catch(e){$('link').select();document.execCommand('copy');}
+  $('copiado').hidden=false;$('copiar').textContent='Copiado';
+  setTimeout(()=>{$('copiado').hidden=true;$('copiar').textContent='Copiar link';},2500);
+});
+const CRED=150,TETO=450;
+function sim(){const n=+$('qtd').value,t=n*CRED;$('nq').textContent=n;$('tot').textContent='R$ '+t.toLocaleString('pt-BR');$('ped').textContent=Math.ceil(t/TETO);}
+$('qtd').addEventListener('input',sim);sim();
+</script>
+</body>
+</html>

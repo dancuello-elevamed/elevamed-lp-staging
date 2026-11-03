@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Elevamed — avaliação médica online</title>
+<meta name="description" content="Avaliação médica online para queda capilar, em cerca de 5 minutos.">
+<meta name="theme-color" content="#213632">
+<link rel="icon" href="img/simbolo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+<style>
+:focus-visible{outline:2px solid #213632;outline-offset:3px;border-radius:6px}
+h1,h2{letter-spacing:-.02em;text-wrap:balance}
+.nav{position:sticky;top:0;z-index:10}
+.opcao,.tipo{transition:border-color .15s ease,background-color .15s ease}
+@media (hover:hover){.opcao:hover,.tipo:hover{border-color:#213632}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navrow">
+  <a href="index.html"><img src="img/logo.webp" alt="Elevamed" width="140" height="19"></a>
+  <span class="mini" id="contador">Leva cerca de 5 minutos</span>
+</div></header>
+
+<main class="wrap" style="max-width:640px;padding:32px 20px 64px">
+  <div class="barra" aria-hidden="true"><i id="progresso" style="width:0%"></i></div>
+  <div id="tela" class="col" style="margin-top:28px" aria-live="polite"></div>
+  <div id="acoes" class="linha" style="margin-top:24px;gap:12px">
+    <button class="btn contorno" type="button" id="voltar">Voltar</button>
+    <button class="btn grande" type="button" id="avancar" style="flex:1 1 200px">Continuar</button>
+  </div>
+  <p class="mini" style="margin-top:28px">Suas respostas são confidenciais e usadas apenas pela equipe médica para avaliar o seu caso. [Link da Política de Privacidade]</p>
+</main>
+
+<script src="comum.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const R={};
+const q=new URLSearchParams(location.search);
+if(q.get('tipo')!==null&&TIPOS[+q.get('tipo')])R.tipo=+q.get('tipo');
+R.email=sessionStorage.getItem('ev-email')||'';
+
+const PASSOS=[
+ {id:'tipo',tipo:'avatar',t:'Qual opção descreve melhor a sua queda?',s:'Vista de cima da cabeça, com a testa na parte de cima do desenho.'},
+ {id:'sexo',tipo:'unica',t:'Qual é o seu sexo biológico?',s:'Alguns medicamentos têm indicações diferentes para homens e mulheres.',o:['Masculino','Feminino']},
+ {id:'idade',tipo:'numero',t:'Qual é a sua idade?',s:'O tratamento online é para maiores de 18 anos.'},
+ {id:'tempo',tipo:'unica',t:'Há quanto tempo você percebe a queda?',o:['Menos de 6 meses','6 a 12 meses','1 a 3 anos','Mais de 3 anos']},
+ {id:'familia',tipo:'unica',t:'Alguém da sua família tem calvície?',o:['Sim, do lado do pai','Sim, do lado da mãe','Dos dois lados','Não / não sei']},
+ {id:'ja',tipo:'multi',t:'Você já usou algum tratamento?',s:'Marque todos que se aplicam.',o:['Nunca usei','Minoxidil','Finasterida ou dutasterida','Shampoo ou loção antiqueda','Outro']},
+ {id:'saude',tipo:'multi',t:'Você tem ou já teve alguma destas condições?',s:'Isso ajuda o médico a escolher um tratamento seguro.',o:['Problema no coração ou pressão alta/baixa','Doença no fígado','Câncer de próstata ou alteração no PSA','Depressão ou ansiedade em tratamento','Planejo ter filhos nos próximos meses','Nenhuma destas']},
+ {id:'remedios',tipo:'texto',t:'Usa algum medicamento hoje?',s:'Escreva o nome e a dose, se souber. Deixe em branco se não usa nenhum.',opcional:true},
+ {id:'fotos',tipo:'fotos',t:'Envie fotos do seu couro cabeludo',s:'Três fotos com boa luz: frente, topo e parte de trás (coroa).',opcional:true},
+ {id:'contato',tipo:'contato',t:'Para onde o médico envia o seu plano?'}
+];
+let i=R.tipo!==undefined?1:0;
+
+function bloqueio(){
+ if(R.tipo!==undefined&&!TIPOS[R.tipo].ok)return['Seu caso pede uma avaliação diferente','Queda irregular ou total pode ter outras causas, como alterações hormonais ou autoimunes. O ideal é uma consulta com dermatologista. [Opção: consulta avulsa Elevamed]'];
+ if(R.sexo==='Feminino')return['Vamos cuidar de você de outro jeito','A queda capilar feminina tem causas e tratamentos próprios, e este protocolo foi feito para o padrão masculino. [Opção: consulta avulsa ou lista de espera do protocolo feminino]'];
+ if(R.idade!==undefined&&R.idade<18)return['O tratamento online é para maiores de 18 anos','Para menores, a avaliação deve ser presencial, com um responsável. Procure um dermatologista.'];
+ return null;
+}
+
+function opcoes(p){
+ const multi=p.tipo==='multi',sel=R[p.id]||(multi?[]:null);
+ return '<div class="col" style="gap:10px" role="'+(multi?'group':'radiogroup')+'">'+p.o.map(o=>{
+  const on=multi?sel.includes(o):sel===o;
+  return '<button type="button" class="opcao'+(on?' on':'')+'" role="'+(multi?'checkbox':'radio')+'" aria-checked="'+on+'" data-v="'+o+'">'+o+'</button>';}).join('')+'</div>';
+}
+
+function desenhar(){
+ const b=bloqueio();
+ if(b)return final(b[0],b[1],false);
+ if(i>=PASSOS.length)return resultado();
+ const p=PASSOS[i];
+ $('progresso').style.width=Math.round(i/PASSOS.length*100)+'%';
+ $('contador').textContent='Etapa '+(i+1)+' de '+PASSOS.length;
+ let h='<span class="rotulo cinza">AVALIAÇÃO MÉDICA</span><h2>'+p.t+'</h2>'+(p.s?'<p class="leve">'+p.s+'</p>':'');
+ if(p.tipo==='avatar')h+='<div class="tipos">'+TIPOS.map((t,k)=>'<button type="button" class="tipo'+(R.tipo===k?' on':(R.tipo!==undefined?' apagado':''))+'" role="radio" aria-checked="'+(R.tipo===k)+'" data-k="'+k+'">'+avatar(k)+'<strong>'+t.n+'</strong><span>'+t.d+'</span></button>').join('')+'</div>';
+ if(p.tipo==='unica'||p.tipo==='multi')h+=opcoes(p);
+ if(p.tipo==='numero')h+='<label class="campo">Idade<input type="number" inputmode="numeric" min="1" max="110" id="campo" value="'+(R.idade??'')+'"></label>';
+ if(p.tipo==='texto')h+='<label class="campo">Medicamentos<textarea id="campo" rows="4">'+(R.remedios||'')+'</textarea></label>';
+ if(p.tipo==='fotos')h+='<label class="campo">Fotos (até 3)<input type="file" id="campo" accept="image/*" multiple></label><span class="mini">[Validação interna: as fotos não são enviadas. Em produção, vão direto para o prontuário do médico.]</span>';
+ if(p.tipo==='contato')h+='<label class="campo">Nome completo<input id="nome" autocomplete="name" value="'+(R.nome||'')+'"></label>'+
+  '<label class="campo">E-mail<input type="email" id="email" autocomplete="email" value="'+(R.email||'')+'"></label>'+
+  '<label class="campo">WhatsApp<input type="tel" id="zap" autocomplete="tel" placeholder="(00) 00000-0000" value="'+(R.zap||'')+'"></label>'+
+  '<label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5"><input type="checkbox" id="lgpd" style="width:20px;height:20px;margin-top:2px"'+(R.lgpd?' checked':'')+'> Autorizo a Elevamed a usar meus dados de saúde para a avaliação médica, conforme a [Política de Privacidade] e a LGPD.</label>';
+ h+='<span class="erro" id="erro" hidden></span>';
+ $('tela').innerHTML=h;
+ $('acoes').hidden=false;$('voltar').hidden=i===0;
+ $('avancar').textContent=i===PASSOS.length-1?'Enviar para o médico':'Continuar';
+ window.scrollTo({top:0});
+}
+
+$('tela').addEventListener('click',e=>{
+ const p=PASSOS[i];if(!p)return;
+ const t=e.target.closest('.tipo');if(t){R.tipo=+t.dataset.k;return desenhar();}
+ const o=e.target.closest('.opcao');if(!o)return;
+ const v=o.dataset.v;
+ if(p.tipo==='multi'){let s=R[p.id]||[];const exc=v==='Nunca usei'||v==='Nenhuma destas';
+  if(s.includes(v))s=s.filter(x=>x!==v);else s=exc?[v]:s.filter(x=>x!=='Nunca usei'&&x!=='Nenhuma destas').concat(v);R[p.id]=s;}
+ else R[p.id]=v;
+ desenhar();
+});
+
+function erro(m){const e=$('erro');e.textContent=m;e.hidden=false;}
+
+$('avancar').addEventListener('click',()=>{
+ const p=PASSOS[i];
+ if(p.tipo==='avatar'&&R.tipo===undefined)return erro('Selecione uma opção.');
+ if(p.tipo==='unica'&&!R[p.id])return erro('Selecione uma opção.');
+ if(p.tipo==='multi'&&!(R[p.id]||[]).length)return erro('Selecione ao menos uma opção.');
+ if(p.tipo==='numero'){const v=parseInt($('campo').value,10);if(!v||v<1||v>110)return erro('Digite uma idade válida.');R.idade=v;}
+ if(p.tipo==='texto')R.remedios=$('campo').value.trim();
+ if(p.tipo==='fotos')R.fotos=$('campo').files.length;
+ if(p.tipo==='contato'){
+  R.nome=$('nome').value.trim();R.email=$('email').value.trim();R.zap=$('zap').value.trim();R.lgpd=$('lgpd').checked;
+  if(R.nome.length<3)return erro('Digite seu nome.');
+  if(!/^\S+@\S+\.\S+$/.test(R.email))return erro('Digite um e-mail válido.');
+  if(R.zap.replace(/\D/g,'').length<10)return erro('Digite um WhatsApp com DDD.');
+  if(!R.lgpd)return erro('Para seguir, autorize o uso dos dados para a avaliação.');
+ }
+ i++;desenhar();
+});
+$('voltar').addEventListener('click',()=>{if(i>0){i--;desenhar();}});
+
+function final(t,s,ok){
+ $('progresso').style.width='100%';$('acoes').hidden=true;$('contador').textContent='';
+ $('tela').innerHTML='<img src="img/simbolo.webp" alt="" width="40"><h2>'+t+'</h2><p class="leve">'+s+'</p>'+(ok?'':'<a class="btn grande" href="tratamentos.html">Conhecer os tratamentos</a>');
+}
+
+function resultado(){
+ const alerta=(R.saude||[]).filter(x=>x!=='Nenhuma destas').length>0;
+ salvarLead(Object.assign({origem:'avaliacao',tipoQueda:TIPOS[R.tipo].n},R,{tipo:undefined}));
+ $('progresso').style.width='100%';$('acoes').hidden=true;$('contador').textContent='Avaliação enviada';
+ $('tela').innerHTML=
+  '<span class="rotulo cinza">AVALIAÇÃO ENVIADA</span><h2>Pronto, '+(R.nome.split(' ')[0]||'')+'! Seu caso está com o médico</h2>'+
+  '<p class="leve">Um médico vai analisar suas respostas em até [X horas] e, se indicado, prescrever o seu plano. Você recebe tudo no e-mail e no WhatsApp.</p>'+
+  (alerta?'<div class="card" style="background:#EEF2E6;border:none"><strong style="font-weight:500">Atenção para o médico</strong><p class="leve" style="font-size:14px">Você marcou condições de saúde que pedem cuidado na escolha do remédio. O médico vai levar isso em conta e pode falar com você antes de prescrever.</p></div>':'')+
+  '<div class="card"><span class="rotulo cinza">PLANO MAIS INDICADO PARA '+TIPOS[R.tipo].n.toUpperCase()+'</span>'+
+  '<strong style="font-size:22px;font-weight:500">Cuidado Completo</strong>'+
+  '<p class="leve" style="font-size:14px">Avaliação médica, medicação manipulada (se prescrita) e suporte clínico.</p>'+
+  '<div class="linha" style="gap:10px;align-items:baseline"><span style="font-size:15px;color:#56675C;text-decoration:line-through">[R$ PREÇO]</span><span style="font-size:30px;font-weight:500">[R$ COM DESCONTO]</span><span class="mini">/mês</span></div>'+
+  '<span class="tag" style="align-self:flex-start">[X]% off no primeiro pedido</span>'+
+  '<a class="btn grande" href="#checkout" data-integracao="checkout">Garantir meu desconto</a>'+
+  '<span class="mini">Você só paga a medicação se o médico prescrever. Cancele quando quiser. [Confirmar regras]</span></div>'+
+  '<a class="linkbtn" href="tratamentos.html">Conhecer os tratamentos enquanto isso</a>';
+ window.scrollTo({top:0});
+}
+desenhar();
+</script>
+</body>
+</html>
