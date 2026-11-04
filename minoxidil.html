@@ -123,6 +123,23 @@ main>nav{display:none!important}#topo{margin-top:0!important}
 .mtab td:first-child{font-size:18px!important;margin-bottom:14px}.mtab td:nth-child(2){margin-bottom:12px}.mtab td:nth-child(3){margin-top:auto!important}
 #plano .planos>*{flex:0 0 86%;scroll-snap-align:center;box-sizing:border-box}
 }
+
+/* ajustes mobile 04/11 */
+.i-ok.tem-ck::before{display:none!important}
+.ck{flex:0 0 18px;width:18px;height:18px;margin-top:1px;border-radius:999px;background:#213632;fill:none;stroke:#CBD9B7;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;padding:3px;box-sizing:border-box;display:block}
+.escuro .ck{background:#CBD9B7;stroke:#213632}
+.car-wrap{position:relative}
+.car-seta{position:absolute;right:6px;width:38px;height:38px;border-radius:999px;border:0;background:#213632;color:#FFFFFF;display:none;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(33,54,50,.25);transform:translateY(-50%);cursor:pointer;z-index:3;transition:opacity .2s}
+.car-seta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.car-seta.fim{opacity:0;pointer-events:none}
+@media (max-width:600px){
+main>section:not(#topo){padding:36px 20px!important}
+#topo>div{padding-bottom:22px!important}
+.car-seta{display:flex}
+.selos{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:12px 8px!important;width:100%;font-size:12.5px!important;line-height:1.3}
+.selos .i-ok{flex-direction:column;align-items:center;text-align:center;gap:6px}
+.selos .ck{margin:0;flex-basis:auto;width:20px;height:20px}
+}
 </style>
 <link rel="stylesheet" href="marca.css">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"MedicalWebPage","name":"Minoxidil para queda de cabelo com avaliação médica | Elevamed","url":"https://elevamed-lp.vercel.app/minoxidil","description":"Minoxidil oral ou tópico com avaliação médica online, por menos de R$55 por mês. Sem fidelidade, frete grátis e você só paga se o médico aprovar.","inLanguage":"pt-BR","about":{"@type":"Drug","name":"Minoxidil","prescriptionStatus":"https://schema.org/PrescriptionOnly"},"audience":{"@type":"PeopleAudience","suggestedGender":"male"},"specialty":"https://schema.org/Dermatologic","publisher":{"@type":"Organization","name":"Elevamed","url":"https://elevamed-lp.vercel.app/","logo":"https://elevamed-lp.vercel.app/img/logo.webp"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://elevamed-lp.vercel.app/"},{"@type":"ListItem","position":2,"name":"Tratamentos","item":"https://elevamed-lp.vercel.app/tratamentos"},{"@type":"ListItem","position":3,"name":"Minoxidil","item":"https://elevamed-lp.vercel.app/minoxidil"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Minoxidil precisa de receita?","acceptedAnswer":{"@type":"Answer","text":"Sim. O minoxidil em comprimido e as fórmulas manipuladas são vendidos sob prescrição. Na Elevamed, um médico avalia seu caso online e, se indicado, prescreve."}},{"@type":"Question","name":"Qual é melhor: minoxidil oral ou tópico?","acceptedAnswer":{"@type":"Answer","text":"Depende do seu caso. O oral é prático e não deixa resíduo, mas exige checar pressão e histórico cardíaco. O tópico age direto na área da queda, com menos efeito no restante do corpo. O médico indica o formato depois da avaliação."}},{"@type":"Question","name":"Em quanto tempo o minoxidil faz efeito?","acceptedAnswer":{"@type":"Answer","text":"Em geral, a queda diminui nos primeiros meses e fios novos podem surgir a partir do 3º mês. Os resultados mais visíveis costumam aparecer entre o 4º e o 6º mês de uso contínuo. Cada organismo responde de um jeito."}},{"@type":"Question","name":"O cabelo cai se eu parar o minoxidil?","acceptedAnswer":{"@type":"Answer","text":"O efeito depende do uso contínuo. Ao parar, os fios que cresceram com o tratamento tendem a cair ao longo dos meses seguintes. Converse com o médico antes de interromper."}},{"@type":"Question","name":"Posso usar minoxidil com finasterida?","acceptedAnswer":{"@type":"Answer","text":"Sim, quando o médico considera indicado. O minoxidil estimula o crescimento e a finasterida reduz o DHT, a principal causa da calvície. A combinação é comum no tratamento da alopecia androgenética."}},{"@type":"Question","name":"Quando sou cobrado?","acceptedAnswer":{"@type":"Answer","text":"Seu cartão é apenas reservado ao final do questionário. A cobrança só acontece se o médico aprovar o tratamento. Se não for indicado, o valor é liberado."}}]}]</script>
@@ -159,10 +176,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.24em;">MINOXIDIL COM PRESCRIÇÃO MÉDICA</span>
 <h1 style="margin: 0; font-size: 50px; font-weight: 500; line-height: 1.08;">Minoxidil na dose certa para o seu caso.</h1>
 <p style="margin: 0; font-size: 18px; font-weight: 300; line-height: 1.6; max-width: 540px;">Avaliação médica online e minoxidil manipulado na dose do seu caso, por menos de <strong style="font-weight: 500;">R$55 por mês</strong>. Responda o questionário em 5 minutos.</p>
-<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px;">
-<span class="i-ok">Sem fidelidade</span>
-<span class="i-ok">Avaliação médica inclusa</span>
-<span class="i-ok">Frete grátis</span>
+<div class="selos" style="display: flex; flex-direction: column; gap: 12px; font-size: 15px;">
+<span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Sem fidelidade</span>
+<span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Avaliação médica inclusa</span>
+<span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Frete grátis</span>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
 <a class="cta" href="avaliacao.html?origem=minoxidil" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 16px 30px; font-size: 16px; font-weight: 500;">Garantir meus 30% OFF e fazer avaliação</a>
@@ -194,18 +211,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <article style="background: #FFFFFF; border: 1px solid #DDE3D2; border-radius: 10px; padding: 26px; display: flex; flex-direction: column; gap: 12px;">
 <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #56675C;">COMPRIMIDO</span>
 <h3 style="margin: 0; font-size: 22px; font-weight: 500;">Minoxidil oral</h3>
-<span class="i-ok" style="font-size: 14px;">Uma dose por dia, sem aplicar no cabelo</span>
-<span class="i-ok" style="font-size: 14px;">Não deixa resíduo nem cheiro</span>
-<span class="i-ok" style="font-size: 14px;">Dose definida na consulta, já inclusa</span>
-<span class="i-ok" style="font-size: 14px;">Envio rápido, com frete grátis</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Uma dose por dia, sem aplicar no cabelo</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Não deixa resíduo nem cheiro</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Dose definida na consulta, já inclusa</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Envio rápido, com frete grátis</span>
 </article>
 <article style="background: #FFFFFF; border: 1px solid #DDE3D2; border-radius: 10px; padding: 26px; display: flex; flex-direction: column; gap: 12px;">
 <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #56675C;">LOÇÃO OU SPRAY</span>
 <h3 style="margin: 0; font-size: 22px; font-weight: 500;">Minoxidil tópico</h3>
-<span class="i-ok" style="font-size: 14px;">Age direto na área da queda</span>
-<span class="i-ok" style="font-size: 14px;">Base manipulada sem álcool, que não arde</span>
-<span class="i-ok" style="font-size: 14px;">Acompanhamento clínico incluso</span>
-<span class="i-ok" style="font-size: 14px;">Envio rápido, em embalagem discreta</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Age direto na área da queda</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Base manipulada sem álcool, que não arde</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Acompanhamento clínico incluso</span>
+<span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Envio rápido, em embalagem discreta</span>
 </article>
 </div>
 <p style="margin: 0; text-align: center; font-size: 13px; color: #56675C;">Consulta e acompanhamento inclusos. O médico indica o formato e a fórmula chega na sua casa.</p>
@@ -333,7 +350,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 style="margin: 0; font-size: 40px; font-weight: 500; line-height: 1.15;">Descubra se o minoxidil é para você.</h2>
 <p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.6;">Questionário de 5 minutos, avaliação médica inclusa e fórmula em casa por menos de R$55 por mês. Você só paga se o médico aprovar.</p>
 <a class="cta" href="avaliacao.html?origem=minoxidil" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 16px 30px; font-size: 16px; font-weight: 500;">Garantir meus 30% OFF e fazer avaliação</a>
-<div style="display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; font-size: 14px;"><span class="i-ok">Sem fidelidade</span><span class="i-ok">Avaliação médica inclusa</span><span class="i-ok">Frete grátis</span></div>
+<div class="selos" style="display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; font-size: 14px;"><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Sem fidelidade</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Avaliação médica inclusa</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Frete grátis</span></div>
 </div>
 </section>
 </main>
@@ -411,6 +428,17 @@ var n=c.children.length,d=document.createElement('div');d.className='dots';d.set
 for(var i=0;i<n;i++)d.appendChild(document.createElement('i'));(c.closest('table')||c).insertAdjacentElement('afterend',d);
 function up(){var w=c.children[0].getBoundingClientRect().width+12,k=Math.min(n-1,Math.round(c.scrollLeft/w));[].forEach.call(d.children,function(e,j){e.classList.toggle('on',j===k)})}
 c.addEventListener('scroll',up,{passive:true});up()})})();
+</script>
+<script>
+(function(){if(!matchMedia('(max-width:600px)').matches)return;
+var SV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+['#efeitos tbody','#manipulado tbody','#resultados .res-grid'].forEach(function(sel){var c=document.querySelector(sel);if(!c||c.children.length<2)return;
+var host=c.closest('table')||c,par=host.parentElement;par.classList.add('car-wrap');
+var b=document.createElement('button');b.type='button';b.className='car-seta';b.setAttribute('aria-label','Ver próximo');b.innerHTML=SV;par.appendChild(b);
+function pos(){b.style.top=(host.offsetTop+host.offsetHeight/2)+'px'}
+function up(){b.classList.toggle('fim',c.scrollLeft+c.clientWidth>=c.scrollWidth-8)}
+b.addEventListener('click',function(){var w=c.children[0].getBoundingClientRect().width+12;c.scrollBy({left:w,behavior:'smooth'})});
+c.addEventListener('scroll',up,{passive:true});addEventListener('resize',pos);pos();up();setTimeout(pos,600)})})();
 </script>
 </body>
 </html>
