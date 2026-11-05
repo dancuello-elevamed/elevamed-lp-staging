@@ -140,6 +140,14 @@ main>section:not(#topo){padding:36px 20px!important}
 .selos .i-ok{flex-direction:column;align-items:center;text-align:center;gap:6px}
 .selos .ck{margin:0;flex-basis:auto;width:20px;height:20px}
 }
+
+/* time-lapse minoxidil */
+.evo-mes{position:absolute;left:10px;top:10px;background:rgba(33,54,50,.88);color:#FFFFFF;border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:500;font-variant-numeric:tabular-nums}
+.evo-play{position:absolute;right:10px;bottom:16px;display:flex;align-items:center;gap:6px;border:0;border-radius:999px;background:#CBD9B7;color:#213632;font-family:Lexend,sans-serif;font-size:13px;font-weight:500;padding:8px 14px 8px 10px;cursor:pointer;min-height:36px;transition:opacity .2s}
+.evo-play svg{width:16px;height:16px;fill:currentColor}
+.evo.tocando .evo-play{opacity:0;pointer-events:none}
+.evo-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(33,54,50,.35)}
+.evo-bar i{display:block;height:100%;width:0;background:#CBD9B7}
 </style>
 <link rel="stylesheet" href="marca.css">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"MedicalWebPage","name":"Minoxidil para queda de cabelo com avaliação médica | Elevamed","url":"https://elevamed-lp.vercel.app/minoxidil","description":"Minoxidil oral ou tópico com avaliação médica online, por menos de R$55 por mês. Sem fidelidade, frete grátis e você só paga se o médico aprovar.","inLanguage":"pt-BR","about":{"@type":"Drug","name":"Minoxidil","prescriptionStatus":"https://schema.org/PrescriptionOnly"},"audience":{"@type":"PeopleAudience","suggestedGender":"male"},"specialty":"https://schema.org/Dermatologic","publisher":{"@type":"Organization","name":"Elevamed","url":"https://elevamed-lp.vercel.app/","logo":"https://elevamed-lp.vercel.app/img/logo.webp"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://elevamed-lp.vercel.app/"},{"@type":"ListItem","position":2,"name":"Tratamentos","item":"https://elevamed-lp.vercel.app/tratamentos"},{"@type":"ListItem","position":3,"name":"Minoxidil","item":"https://elevamed-lp.vercel.app/minoxidil"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Minoxidil precisa de receita?","acceptedAnswer":{"@type":"Answer","text":"Sim. O minoxidil em comprimido e as fórmulas manipuladas são vendidos sob prescrição. Na Elevamed, um médico avalia seu caso online e, se indicado, prescreve."}},{"@type":"Question","name":"Qual é melhor: minoxidil oral ou tópico?","acceptedAnswer":{"@type":"Answer","text":"Depende do seu caso. O oral é prático e não deixa resíduo, mas exige checar pressão e histórico cardíaco. O tópico age direto na área da queda, com menos efeito no restante do corpo. O médico indica o formato depois da avaliação."}},{"@type":"Question","name":"Em quanto tempo o minoxidil faz efeito?","acceptedAnswer":{"@type":"Answer","text":"Em geral, a queda diminui nos primeiros meses e fios novos podem surgir a partir do 3º mês. Os resultados mais visíveis costumam aparecer entre o 4º e o 6º mês de uso contínuo. Cada organismo responde de um jeito."}},{"@type":"Question","name":"O cabelo cai se eu parar o minoxidil?","acceptedAnswer":{"@type":"Answer","text":"O efeito depende do uso contínuo. Ao parar, os fios que cresceram com o tratamento tendem a cair ao longo dos meses seguintes. Converse com o médico antes de interromper."}},{"@type":"Question","name":"Posso usar minoxidil com finasterida?","acceptedAnswer":{"@type":"Answer","text":"Sim, quando o médico considera indicado. O minoxidil estimula o crescimento e a finasterida reduz o DHT, a principal causa da calvície. A combinação é comum no tratamento da alopecia androgenética."}},{"@type":"Question","name":"Quando sou cobrado?","acceptedAnswer":{"@type":"Answer","text":"Seu cartão é apenas reservado ao final do questionário. A cobrança só acontece se o médico aprovar o tratamento. Se não for indicado, o valor é liberado."}}]}]</script>
@@ -263,10 +271,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div style="flex: 1 1 420px; min-width: 0; background: #213632; color: #FFFFFF; border-radius: 10px; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
 <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.22em; color: #CBD9B7;">O QUE ESPERAR DO MINOXIDIL</span>
 <p style="margin: 0; font-size: 20px; font-weight: 500;">O minoxidil age devagar. Veja o caminho real.</p>
-<figure style="margin: 0; position: relative; border-radius: 8px; overflow: hidden; background: #2F4A44;">
-<img src="img/fotos/minox-antes-depois.webp" width="480" height="374" alt="Antes e depois da queda na coroa" loading="lazy" decoding="async" style="display: block; width: 100%; height: auto;">
-<span style="position: absolute; left: 10px; top: 10px; background: rgba(33,54,50,.85); color: #FFFFFF; border-radius: 999px; padding: 4px 12px; font-size: 12px;">Antes</span>
-<span style="position: absolute; right: 10px; top: 10px; background: #CBD9B7; color: #213632; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 500;">Depois</span>
+<figure class="evo" style="margin: 0; position: relative; border-radius: 8px; overflow: hidden; background: #2F4A44;">
+<video id="evo-v" muted playsinline preload="metadata" poster="img/fotos/evolucao-poster.webp" width="600" height="450" aria-label="Time-lapse da evolução do cabelo na coroa durante 12 meses de tratamento com minoxidil" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;"><source src="img/videos/evolucao-minoxidil.webm" type="video/webm"><source src="img/videos/evolucao-minoxidil.mp4" type="video/mp4"></video>
+<span class="evo-mes" id="evo-mes">Mês 1</span>
+<button type="button" class="evo-play" id="evo-play" aria-label="Ver a evolução"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><span>Ver evolução</span></button>
+<div class="evo-bar" aria-hidden="true"><i id="evo-prog"></i></div>
 </figure>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;" role="group" aria-label="Escolha o mês do tratamento">
 <button type="button" class="fase-btn" data-i="0">Mês 1</button><button type="button" class="fase-btn" data-i="1">Mês 3</button><button type="button" class="fase-btn" data-i="2">Mês 4</button><button type="button" class="fase-btn" data-i="3">Mês 12</button>
@@ -406,7 +415,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const D=[["Adaptação","Primeiras semanas","Nada visível ainda, e tudo bem. O minoxidil já age no folículo. Pode haver uma queda temporária: fios fracos saem para dar lugar a fios novos."],["Estabilizando","2 a 3 meses","A queda diminui ou para. Os primeiros fios novos, finos, começam a aparecer."],["Crescimento","4 a 6 meses","Os fios novos engrossam e as áreas ralas começam a preencher. É quando a diferença aparece nas fotos."],["Manutenção","12 meses","Fios mais firmes e densos. O objetivo agora é manter, com o uso contínuo que o médico indicar."]];
 const B=document.querySelectorAll('.fase-btn');
 function set(i){B.forEach((b,k)=>{b.setAttribute('aria-pressed',k===i);b.classList.toggle('on',k===i)});['f-nome','f-dur','f-txt'].forEach((id,j)=>document.getElementById(id).textContent=D[i][j]);}
-B.forEach(b=>b.addEventListener('click',()=>set(+b.dataset.i)));set(0);
+const V=document.getElementById('evo-v'),FIG=V&&V.closest('.evo'),MES=document.getElementById('evo-mes'),PR=document.getElementById('evo-prog'),PL=document.getElementById('evo-play');
+/* pontos do vídeo (s) para cada fase e meses para o contador */
+const T=[0,3.0,5.0,10.2],KM=[[0,1],[3.0,3],[5.0,4],[7.5,8],[10.2,12]];let cur=-1;
+function mesEm(t){for(let k=1;k<KM.length;k++){if(t<=KM[k][0]){const a=KM[k-1],b=KM[k];return Math.round(a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0]))}}return 12}
+function faseEm(t){let f=0;T.forEach((x,k)=>{if(t>=x-0.05)f=k});return f}
+function marca(i){if(i!==cur){cur=i;set(i)}}
+B.forEach(b=>b.addEventListener('click',()=>{const i=+b.dataset.i;if(V){V.pause();try{V.currentTime=T[i]}catch(e){}MES.textContent='Mês '+[1,3,4,12][i]}marca(i)}));
+set(0);cur=0;
+if(V){
+V.addEventListener('timeupdate',()=>{const t=V.currentTime,d=V.duration||10.32;PR.style.width=(t/d*100)+'%';MES.textContent='Mês '+mesEm(t);if(!V.paused)marca(faseEm(t))});
+V.addEventListener('play',()=>FIG.classList.add('tocando'));
+V.addEventListener('pause',()=>FIG.classList.remove('tocando'));
+V.addEventListener('ended',()=>{FIG.classList.remove('tocando');marca(3);MES.textContent='Mês 12'});
+PL.addEventListener('click',()=>{if(V.ended||V.currentTime>=(V.duration||10)-0.1)V.currentTime=0;V.play().catch(()=>{})});
+const calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!calmo&&'IntersectionObserver' in window){let ja=false;new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting&&!ja){ja=true;V.play().catch(()=>{});o.disconnect()}})},{threshold:.55}).observe(V)}
+}
 </script>
 <script>
 (function(){var K='ev_oferta_ate',t;try{t=+localStorage.getItem(K);if(!t){t=Date.now()+864e5;localStorage.setItem(K,String(t))}}catch(e){return}
