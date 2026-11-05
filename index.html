@@ -40,6 +40,19 @@ html{scroll-behavior:smooth}
 .fase-btn.on{background:#CBD9B7;color:#213632;border-color:#CBD9B7;font-weight:500}
 @media (max-width:600px){#planos .ph-kit{min-height:240px!important}h1{font-size:38px!important}h2{font-size:28px!important}header nav{display:none!important}table{min-width:0!important;font-size:13px!important}th,td{padding:12px 10px!important}#como strong{font-size:14px}#como div[style*="padding: 18px"]{padding:14px!important}}
 @media (max-width:380px){#como div[style*="repeat(2"]{grid-template-columns:1fr!important}.fase-btn{font-size:13px;white-space:nowrap;padding:0 4px}}
+
+/* padrão LP Elevamed (C1, C3, C4) */
+.i-ok.tem-ck::before{display:none!important}
+.ck{flex:0 0 18px;width:18px;height:18px;margin-top:1px;border-radius:999px;background:#213632;fill:none;stroke:#CBD9B7;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;padding:3px;box-sizing:border-box;display:block}
+.escuro .ck{background:#CBD9B7;stroke:#213632}
+.car-wrap{position:relative}
+.car-seta{position:absolute;right:6px;width:38px;height:38px;border-radius:999px;border:0;background:#213632;color:#FFFFFF;display:none;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(33,54,50,.25);transform:translateY(-50%);cursor:pointer;z-index:3;transition:opacity .2s}
+.car-seta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.car-seta.fim{opacity:0;pointer-events:none}
+@media (max-width:600px){
+main>section:not(#topo)[style*="padding: 80px"]{padding-top:36px!important;padding-bottom:36px!important}
+.car-seta{display:flex}
+}
 </style>
 <link rel="stylesheet" href="marca.css">
 <link rel="stylesheet" href="movimento.css">
@@ -216,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size: 13px; color: #56675C;">Farmácia comum</span>
           <strong style="font-size: 20px; font-weight: 500;">Comprar por conta própria</strong>
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-            <span class="i-nao"><span class="sr">Não: </span>Sem avaliação médica</span><span class="i-nao"><span class="sr">Não: </span>Sem saber se é a dose certa</span><span class="i-nao"><span class="sr">Não: </span>Sem acompanhamento</span><span class="i-nao"><span class="sr">Não: </span>Sem suporte em efeito colateral</span><span class="i-ok"><span class="sr">Sim: </span>Disponível rápido</span>
+            <span class="i-nao"><span class="sr">Não: </span>Sem avaliação médica</span><span class="i-nao"><span class="sr">Não: </span>Sem saber se é a dose certa</span><span class="i-nao"><span class="sr">Não: </span>Sem acompanhamento</span><span class="i-nao"><span class="sr">Não: </span>Sem suporte em efeito colateral</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Disponível rápido</span>
           </div>
         </div>
         <div style="background: #CBD9B7; border-radius: 10px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
@@ -224,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img src="img/logo.webp" alt="Elevamed" style="width: 140px; height: auto;">
           <strong style="font-size: 20px; font-weight: 500;">Tratamento completo sem sair de casa</strong>
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-            <span class="i-ok"><span class="sr">Sim: </span>Avaliação por médico</span><span class="i-ok"><span class="sr">Sim: </span>Fórmula indicada para o seu caso</span><span class="i-ok"><span class="sr">Sim: </span>Suporte clínico online</span><span class="i-ok"><span class="sr">Sim: </span>Entrega discreta em casa</span><span class="i-ok"><span class="sr">Sim: </span>Farmácias que seguem as normas da Anvisa</span>
+            <span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Avaliação por médico</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Fórmula indicada para o seu caso</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Suporte clínico online</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Entrega discreta em casa</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Farmácias que seguem as normas da Anvisa</span>
           </div>
           <a class="cta" href="avaliacao.html" style="margin-top: auto; background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 500; text-align: center;">Começar minha avaliação</a>
         </div>
@@ -232,7 +245,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-size: 13px; color: #56675C;">Consultório particular</span>
           <strong style="font-size: 20px; font-weight: 500;">Consulta presencial tradicional</strong>
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-            <span class="i-ok"><span class="sr">Sim: </span>Avaliação presencial</span><span class="i-nao"><span class="sr">Não: </span>Espera de semanas</span><span class="i-nao"><span class="sr">Não: </span>Custo alto por consulta</span><span class="i-nao"><span class="sr">Não: </span>Remédio comprado à parte</span><span class="i-nao"><span class="sr">Não: </span>Deslocamento a cada retorno</span>
+            <span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Avaliação presencial</span><span class="i-nao"><span class="sr">Não: </span>Espera de semanas</span><span class="i-nao"><span class="sr">Não: </span>Custo alto por consulta</span><span class="i-nao"><span class="sr">Não: </span>Remédio comprado à parte</span><span class="i-nao"><span class="sr">Não: </span>Deslocamento a cada retorno</span>
           </div>
         </div>
       </div>
@@ -267,9 +280,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <strong style="font-size: 22px; font-weight: 500;">Cuidado Completo</strong>
             <span style="font-size: 14px; font-weight: 300;">Avaliação médica, medicação prescrita e suporte clínico.</span>
             <span style="font-size: 26px; font-weight: 500;">[R$ PREÇO]<span style="font-size: 14px; font-weight: 300;">/mês</span></span>
-            <span class="i-ok" style="font-size: 14px;">Avaliação médica online</span>
-            <span class="i-ok" style="font-size: 14px;">Medicação entregue em casa, se prescrita</span>
-            <span class="i-ok" style="font-size: 14px;">Suporte com a equipe clínica</span>
+            <span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Avaliação médica online</span>
+            <span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Medicação entregue em casa, se prescrita</span>
+            <span class="i-ok tem-ck" style="font-size: 14px;"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg>Suporte com a equipe clínica</span>
             <a class="cta" href="avaliacao.html" style="margin-top: auto; background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 500; text-align: center;">Começar avaliação</a>
           </div>
         </div>
@@ -316,7 +329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p style="margin: 0; font-size: 17px; font-weight: 300;">Comece hoje com [X]% de desconto no primeiro pedido.</p>
       <a class="cta" href="avaliacao.html" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 16px 32px; font-size: 16px; font-weight: 500;">Começar minha avaliação</a>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; font-size: 14px;">
-        <span class="i-ok"><span class="sr">Sim: </span>Médicos independentes</span><span class="i-ok"><span class="sr">Sim: </span>Farmácias credenciadas</span><span class="i-ok"><span class="sr">Sim: </span>[Frete grátis]</span>
+        <span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Médicos independentes</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>Farmácias credenciadas</span><span class="i-ok tem-ck"><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg><span class="sr">Sim: </span>[Frete grátis]</span>
       </div>
     </div>
   </section>
@@ -336,14 +349,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="ft-col" aria-label="Tratamentos">
         <p class="ft-rotulo">Tratamentos</p>
         <a href="tratamentos.html">Queda capilar</a>
-        <a href="tratamentos.html">Consulta avulsa</a>
-        <a href="tratamentos.html">Já tem receita?</a>
+        <a href="minoxidil.html">Minoxidil</a>
       </nav>
       <nav class="ft-col" aria-label="Elevamed">
         <p class="ft-rotulo">Elevamed</p>
         <a href="index.html#como">Como funciona</a>
         <a href="index.html#ciencia">Ciência</a>
-        <a href="indique.html">Indique um amigo</a>
       </nav>
       <nav class="ft-col" aria-label="Suporte">
         <p class="ft-rotulo">Suporte</p>
@@ -364,10 +375,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ft-legal">
       <div class="ft-farmacia">
         <span class="ft-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
-        <span><b>Farmácias credenciadas</b><small>[Razão social · CNPJ · Resp. técnico]</small></span>
+        <span><b>Seja uma farmácia credenciada:</b><small><a href="mailto:sejafarmaciaparceira@elevamedbr.com" style="color: inherit; font-weight: 500;">sejafarmaciaparceira@elevamedbr.com</a></small></span>
       </div>
       <p>A Elevamed não é uma farmácia. Os produtos são manipulados por farmácias credenciadas, de acordo com as normas da Anvisa.</p>
-      <p>Responsável técnico: [Nome do médico · CRM/UF]</p>
       <p class="ft-copy">© 2026 Elevamed. Todos os direitos reservados.</p>
     </div>
   </div>
@@ -386,6 +396,19 @@ const D=[["Mês 1","Adaptação","Primeiras semanas","Nada visível ainda, e tud
 const B=document.querySelectorAll('.fase-btn');
 function set(i){B.forEach((b,k)=>{b.setAttribute('aria-pressed',k===i);b.classList.toggle('on',k===i)});['f-mes','f-nome','f-dur','f-txt'].forEach((id,j)=>document.getElementById(id).textContent=D[i][j]);const f=document.getElementById('f-foto'),n=D[i][0].replace(/\D/g,'').padStart(2,'0');f.src='img/casos/mes-'+n+'.webp';f.alt='Couro cabeludo do paciente no '+D[i][0];}
 B.forEach(b=>b.addEventListener('click',()=>set(+b.dataset.i)));set(0);
+</script>
+<script>
+/* seta ">" em todo carrossel horizontal no celular (padrão C4) */
+(function(){if(!matchMedia('(max-width:600px)').matches)return;
+var SV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+function liga(){[].forEach.call(document.querySelectorAll('main *'),function(c){if(c.dataset.seta)return;var cs=getComputedStyle(c);
+if(!/auto|scroll/.test(cs.overflowX)||c.children.length<2||c.scrollWidth<=c.clientWidth+20)return;c.dataset.seta='1';
+var par=c.parentElement;par.classList.add('car-wrap');var b=document.createElement('button');b.type='button';b.className='car-seta';b.setAttribute('aria-label','Ver próximo');b.innerHTML=SV;par.appendChild(b);
+function pos(){b.style.top=(c.offsetTop+c.offsetHeight/2)+'px'}
+function up(){b.classList.toggle('fim',c.scrollLeft+c.clientWidth>=c.scrollWidth-8)}
+b.addEventListener('click',function(){var w=c.children[0].getBoundingClientRect().width+12;c.scrollBy({left:w,behavior:'smooth'})});
+c.addEventListener('scroll',up,{passive:true});addEventListener('resize',pos);pos();up();setTimeout(pos,600)})}
+if(document.readyState==='complete')liga();else addEventListener('load',liga);setTimeout(liga,1200)})();
 </script>
 </body>
 </html>

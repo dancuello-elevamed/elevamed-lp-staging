@@ -40,6 +40,19 @@ details summary{font-weight:500;cursor:pointer;list-style:none}details summary::
 details p{margin-top:12px}
 .ok{font-size:13px;color:#213632;background:#CBD9B7;border-radius:999px;padding:6px 12px;align-self:flex-start}
 @media (max-width:600px){.oferta{font-size:44px}.saldo{gap:8px}.saldo div{padding:12px 10px}.saldo strong{font-size:20px}#copiar{flex:1 1 100%}}
+
+/* padrão LP Elevamed (C1, C3, C4) */
+.i-ok.tem-ck::before{display:none!important}
+.ck{flex:0 0 18px;width:18px;height:18px;margin-top:1px;border-radius:999px;background:#213632;fill:none;stroke:#CBD9B7;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;padding:3px;box-sizing:border-box;display:block}
+.escuro .ck{background:#CBD9B7;stroke:#213632}
+.car-wrap{position:relative}
+.car-seta{position:absolute;right:6px;width:38px;height:38px;border-radius:999px;border:0;background:#213632;color:#FFFFFF;display:none;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(33,54,50,.25);transform:translateY(-50%);cursor:pointer;z-index:3;transition:opacity .2s}
+.car-seta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.car-seta.fim{opacity:0;pointer-events:none}
+@media (max-width:600px){
+main>section:not(#topo)[style*="padding: 80px"]{padding-top:36px!important;padding-bottom:36px!important}
+.car-seta{display:flex}
+}
 </style>
 <link rel="stylesheet" href="marca.css">
 <link rel="stylesheet" href="movimento.css">
@@ -147,15 +160,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="ft-col" aria-label="Tratamentos">
         <p class="ft-rotulo">Tratamentos</p>
         <a href="tratamentos.html">Queda capilar</a>
-        <a href="tratamentos.html">Consulta avulsa</a>
-        <a href="tratamentos.html">Já tem receita?</a>
+        <a href="minoxidil.html">Minoxidil</a>
       </nav>
       <nav class="ft-col" aria-label="Elevamed">
         <p class="ft-rotulo">Elevamed</p>
         <a href="index.html#como">Como funciona</a>
-        <a href="index.html#planos">Planos</a>
         <a href="index.html#ciencia">Ciência</a>
-        <a href="indique.html">Indique um amigo</a>
       </nav>
       <nav class="ft-col" aria-label="Suporte">
         <p class="ft-rotulo">Suporte</p>
@@ -176,10 +186,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ft-legal">
       <div class="ft-farmacia">
         <span class="ft-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
-        <span><b>Farmácias credenciadas</b><small>[Razão social · CNPJ · Resp. técnico]</small></span>
+        <span><b>Seja uma farmácia credenciada:</b><small><a href="mailto:sejafarmaciaparceira@elevamedbr.com" style="color: inherit; font-weight: 500;">sejafarmaciaparceira@elevamedbr.com</a></small></span>
       </div>
       <p>A Elevamed não é uma farmácia. Os produtos são manipulados por farmácias credenciadas, de acordo com as normas da Anvisa.</p>
-      <p>Responsável técnico: [Nome do médico · CRM/UF]</p>
       <p class="ft-copy">© 2026 Elevamed. Todos os direitos reservados.</p>
     </div>
   </div>
@@ -201,6 +210,19 @@ $('copiar').addEventListener('click',async()=>{
 const CRED=150,TETO=450;
 function sim(){const n=+$('qtd').value,t=n*CRED;$('nq').textContent=n;$('tot').textContent='R$ '+t.toLocaleString('pt-BR');$('ped').textContent=Math.ceil(t/TETO);}
 $('qtd').addEventListener('input',sim);sim();
+</script>
+<script>
+/* seta ">" em todo carrossel horizontal no celular (padrão C4) */
+(function(){if(!matchMedia('(max-width:600px)').matches)return;
+var SV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+function liga(){[].forEach.call(document.querySelectorAll('main *'),function(c){if(c.dataset.seta)return;var cs=getComputedStyle(c);
+if(!/auto|scroll/.test(cs.overflowX)||c.children.length<2||c.scrollWidth<=c.clientWidth+20)return;c.dataset.seta='1';
+var par=c.parentElement;par.classList.add('car-wrap');var b=document.createElement('button');b.type='button';b.className='car-seta';b.setAttribute('aria-label','Ver próximo');b.innerHTML=SV;par.appendChild(b);
+function pos(){b.style.top=(c.offsetTop+c.offsetHeight/2)+'px'}
+function up(){b.classList.toggle('fim',c.scrollLeft+c.clientWidth>=c.scrollWidth-8)}
+b.addEventListener('click',function(){var w=c.children[0].getBoundingClientRect().width+12;c.scrollBy({left:w,behavior:'smooth'})});
+c.addEventListener('scroll',up,{passive:true});addEventListener('resize',pos);pos();up();setTimeout(pos,600)})}
+if(document.readyState==='complete')liga();else addEventListener('load',liga);setTimeout(liga,1200)})();
 </script>
 </body>
 </html>
