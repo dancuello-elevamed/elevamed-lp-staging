@@ -54,3 +54,18 @@ p{margin:0}
 .barra{height:6px;background:#DDE3D2;border-radius:999px;overflow:hidden}.barra>i{display:block;height:100%;background:#213632;transition:width .3s}
 @media (max-width:600px){h1{font-size:36px}h2{font-size:26px}.janela{padding:22px}.links{display:none}.abas{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin:0 -24px;padding-left:24px;padding-right:24px;scrollbar-width:none}.aba{flex:0 0 auto}}
 .card.linha{flex-direction:row;flex-wrap:wrap}
+
+/* Tratamentos: escolha por objetivo e ficha padronizada */
+.objetivos{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.obj{display:flex;flex-direction:column;gap:8px;padding:18px;border:1px solid #DDE3D2;border-radius:12px;background:#fff;color:#213632;font:14px/1.4 'Lexend',sans-serif;text-align:left;text-decoration:none;cursor:pointer;min-width:0}
+.obj svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.obj strong{font-size:15px;font-weight:500}.obj span{font-size:13px;opacity:.75}
+.obj:hover{border-color:#213632}.obj.on,.obj.fim{background:#213632;color:#fff;border-color:#213632}
+.obj.fim{background:#CBD9B7;color:#213632;border-color:#CBD9B7}
+#resultado{scroll-margin-top:96px}
+.ficha-nome{margin:0;font-size:28px;font-weight:500}
+.ficha{list-style:none;margin:0;padding:0;counter-reset:f}
+.ficha li{counter-increment:f;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,2fr);gap:12px;padding:14px 0;border-top:1px solid #DDE3D2}
+.ficha li::before{content:counter(f);font-family:'Michroma',sans-serif;font-size:11px;padding-top:3px;color:#5C6B62}
+.ficha h4{margin:0;font-size:14px;font-weight:500;line-height:1.5}.ficha p{margin:0;font-size:15px;line-height:1.6}
+@media (max-width:900px){.objetivos{grid-template-columns:repeat(2,1fr)}.obj.fim{grid-column:1/-1}.ficha li{grid-template-columns:28px minmax(0,1fr)}.ficha p{grid-column:2}}

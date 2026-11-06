@@ -68,37 +68,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="banner" style="flex:1 1 360px"><img src="img/banners/BAN_lp-produtos_hero_homem-entradas-notebook_lifestyle_h_adobe-stock_001.webp" width="1280" height="854" alt="Homem em casa observa as entradas do cabelo diante do notebook" style="object-position:50% 25%" fetchpriority="high" decoding="async"></div>
 </div></section>
 
-<section id="tratamentos"><div class="wrap col" style="padding:48px 24px 24px">
-  <div class="abas" role="tablist" aria-label="Tratamentos" id="abas"></div>
-  <div class="linha">
-    <div class="card" style="flex:2 1 520px">
+<section id="tratamentos"><div class="wrap col" style="padding:48px 24px 40px">
+  <div class="col" style="gap:8px"><span class="rotulo cinza">POR ONDE COMEÇAR</span><h2 style="margin:0">O que você quer entender primeiro?</h2><p class="leve" style="margin:0">Escolha um objetivo. Os nomes dos tratamentos aparecem depois.</p></div>
+  <div class="objetivos" id="objetivos" role="group" aria-label="Objetivo"></div>
+  <div class="col" id="resultado" hidden>
+    <div class="abas" role="tablist" aria-label="Tratamentos" id="abas"></div>
+    <div class="card" role="tabpanel" id="painel" tabindex="-1">
       <span class="rotulo cinza" id="t-cat"></span>
-      <h2 id="t-nome"></h2>
-      <p class="leve" id="t-resumo"></p>
-      <div class="tags" id="t-tags"></div>
-      <span class="mini" id="t-receita"></span>
-    </div>
-    <div class="card escuro" style="flex:1 1 300px;justify-content:space-between">
-      <img src="img/logo-claro.webp" alt="Elevamed" width="130">
-      <p style="margin:0;font-size:20px;font-weight:500;line-height:1.3">Não sabe qual é o seu caso? O médico decide com você.</p>
-      <a class="btn claro" href="avaliacao.html">Começar avaliação</a>
+      <h3 class="ficha-nome" id="t-nome"></h3>
+      <ol class="ficha" id="t-ficha"></ol>
+      <a class="btn grande" href="avaliacao.html" data-cta="ficha">Fazer avaliação médica</a>
     </div>
   </div>
-  <div class="grade3">
-    <div class="card"><span class="rotulo cinza">COMO FUNCIONA</span><p class="leve">A calvície (alopecia androgenética) avança aos poucos pela ação do hormônio DHT, que afina os fios até eles pararem de crescer.</p><p id="t-como" style="margin:0;line-height:1.65"></p></div>
-    <div class="card"><span class="rotulo cinza">EFEITOS COLATERAIS</span><p class="leve" id="t-efeitos"></p><p class="mini">Sentiu algo diferente? Fale com o suporte clínico. Consulte sempre a bula.</p></div>
-    <div class="card"><span class="rotulo cinza">PODE COMBINAR COM OUTROS?</span><p class="leve" id="t-combina"></p></div>
-  </div>
-  <div class="card" style="background:#EEF2E6;border:none">
-    <span class="rotulo cinza">O QUE ESPERAR</span>
-    <p class="leve">O resultado leva tempo e varia de pessoa para pessoa. Este é o caminho típico com uso correto:</p>
-    <div class="grade3">
-      <div class="fase"><span class="rotulo">MÊS 1 A 3</span><strong>Fase inicial</strong><span>O tratamento já age nos folículos. Siga a prescrição à risca.</span></div>
-      <div class="fase"><span class="rotulo">MÊS 3 A 6</span><strong>Crescimento</strong><span>A queda diminui ou para, e fios novos podem aparecer.</span></div>
-      <div class="fase" style="background:#CBD9B7"><span class="rotulo">MÊS 6 A 12</span><strong>Evolução</strong><span>Fase de maior resultado. Continue como o médico indicou.</span></div>
-    </div>
-  </div>
-  <p class="mini">Referência científica: [estudo validado pelo médico responsável para <span id="t-ref"></span>]</p>
 </div></section>
 
 <section id="combinados"><div class="wrap" style="padding:56px 24px">
@@ -216,15 +197,41 @@ const T=[
  {n:'Shampoo antiqueda',c:'COMPLEMENTO · USO DIÁRIO',r:'Uso diário, como complemento.',s:'Shampoo com ativos que apoiam o tratamento no próprio couro cabeludo. [Confirmar composição do produto Elevamed]',g:['Uso diário','Complementa o tratamento','[Ativos da fórmula]'],co:'Atua no couro cabeludo como apoio ao tratamento principal, que é o que age na causa da queda.',e:'Não costuma causar efeitos colaterais. Se notar irritação, fale com o suporte clínico.',cb:'Sim, sem contraindicação com os demais tratamentos. Siga a orientação médica.'},
  {n:'Combinados',c:'TRATAMENTO PERSONALIZADO',r:'Sempre com avaliação e prescrição médica.',s:'Associação de dois ou mais tratamentos, montada pelo médico para o seu caso.',g:['Personalizado','Causa + crescimento','[Eficácia + referência]'],co:'O mais comum é unir um estimulante do crescimento (minoxidil) a um bloqueador de DHT, com biotina e shampoo como apoio.',e:'Somam-se os possíveis efeitos de cada componente. O acompanhamento clínico ajusta a fórmula se preciso.',cb:'É justamente a combinação. O médico define quais entram e em que dose.'}
 ];
+const FONTE='[Fonte científica a validar pelo médico responsável]';
+const IC={c:'<path d="M12 21V9"/><path d="M12 12C12 7 8 5 4 5c0 5 3 7 8 7Z"/><path d="M12 9c0-4 3-6 8-6 0 5-3 6-8 6Z"/>',p:'<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/>',s:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',m:'<circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/>',d:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.200c-.8.4-1.100 1-1.100 1.800"/><path d="M12 17h.01"/>'};
+const OBJ=[
+ {n:'Estimular o crescimento',d:'Para fios mais longos e encorpados',i:'c',t:[0]},
+ {n:'Reduzir a progressão da queda',d:'Para agir sobre a causa hormonal',i:'p',t:[2,1,3]},
+ {n:'Cuidar do couro cabeludo',d:'Para complementar o tratamento',i:'s',t:[5,4]},
+ {n:'Entender tratamentos combinados',d:'Como os tratamentos se somam',i:'m',t:[6]},
+ {n:'Não sei qual é o meu caso',d:'O médico avalia com você',i:'d',href:'avaliacao.html'}];
+const CAMPOS=[['a','Para que pode ser indicado'],['co','Como funciona'],['ap','Apresentação possível'],['si','Quando os primeiros sinais podem aparecer'],['e','Possíveis efeitos adversos'],['at','Quem precisa de atenção especial'],['cb','Pode fazer parte de um tratamento combinado?'],['pr','Precisa de prescrição?'],['f','Fonte científica']];
+const EXTRA=[
+ {a:'Calvície (alopecia androgenética) em homens e mulheres, conforme avaliação médica.',ap:'Oral ou tópico (spray), conforme a indicação.',si:'Em geral, depois de 3 a 6 meses de uso correto. Varia de pessoa para pessoa.',at:'Quem tem doença cardíaca, pressão baixa ou usa remédios para pressão; gestantes e lactantes.',pr:'Sim. Medicamento sob prescrição.'},
+ {a:'Calvície ligada à ação do DHT, quando o médico considerar adequado ao seu caso.',ap:'Definida pelo médico na prescrição.',si:'Em geral, depois de 3 a 6 meses de uso correto. Varia de pessoa para pessoa.',at:'Gestantes ou quem pode engravidar, que também não deve manusear o medicamento; pessoas com doença no fígado; quem faz exame de PSA deve avisar o médico.',pr:'Sim. Medicamento sob prescrição.'},
+ {a:'Calvície ligada à ação do DHT, quando o médico considerar adequado ao seu caso.',ap:'Definida pelo médico na prescrição.',si:'Em geral, depois de 3 a 6 meses de uso correto. Varia de pessoa para pessoa.',at:'Gestantes ou quem pode engravidar, que também não deve manusear o medicamento; pessoas com doença no fígado; quem faz exame de PSA deve avisar o médico.',pr:'Sim. Medicamento sob prescrição.'},
+ {a:'Alternativa de origem natural, quando o médico considerar adequada ao seu caso.',ap:'Definida pelo médico na orientação de uso.',si:'Não há um prazo único. O médico orienta como acompanhar a evolução.',at:'Gestantes, lactantes e quem usa anticoagulantes ou terapia hormonal.',pr:'Uso conforme orientação médica.'},
+ {a:'Complemento ao tratamento principal, para apoiar a saúde dos fios.',ap:'Suplemento, conforme a orientação de uso.',si:'Não há um prazo definido, pois atua como complemento.',at:'Quem vai fazer exames de sangue deve avisar o laboratório.',pr:'Suplemento usado como complemento, conforme orientação.'},
+ {a:'Apoio ao tratamento principal, no cuidado diário do couro cabeludo.',ap:'Shampoo de uso diário.',si:'Não há um prazo definido, pois atua como complemento.',at:'Quem tem couro cabeludo sensível ou alergia a algum ativo da fórmula.',pr:'Uso diário como complemento. Siga a orientação médica.'},
+ {a:'Casos em que o médico entende que unir tratamentos faz sentido.',ap:'Definida pelo médico, conforme os tratamentos escolhidos.',si:'Depende dos tratamentos combinados. O médico orienta o acompanhamento.',at:'Valem os cuidados de cada componente. Informe doenças e remédios em uso.',pr:'Sim. Sempre com avaliação e prescrição médica.'}];
+T.forEach((t,i)=>{Object.assign(t,EXTRA[i]);t.f=FONTE;});
 const $=id=>document.getElementById(id);
-function aba(i){const t=T[i];
- $('t-cat').textContent=t.c;$('t-nome').textContent=t.n;$('t-resumo').textContent=t.s;$('t-receita').textContent=t.r;
- $('t-como').textContent=t.co;$('t-efeitos').textContent=t.e;$('t-combina').textContent=t.cb;$('t-ref').textContent=t.n;
- $('t-tags').innerHTML=t.g.map(x=>'<span class="tag i-ok" style="display:inline-flex;align-items:center;gap:8px">'+x+'</span>').join('');
+let lista=[];
+function aba(i){const t=T[lista[i]];
+ $('t-cat').textContent=t.c;$('t-nome').textContent=t.n;
+ $('t-ficha').innerHTML=CAMPOS.map(c=>'<li><h4>'+c[1]+'</h4><p>'+t[c[0]]+'</p></li>').join('');
  [...$('abas').children].forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1;b.classList.toggle('on',k===i)});}
-$('abas').innerHTML=T.map((t,k)=>'<button type="button" role="tab" class="aba" data-k="'+k+'">'+t.n+'</button>').join('');
+function objetivo(k){const o=OBJ[k];lista=o.t;
+ [...$('objetivos').children].forEach((b,j)=>{if(b.tagName==='BUTTON'){b.setAttribute('aria-pressed',j===k);b.classList.toggle('on',j===k)}});
+ $('abas').innerHTML=lista.map((x,j)=>'<button type="button" role="tab" class="aba" data-k="'+j+'">'+T[x].n+'</button>').join('');
+ $('abas').hidden=lista.length<2;$('resultado').hidden=false;aba(0);
+ (window.dataLayer=window.dataLayer||[]).push({event:'tratamentos_objetivo',objetivo:o.n});
+ $('resultado').scrollIntoView({behavior:'smooth',block:'start'});}
+$('objetivos').innerHTML=OBJ.map((o,k)=>{const c='<svg viewBox="0 0 24 24" aria-hidden="true">'+IC[o.i]+'</svg><strong>'+o.n+'</strong><span>'+o.d+'</span>';
+ return o.href?'<a class="obj fim" href="'+o.href+'">'+c+'</a>':'<button type="button" class="obj" aria-pressed="false" data-k="'+k+'">'+c+'</button>'}).join('');
+$('objetivos').addEventListener('click',e=>{const b=e.target.closest('button.obj');if(b)objetivo(+b.dataset.k)});
 $('abas').addEventListener('click',e=>{const b=e.target.closest('.aba');if(b)aba(+b.dataset.k)});
-$('abas').addEventListener('keydown',e=>{const bs=[...$('abas').children],k=bs.indexOf(document.activeElement);if(k<0)return;let n=e.key==='ArrowRight'?k+1:e.key==='ArrowLeft'?k-1:null;if(n===null)return;n=(n+bs.length)%bs.length;bs[n].focus();aba(n);e.preventDefault();});aba(0);
+$('abas').addEventListener('keydown',e=>{const bs=[...$('abas').children],k=bs.indexOf(document.activeElement);if(k<0)return;let n=e.key==='ArrowRight'?k+1:e.key==='ArrowLeft'?k-1:null;if(n===null)return;n=(n+bs.length)%bs.length;bs[n].focus();aba(n);e.preventDefault();});
 
 let tipo=null;
 $('tipos').innerHTML=TIPOS.map((t,k)=>'<button type="button" role="radio" class="tipo" aria-checked="false" data-k="'+k+'">'+avatar(k)+'<strong>'+t.n+'</strong><span>'+t.d+'</span></button>').join('');
