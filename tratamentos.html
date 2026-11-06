@@ -73,6 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="objetivos" id="objetivos" role="group" aria-label="Objetivo"></div>
   <div class="col" id="resultado" hidden>
     <figure class="obj-fig" id="obj-fig" hidden><img id="obj-img" src="" alt="" width="1200" height="620" loading="lazy" decoding="async"><figcaption id="obj-cap"></figcaption></figure>
+    <p class="leve" id="obj-intro" style="margin:0"></p>
     <div class="abas" role="tablist" aria-label="Tratamentos" id="abas"></div>
     <div class="card" role="tabpanel" id="painel" tabindex="-1">
       <span class="rotulo cinza" id="t-cat"></span>
@@ -208,12 +209,12 @@ const T=[
 const FONTE='[Fonte científica a validar pelo médico responsável]';
 const IC={c:'<path d="M12 21V9"/><path d="M12 12C12 7 8 5 4 5c0 5 3 7 8 7Z"/><path d="M12 9c0-4 3-6 8-6 0 5-3 6-8 6Z"/>',p:'<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/>',s:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',m:'<circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/>',d:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.200c-.8.4-1.100 1-1.100 1.800"/><path d="M12 17h.01"/>'};
 const OBJ=[
- {n:'Estimular o crescimento',d:'Para fios mais longos e encorpados',i:'c',t:[0],img:'BAN_lp-produtos_ilustracao_foliculo-ciclo-crescimento_3d_h_adobe-stock_002.webp',alt:'Ilustração das etapas do ciclo de crescimento do fio',cap:'O fio passa por etapas: nasce, cresce e, depois, cai para dar lugar a outro.'},
- {n:'Reduzir a progressão da queda',d:'Para agir sobre a causa hormonal',i:'p',t:[2,1,3],img:'BAN_lp-produtos_ilustracao_foliculo-miniaturizacao_clinico_h_adobe-stock_003.webp',alt:'Ilustração de folículos que ficam menores e de fios cada vez mais finos',cap:'Na calvície, o folículo encolhe aos poucos e o fio fica cada vez mais fino.'},
- {n:'Cuidar do couro cabeludo',d:'Para complementar o tratamento',i:'s',t:[5,4],img:'BAN_lp-produtos_ilustracao_foliculo-corte-pele_3d_h_adobe-stock_004.webp',alt:'Ilustração em corte da pele do couro cabeludo com folículos',cap:'Cada fio nasce de um folículo, dentro da pele do couro cabeludo.'},
- {n:'Entender tratamentos combinados',d:'Como os tratamentos se somam',i:'m',t:[6]},
+ {n:'Estimular o crescimento',d:'Para fios mais longos e encorpados',i:'c',t:[0,4,5,6],intro:'O minoxidil é um dos ativos dos nossos tratamentos, mas não precisa ser o único. Conheça o que pode atuar junto com ele no seu plano.',img:'BAN_lp-produtos_ilustracao_foliculo-ciclo-crescimento_3d_h_adobe-stock_002.webp',alt:'Ilustração das etapas do ciclo de crescimento do fio',cap:'O fio passa por etapas: nasce, cresce e, depois, cai para dar lugar a outro.'},
+ {n:'Reduzir a progressão da queda',d:'Para agir sobre a causa hormonal',i:'p',t:[2,1,3,6],intro:'Estes ativos atuam sobre o DHT e podem fazer parte do seu plano, junto com o que estimula o crescimento. O médico define o que faz sentido para você.',img:'BAN_lp-produtos_ilustracao_foliculo-miniaturizacao_clinico_h_adobe-stock_003.webp',alt:'Ilustração de folículos que ficam menores e de fios cada vez mais finos',cap:'Na calvície, o folículo encolhe aos poucos e o fio fica cada vez mais fino.'},
+ {n:'Cuidar do couro cabeludo',d:'Para complementar o tratamento',i:'s',t:[5,4,6],intro:'Estes cuidados complementam o tratamento principal e fazem parte de um plano mais completo.',img:'BAN_lp-produtos_ilustracao_foliculo-corte-pele_3d_h_adobe-stock_004.webp',alt:'Ilustração em corte da pele do couro cabeludo com folículos',cap:'Cada fio nasce de um folículo, dentro da pele do couro cabeludo.'},
+ {n:'Entender tratamentos combinados',d:'Como os tratamentos se somam',i:'m',t:[6],intro:'Cada ativo tem um papel. Quando faz sentido, o médico une o que estimula o crescimento ao que atua na causa da queda.'},
  {n:'Não sei qual é o meu caso',d:'O médico avalia com você',i:'d',href:'avaliacao.html'}];
-const CAMPOS=[['a','Para que pode ser indicado'],['co','Como funciona'],['ap','Apresentação possível'],['si','Quando os primeiros sinais podem aparecer'],['e','Possíveis efeitos adversos'],['at','Quem precisa de atenção especial'],['cb','Pode fazer parte de um tratamento combinado?'],['pr','Precisa de prescrição?'],['f','Fonte científica']];
+const CAMPOS=[['a','Para que pode ser indicado'],['co','Como funciona'],['ap','Apresentação possível'],['si','Quando os primeiros sinais podem aparecer'],['sg','Segurança e acompanhamento'],['cb','Pode fazer parte de um tratamento combinado?'],['pr','Precisa de prescrição?'],['f','Fonte científica']];
 const EXTRA=[
  {a:'Calvície (alopecia androgenética) em homens e mulheres, conforme avaliação médica.',ap:'Oral ou tópico (spray), conforme a indicação.',si:'Em geral, depois de 3 a 6 meses de uso correto. Varia de pessoa para pessoa.',at:'Quem tem doença cardíaca, pressão baixa ou usa remédios para pressão; gestantes e lactantes.',pr:'Sim. Medicamento sob prescrição.'},
  {a:'Calvície ligada à ação do DHT, quando o médico considerar adequado ao seu caso.',ap:'Definida pelo médico na prescrição.',si:'Em geral, depois de 3 a 6 meses de uso correto. Varia de pessoa para pessoa.',at:'Gestantes ou quem pode engravidar, que também não deve manusear o medicamento; pessoas com doença no fígado; quem faz exame de PSA deve avisar o médico.',pr:'Sim. Medicamento sob prescrição.'},
@@ -222,7 +223,8 @@ const EXTRA=[
  {a:'Complemento ao tratamento principal, para apoiar a saúde dos fios.',ap:'Suplemento, conforme a orientação de uso.',si:'Não há um prazo definido, pois atua como complemento.',at:'Quem vai fazer exames de sangue deve avisar o laboratório.',pr:'Suplemento usado como complemento, conforme orientação.'},
  {a:'Apoio ao tratamento principal, no cuidado diário do couro cabeludo.',ap:'Shampoo de uso diário.',si:'Não há um prazo definido, pois atua como complemento.',at:'Quem tem couro cabeludo sensível ou alergia a algum ativo da fórmula.',pr:'Uso diário como complemento. Siga a orientação médica.'},
  {a:'Casos em que o médico entende que unir tratamentos faz sentido.',ap:'Definida pelo médico, conforme os tratamentos escolhidos.',si:'Depende dos tratamentos combinados. O médico orienta o acompanhamento.',at:'Valem os cuidados de cada componente. Informe doenças e remédios em uso.',pr:'Sim. Sempre com avaliação e prescrição médica.'}];
-T.forEach((t,i)=>{Object.assign(t,EXTRA[i]);t.f=FONTE;});
+const SEG='Você responde ao questionário de saúde e nosso médico analisa o seu histórico antes de indicar qualquer tratamento. Se houver indicação, você tem acompanhamento e suporte clínico, e as orientações de uso e cuidados estão na bula.';
+T.forEach((t,i)=>{Object.assign(t,EXTRA[i]);t.f=FONTE;t.sg=SEG;});
 const $=id=>document.getElementById(id);
 let lista=[];
 function aba(i){const t=T[lista[i]];
@@ -233,7 +235,7 @@ function objetivo(k){const o=OBJ[k];lista=o.t;
  [...$('objetivos').children].forEach((b,j)=>{if(b.tagName==='BUTTON'){b.setAttribute('aria-pressed',j===k);b.classList.toggle('on',j===k)}});
  $('abas').innerHTML=lista.map((x,j)=>'<button type="button" role="tab" class="aba" data-k="'+j+'">'+T[x].n+'</button>').join('');
  $('obj-fig').hidden=!o.img;if(o.img){$('obj-img').src='img/banners/'+o.img;$('obj-img').alt=o.alt;$('obj-cap').textContent=o.cap}
- $('abas').hidden=lista.length<2;$('resultado').hidden=false;aba(0);
+ $('obj-intro').textContent=o.intro;$('abas').hidden=lista.length<2;$('resultado').hidden=false;aba(0);
  (window.dataLayer=window.dataLayer||[]).push({event:'tratamentos_objetivo',objetivo:o.n});
  $('resultado').scrollIntoView({behavior:'smooth',block:'start'});}
 $('objetivos').innerHTML=OBJ.map((o,k)=>{const c='<svg viewBox="0 0 24 24" aria-hidden="true">'+IC[o.i]+'</svg><strong>'+o.n+'</strong><span>'+o.d+'</span>';
