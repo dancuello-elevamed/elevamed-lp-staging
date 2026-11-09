@@ -112,32 +112,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section style="padding: 80px 24px;">
-    <div style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
-      <div style="display: flex; flex-direction: column; gap: 10px; text-align: center;">
-        <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.24em; color: #56675C;">O CUSTO DE ESPERAR</span>
-        <h2 style="margin: 0; font-size: 36px; font-weight: 500;">O boné esconde. A queda continua.</h2>
-        <p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.6;">Entradas e coroa costumam avançar aos poucos. Veja a diferença entre esperar e começar agora.</p>
+  <section class="cmp-sec">
+    <style>
+    .cmp-sec{padding:80px 24px}
+    .cmp-w{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center}
+    .cmp-txt{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+    .cmp-pill{display:inline-flex;align-items:center;gap:10px;border:1.5px solid #213632;border-radius:999px;padding:5px 6px 5px 14px;font-family:'Michroma',sans-serif;font-size:11px;letter-spacing:.18em;color:#213632}
+    .cmp-pill i{width:20px;height:20px;border-radius:50%;background:#213632;display:block}
+    .cmp-txt h2{margin:0;font-size:44px;line-height:1.08;font-weight:500}
+    .cmp-txt p{margin:0;font-size:16px;font-weight:300;line-height:1.6}
+    .cmp-t{font-size:15px}
+    .cmp-h,.cmp-r{display:grid;grid-template-columns:1fr 190px 110px}
+    .cmp-h>span{display:flex;align-items:center;justify-content:center;min-height:64px}
+    .cmp-h .cmp-e{border-radius:10px 10px 0 0}
+    .cmp-h .cmp-e img{height:auto;width:auto;max-height:22px;max-width:calc(100% - 32px)}
+    .cmp-h .cmp-o{text-align:center;font-size:12px;font-weight:600;letter-spacing:.12em;color:#213632}
+    .cmp-r{border-top:1px solid #DDE3D2}
+    .cmp-r:last-child .cmp-e{border-radius:0 0 10px 10px}
+    .cmp-l{padding:22px 16px;line-height:1.4;display:flex;align-items:center}
+    .cmp-e{background:#213632;display:flex;align-items:center;justify-content:center}
+    .cmp-o{display:flex;align-items:center;justify-content:center}
+    .cmp-i{width:30px;height:30px}
+    .cmp-r .cmp-o .cmp-i{width:26px;height:26px}
+    .cmp-note{margin:16px 0 0;font-size:13px;color:#56675C}
+    @media (max-width:860px){
+      .cmp-sec{padding:56px 16px}
+      .cmp-w{grid-template-columns:1fr;gap:28px}
+      .cmp-txt h2{font-size:32px}
+      .cmp-h,.cmp-r{grid-template-columns:1fr 104px 66px}
+      .cmp-l{padding:16px 10px 16px 4px;font-size:14px}
+      .cmp-h .cmp-e img{max-height:14px;max-width:calc(100% - 18px)}
+      .cmp-h .cmp-o{font-size:10px;letter-spacing:.08em}
+      .cmp-i{width:26px;height:26px}
+      .cmp-cta-d{display:none!important}
+    }
+    @media (min-width:861px){.cmp-cta-m{display:none!important}}
+    </style>
+    <div class="cmp-w">
+      <div class="cmp-txt">
+        <span class="cmp-pill">O CUSTO DE ESPERAR <i></i></span>
+        <h2>O boné esconde. A queda continua.</h2>
+        <p>Entradas e coroa costumam avançar aos poucos. Veja a diferença entre esperar e começar agora.</p>
+        <a class="cta cmp-cta-d" href="avaliacao.html" style="background:#213632;color:#FFFFFF;text-decoration:none;border-radius:999px;padding:15px 28px;font-size:15px;font-weight:500;margin-top:8px">Começar agora</a>
       </div>
-      <div style="overflow-x: auto; border-radius: 8px; border: 1px solid #DDE3D2; background: #FFFFFF;">
-        <table style="width: 100%; min-width: 520px; border-collapse: collapse; font-size: 15px;">
-          <thead>
-            <tr style="background: #213632; color: #FFFFFF;">
-              <th style="text-align: left; padding: 16px 20px; font-weight: 500;">Situação</th>
-              <th style="text-align: left; padding: 16px 20px; font-weight: 500;">Sem tratamento</th>
-              <th style="text-align: left; padding: 16px 20px; font-weight: 500; background: #56675C;">Com Elevamed</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-top: 1px solid #DDE3D2;"><td style="padding: 16px 20px;">Queda de fios</td><td style="padding: 16px 20px; color: #56675C;">Tende a aumentar</td><td style="padding: 16px 20px; background: #EEF2E6; font-weight: 500;">Tende a diminuir</td></tr>
-            <tr style="border-top: 1px solid #DDE3D2;"><td style="padding: 16px 20px;">Folículos ativos</td><td style="padding: 16px 20px; color: #56675C;">Afinam e atrofiam</td><td style="padding: 16px 20px; background: #EEF2E6; font-weight: 500;">Mais protegidos</td></tr>
-            <tr style="border-top: 1px solid #DDE3D2;"><td style="padding: 16px 20px;">Novos fios</td><td style="padding: 16px 20px; color: #56675C;">Não voltam</td><td style="padding: 16px 20px; background: #EEF2E6; font-weight: 500;">Podem surgir a partir do 3º mês</td></tr>
-            <tr style="border-top: 1px solid #DDE3D2;"><td style="padding: 16px 20px;">Chance de recuperar</td><td style="padding: 16px 20px; color: #56675C;">Cai a cada mês</td><td style="padding: 16px 20px; background: #EEF2E6; font-weight: 500;">Maior quanto antes começar</td></tr>
-          </tbody>
-        </table>
+      <div>
+        <div class="cmp-t" role="table" aria-label="Com Elevamed contra sem tratamento">
+          <div class="cmp-h"><span></span><span class="cmp-e"><img src="img/logo-claro.webp" alt="Com Elevamed"></span><span class="cmp-o">SEM TRATAR</span></div>
+          <div class="cmp-r"><span class="cmp-l">Queda de fios tende a diminuir</span><span class="cmp-e"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr">Sim</span></span><span class="cmp-o"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr">Não</span></span></div><div class="cmp-r"><span class="cmp-l">Folículos ativos mais protegidos</span><span class="cmp-e"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr">Sim</span></span><span class="cmp-o"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr">Não</span></span></div><div class="cmp-r"><span class="cmp-l">Novos fios podem surgir a partir do 3º mês</span><span class="cmp-e"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr">Sim</span></span><span class="cmp-o"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr">Não</span></span></div><div class="cmp-r"><span class="cmp-l">Mais chance de recuperar, quanto antes começar</span><span class="cmp-e"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr">Sim</span></span><span class="cmp-o"><svg class="cmp-i" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr">Não</span></span></div>
+        </div>
+        <p class="cmp-note">Resultados variam de pessoa para pessoa. Tratamento sempre a critério médico.</p>
+        <a class="cta cmp-cta-m" href="avaliacao.html" style="display:inline-block;background:#213632;color:#FFFFFF;text-decoration:none;border-radius:999px;padding:15px 28px;font-size:15px;font-weight:500;margin-top:20px">Começar agora</a>
       </div>
-      <p style="margin: -12px 0 0; text-align: center; font-size: 13px; color: #56675C;">Resultados variam de pessoa para pessoa. Tratamento sempre a critério médico.</p>
-      <div style="display: flex; justify-content: center;"><a class="cta" href="avaliacao.html" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 15px 28px; font-size: 15px; font-weight: 500;">Começar agora</a></div>
     </div>
   </section>
 
