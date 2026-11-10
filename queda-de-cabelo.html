@@ -87,6 +87,27 @@ body section h2{font-size:28px!important;line-height:1.2!important}
 .cta-fim{align-self:stretch;text-align:center}
 .cta-sel{flex-direction:column;align-items:flex-start;align-self:center;gap:10px;font-size:15px}
 }
+@media (min-width:601px){
+#topo .visual{aspect-ratio:auto;max-width:none;height:auto;display:flex;flex-direction:column;background:transparent;overflow:visible;border-radius:0}
+#topo .visual>.ph-hero{display:none}
+#topo .visual>.foto{position:relative;inset:auto;aspect-ratio:2576/1444;border-radius:16px;overflow:hidden;display:block}
+#topo .chip--topo{top:16px;right:16px}
+#topo .painel{position:relative;left:auto;right:auto;bottom:auto;margin:16px 0 0;z-index:1;box-shadow:0 8px 24px rgba(33,54,50,.12)}
+}
+@media (max-width:1000px){.nav-promo{display:none}}
+@media (min-width:901px){
+#topo>div{display:grid!important;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px!important;padding:64px 24px 72px!important}
+#topo h1{font-size:56px!important}
+#topo .painel{position:relative;left:auto;right:auto;bottom:auto;margin:16px 0 0;z-index:1;box-shadow:0 8px 24px rgba(33,54,50,.12)}
+#como>div{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px!important;align-items:start}
+#como>div>div:first-child{position:sticky;top:96px}
+#compare [style*="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))"]{align-items:center!important}
+#compare [style*="background: #CBD9B7"]{padding:34px 28px!important;box-shadow:0 12px 32px rgba(33,54,50,.12)}
+#faq>div>div:last-child{position:sticky;top:96px}
+.como-cta{display:flex;align-items:center;gap:14px;margin-top:6px}
+#planos [style*="flex: 1; border: 1px solid #56675C"]{flex:1 1 auto!important;justify-content:center}
+}
+@media (max-width:900px){.como-cta{display:none}}
 .fase-btn{min-height:44px;border-radius:999px;font-family:Lexend,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:#fff;border:1px solid #56675C}
 .fase-btn.on{background:#CBD9B7;color:#213632;border-color:#CBD9B7;font-weight:500}
 @media (max-width:600px){#planos .ph-kit{min-height:240px!important}h1{font-size:38px!important}h2{font-size:28px!important}header nav{display:none!important}table{min-width:0!important;font-size:13px!important}th,td{padding:12px 10px!important}#como strong{font-size:14px}#como div[style*="padding: 18px"]{padding:14px!important}}
@@ -152,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="flex: 1 1 380px; min-width: 0;">
         <div class="visual">
           <div class="ph escuro ph-hero"><b>FOTO DO HERO</b>img/fotos/hero-desk.webp · 980 × 1440 px<br>img/fotos/hero-mob.webp · 1104 × 680 px</div>
-          <picture class="foto"><source media="(max-width:600px)" srcset="img/fotos/hero-queda-mob.webp" type="image/webp"><img src="img/fotos/hero-queda-desk.webp" width="490" height="720" alt="Comparação de cabelo com entradas e cabelo mais denso" fetchpriority="high" decoding="async" onerror="this.parentNode.remove()"></picture>
+          <picture class="foto"><source media="(max-width:600px)" srcset="img/fotos/hero-queda-mob.webp" type="image/webp"><img src="img/fotos/hero-queda-desk-l.webp" width="1600" height="896" alt="Comparação de cabelo com entradas e cabelo mais denso" fetchpriority="high" decoding="async" onerror="this.parentNode.remove()"></picture>
           <span class="chip chip--topo"><img src="img/simbolo.webp" alt="" width="22" height="22">Avaliação médica online</span>
           <div class="painel" aria-hidden="true">
             <div class="linha-p"><strong>Sua avaliação médica</strong><small>~5 min</small></div>
@@ -250,6 +271,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="background: #FFFFFF; border: 1px solid #DDE3D2; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Michroma', sans-serif; font-size: 12px;">03</span><strong style="font-weight: 500;">Entrega discreta</strong><span style="font-size: 13px; color: #56675C;">Caixa sem identificação do conteúdo</span></div>
           <div style="background: #FFFFFF; border: 1px solid #DDE3D2; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Michroma', sans-serif; font-size: 12px;">04</span><strong style="font-weight: 500;">Acompanhamento</strong><span style="font-size: 13px; color: #56675C;">Suporte da equipe clínica durante o tratamento</span></div>
         </div>
+        <div class="como-cta"><a class="cta" href="avaliacao.html" style="background:#213632;color:#FFFFFF;text-decoration:none;border-radius:999px;padding:15px 28px;font-size:15px;font-weight:500">Começar minha avaliação</a><span style="font-size:13px;color:#56675C">Leva cerca de 5 minutos</span></div>
       </div>
 
       <div style="flex: 1 1 420px; min-width: 0; background: #213632; color: #FFFFFF; border-radius: 10px; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
@@ -275,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section style="background: #FFFFFF; padding: 80px 24px;">
+  <section id="compare" style="background: #FFFFFF; padding: 80px 24px;">
     <div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
       <div style="display: flex; flex-direction: column; gap: 10px; text-align: center;">
         <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.24em; color: #56675C;">COMPARE</span>
@@ -356,6 +378,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+          <div style="flex: 1; border: 1px solid #56675C; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+            <strong style="font-size: 18px; font-weight: 500;">Frete grátis e entrega discreta</strong>
+            <span style="font-size: 14px; font-weight: 300; color: #EEF2E6;">O kit chega em caixa sem identificação do conteúdo, sem custo de envio.</span>
+          </div>
           <div style="flex: 1; border: 1px solid #56675C; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
             <strong style="font-size: 18px; font-weight: 500;">Pagamento depois da aprovação</strong>
             <span style="font-size: 14px; font-weight: 300; color: #EEF2E6;">Você cadastra o cartão ao fim do questionário. A cobrança só acontece se o médico aprovar.</span>
