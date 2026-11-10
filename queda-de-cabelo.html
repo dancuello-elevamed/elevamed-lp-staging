@@ -285,20 +285,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="planos" style="background-color: #213632; color: #FFFFFF; padding: 80px 24px;">
     <div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
       <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.24em; color: #CBD9B7;">KIT 4 MESES</span>
-        <h2 style="margin: 0; font-size: 36px; font-weight: 500;">Quatro meses, porque é quando o resultado aparece</h2>
+        <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.24em; color: #CBD9B7;">KIT 4 MESES · 3 + 1</span>
+        <h2 style="margin: 0; font-size: 36px; font-weight: 500;">Você paga 3 meses. O 4º, quando o resultado aparece, é por nossa conta.</h2>
       </div>
+      <style>
+      .kt{flex:2 1 420px;min-width:0;background:#F7F8F3;color:#213632;border-radius:10px;overflow:hidden;display:flex;flex-wrap:wrap}
+      .kt-img{flex:1 1 300px;min-width:0;position:relative;background:#DDE5CF}
+      .kt-img img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;object-position:62% center}
+      .kt-selo{position:absolute;left:14px;top:14px;background:#213632;color:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:500}
+      .kt-info{flex:1 1 280px;min-width:0;box-sizing:border-box;padding:28px;display:flex;flex-direction:column;gap:14px}
+      .kt-ms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+      .kt-m{border:1px solid #DDE3D2;border-radius:8px;padding:10px 4px;text-align:center;display:flex;flex-direction:column;gap:2px;background:#fff}
+      .kt-m span{font-size:12px;color:#56675C}.kt-m b{font-size:13px;font-weight:500}
+      .kt-g{background:#213632;border-color:#213632;color:#fff}.kt-g span{color:#CBD9B7}
+      @media (max-width:600px){.kt-info{padding:22px 18px}.kt-img img{min-height:0;height:auto}}
+      </style>
       <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <div style="flex: 2 1 420px; min-width: 0; background: #F7F8F3; color: #213632; border-radius: 10px; overflow: hidden; display: flex; flex-wrap: wrap;">
-          <div class="ph ph-kit" style="flex: 1 1 240px; min-width: 0; min-height: 320px;"><b>FOTO DO KIT</b>img/fotos/kit.webp · 1200 × 1000 px<br>Produto dentro da área central 700 × 440 px<img class="foto-in" src="img/fotos/kit.webp" width="1200" height="1000" alt="Kit Elevamed em caixa discreta, sem identificação do conteúdo por fora" loading="lazy" decoding="async" onerror="this.remove()"></div>
-          <div class="kit-info" style="flex: 1 1 260px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column;">
+        <div class="kt">
+          <div class="kt-img"><img src="img/fotos/kit-linha.webp" width="1200" height="960" alt="Kit Elevamed com a caixa Cuidado em outro nível" loading="lazy" decoding="async"><span class="kt-selo">4º mês grátis</span></div>
+          <div class="kt-info">
             <strong style="font-size: 22px; font-weight: 500;">Kit 4 meses</strong>
-            <span style="font-size: 14px; font-weight: 300;">O ciclo inteiro de uma vez, sem renovar no meio do caminho.</span>
-            <span style="font-size: 26px; font-weight: 500;">[R$ PREÇO]<span style="font-size: 14px; font-weight: 300;"> o kit</span></span>
-            <span class="i-ok" style="font-size: 14px;">Avaliação médica online</span>
-            <span class="i-ok" style="font-size: 14px;">Fórmula manipulada, se prescrita</span>
-            <span class="i-ok" style="font-size: 14px;">Suporte com a equipe clínica</span>
-            <a class="cta" href="avaliacao.html" style="margin-top: auto; background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 500; text-align: center;">Começar avaliação</a>
+            <span style="font-size: 15px; font-weight: 300; line-height: 1.5;">O resultado costuma aparecer entre o 3º e o 4º mês. Por isso o mês que faz a diferença vem de presente, e você completa o ciclo sem parar no meio do caminho.</span>
+            <div class="kt-ms" aria-label="Você paga os meses 1 a 3; o mês 4 é grátis"><div class="kt-m"><span>Mês 1</span><b>Incluso</b></div><div class="kt-m"><span>Mês 2</span><b>Incluso</b></div><div class="kt-m"><span>Mês 3</span><b>Incluso</b></div><div class="kt-m kt-g"><span>Mês 4</span><b>Grátis</b></div></div>
+            <span class="i-ok" style="font-size: 14px;">Avaliação médica inclusa</span>
+            <span class="i-ok" style="font-size: 14px;">Fórmula manipulada para o seu caso, se prescrita</span>
+            <span class="i-ok" style="font-size: 14px;">Suporte com a equipe clínica nos 4 meses</span>
+            <a class="cta" href="avaliacao.html" style="margin-top: auto; background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 500; text-align: center;">Quero meu 4º mês grátis</a>
           </div>
         </div>
         <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
@@ -307,8 +319,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span style="font-size: 14px; font-weight: 300; color: #EEF2E6;">Você cadastra o cartão ao fim do questionário. A cobrança só acontece se o médico aprovar.</span>
           </div>
           <div style="flex: 1; border: 1px solid #56675C; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
-            <strong style="font-size: 18px; font-weight: 500;">Preço sem surpresa</strong>
-            <span style="font-size: 14px; font-weight: 300; color: #EEF2E6;">Sem relógio correndo e sem desconto que some na renovação.</span>
+            <strong style="font-size: 18px; font-weight: 500;">Valor na hora certa</strong>
+            <span style="font-size: 14px; font-weight: 300; color: #EEF2E6;">Cada fórmula é definida pelo médico. Você vê o valor do seu kit depois da avaliação, antes de qualquer cobrança.</span>
           </div>
         </div>
       </div>
