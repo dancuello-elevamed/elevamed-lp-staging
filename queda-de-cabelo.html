@@ -53,6 +53,12 @@ html{scroll-behavior:smooth}
 @media (max-width:600px){.res-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px!important;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none}.res-grid::-webkit-scrollbar{display:none}.res-grid>article{flex:0 0 84%;scroll-snap-align:center}}
 .ci-ic{width:76px;height:76px;margin:0 auto 6px;display:block}
 @media (max-width:600px){.ci-ic{width:64px;height:64px}}
+.promo-bar{display:flex;align-items:center;justify-content:center;gap:10px;background:#213632;color:#fff;text-decoration:none;font:400 14px/1.3 Lexend,sans-serif;padding:9px 16px;text-align:center}
+.promo-bar,.promo-bar .promo-txt,.promo-bar .promo-x,.promo-seta{color:#fff!important}.promo-bar b{font-weight:500;color:#CBD9B7!important}
+.promo-tag{background:#CBD9B7;color:#213632;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:500;white-space:nowrap}
+.promo-seta{transition:transform .2s}.promo-bar:hover .promo-seta{transform:translateX(3px)}
+.nav-promo{background:#CBD9B7;color:#213632;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:500;white-space:nowrap}
+@media (max-width:600px){.promo-bar{font-size:13px;padding:8px 12px;gap:8px}.promo-seta{display:none}.promo-x{display:none}.nav-promo{display:none}}
 .fase-btn{min-height:44px;border-radius:999px;font-family:Lexend,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:#fff;border:1px solid #56675C}
 .fase-btn.on{background:#CBD9B7;color:#213632;border-color:#CBD9B7;font-weight:500}
 @media (max-width:600px){#planos .ph-kit{min-height:240px!important}h1{font-size:38px!important}h2{font-size:28px!important}header nav{display:none!important}table{min-width:0!important;font-size:13px!important}th,td{padding:12px 10px!important}#como strong{font-size:14px}#como div[style*="padding: 18px"]{padding:14px!important}}
@@ -84,13 +90,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <div style="font-family: 'Lexend', sans-serif; color: #213632; background: #F7F8F3; width: 100%; box-sizing: border-box;">
 
+  <a class="promo-bar" href="#planos"><span class="promo-tag">3 + 1</span><span class="promo-txt">Pague 3 meses e <b>ganhe o 4º mês</b><span class="promo-x"> do seu tratamento</span></span><span class="promo-seta" aria-hidden="true">→</span></a>
   <header style="border-bottom: 1px solid #DDE3D2; background: #F7F8F3;">
     <div style="max-width: 1160px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between;">
       <a href="#topo" style="display: flex; align-items: center;"><img src="img/logo.webp" alt="Elevamed" width="156" height="21" style="width: 156px; height: auto; display: block;"></a>
       <nav style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px;">
         <a href="#como" style="text-decoration: none;">Como funciona</a>
         <a href="#ciencia" style="text-decoration: none;">A ciência</a>
-                <a href="#planos" style="text-decoration: none;">Kit 4 meses</a>
+                <a href="#planos" style="text-decoration: none; display:inline-flex; align-items:center; gap:6px;">Kit 4 meses <span class="nav-promo">4º mês grátis</span></a>
         <a href="#faq" style="text-decoration: none;">Dúvidas</a>
       </nav>
       <a class="cta" href="avaliacao.html" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 12px 22px; font-size: 14px; font-weight: 500; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center;">Fazer avaliação</a>
