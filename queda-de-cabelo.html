@@ -70,6 +70,15 @@ html{scroll-behavior:smooth}
 @keyframes led{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){.led-tag{display:none}.led-i{font-size:14px}.led-faixa{padding:14px 0 14px 18px;gap:18px;animation-duration:26s}}
 @media (prefers-reduced-motion:reduce){.led-faixa{animation:none;flex-wrap:wrap;white-space:normal;justify-content:center;row-gap:10px}.led-faixa>:nth-child(n+11){display:none}}
+@media (max-width:600px){
+body section:not(#topo){padding:48px 16px!important}
+body section:not(#topo)>div{gap:20px!important}
+#como>div{gap:32px!important}
+#faq>div{gap:24px!important}
+body section h2{font-size:28px!important;line-height:1.2!important}
+.cmp-sec{padding:48px 16px!important}
+#rodape .ft-in{padding:48px 16px 32px!important}
+}
 .fase-btn{min-height:44px;border-radius:999px;font-family:Lexend,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:#fff;border:1px solid #56675C}
 .fase-btn.on{background:#CBD9B7;color:#213632;border-color:#CBD9B7;font-weight:500}
 @media (max-width:600px){#planos .ph-kit{min-height:240px!important}h1{font-size:38px!important}h2{font-size:28px!important}header nav{display:none!important}table{min-width:0!important;font-size:13px!important}th,td{padding:12px 10px!important}#como strong{font-size:14px}#como div[style*="padding: 18px"]{padding:14px!important}}
