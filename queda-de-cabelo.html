@@ -59,14 +59,14 @@ html{scroll-behavior:smooth}
 .promo-seta{transition:transform .2s}.promo-bar:hover .promo-seta{transform:translateX(3px)}
 .nav-promo{background:#CBD9B7;color:#213632;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:500;white-space:nowrap}
 @media (max-width:600px){.promo-bar{font-size:13px;padding:8px 12px;gap:8px}.promo-seta{display:none}.promo-x{display:none}.nav-promo{display:none}}
-.led{display:flex;align-items:stretch;background:#213632;color:#fff!important;text-decoration:none;overflow:hidden;border-top:1px solid #2f4741;border-bottom:1px solid #2f4741}
-.led-tag{flex:none;display:flex;align-items:center;background:#CBD9B7;color:#213632;font:400 11px/1 Michroma,sans-serif;letter-spacing:.18em;padding:0 18px;position:relative;z-index:1}
+.led{display:flex;align-items:stretch;background:#F5C443;color:#213632!important;text-decoration:none;overflow:hidden;border-top:2px solid #213632;border-bottom:2px solid #213632}
+.led-tag{flex:none;display:flex;align-items:center;background:#213632;color:#F5C443;font:400 11px/1 Michroma,sans-serif;letter-spacing:.18em;padding:0 18px;position:relative;z-index:1}
 .led-trilho{flex:1;overflow:hidden;display:flex;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .led-faixa{display:flex;align-items:center;gap:22px;padding:16px 0 16px 22px;white-space:nowrap;animation:led 32s linear infinite;will-change:transform}
 .led:hover .led-faixa{animation-play-state:paused}
-.led-i{font:500 15px/1 Lexend,sans-serif;color:#fff;letter-spacing:.01em}
-.led-d{color:#CBD9B7}
-.led-s{width:12px;height:12px;fill:#CBD9B7;flex:none}
+.led-i{font:500 15px/1 Lexend,sans-serif;color:#213632;letter-spacing:.01em;text-transform:uppercase}
+.led-d{background:#213632;color:#F5C443;border-radius:999px;padding:6px 12px}
+.led-s{width:12px;height:12px;fill:#213632;flex:none}
 @keyframes led{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){.led-tag{display:none}.led-i{font-size:14px}.led-faixa{padding:14px 0 14px 18px;gap:18px;animation-duration:26s}}
 @media (prefers-reduced-motion:reduce){.led-faixa{animation:none;flex-wrap:wrap;white-space:normal;justify-content:center;row-gap:10px}.led-faixa>:nth-child(n+11){display:none}}
