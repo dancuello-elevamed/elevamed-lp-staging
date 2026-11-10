@@ -79,6 +79,13 @@ body section h2{font-size:28px!important;line-height:1.2!important}
 .cmp-sec{padding:48px 16px!important}
 #rodape .ft-in{padding:48px 16px 32px!important}
 }
+.cta-sel{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;font-size:14px;margin-top:4px}
+.cta-sel .i-ok{display:inline-flex!important;align-items:center;gap:8px;text-align:left;white-space:nowrap}
+@media (max-width:600px){
+#avaliacao h2{font-size:30px!important}
+.cta-fim{align-self:stretch;text-align:center}
+.cta-sel{flex-direction:column;align-items:flex-start;align-self:center;gap:10px;font-size:15px}
+}
 .fase-btn{min-height:44px;border-radius:999px;font-family:Lexend,sans-serif;font-size:14px;cursor:pointer;background:transparent;color:#fff;border:1px solid #56675C}
 .fase-btn.on{background:#CBD9B7;color:#213632;border-color:#CBD9B7;font-weight:500}
 @media (max-width:600px){#planos .ph-kit{min-height:240px!important}h1{font-size:38px!important}h2{font-size:28px!important}header nav{display:none!important}table{min-width:0!important;font-size:13px!important}th,td{padding:12px 10px!important}#como strong{font-size:14px}#como div[style*="padding: 18px"]{padding:14px!important}}
@@ -388,8 +395,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.24em;">COMECE AGORA</span>
       <h2 style="margin: 0; font-size: 40px; font-weight: 500; line-height: 1.15;">Cada dia é um folículo a menos.</h2>
       <p style="margin: 0; font-size: 17px; font-weight: 300;">A avaliação leva cerca de 5 minutos.</p>
-      <a class="cta" href="avaliacao.html" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 16px 32px; font-size: 16px; font-weight: 500;">Começar minha avaliação</a>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; font-size: 14px;">
+      <a class="cta cta-fim" href="avaliacao.html" style="background: #213632; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 16px 32px; font-size: 16px; font-weight: 500;">Começar minha avaliação</a>
+      <div class="cta-sel">
         <span class="i-ok"><span class="sr">Sim: </span>Médicos independentes</span><span class="i-ok"><span class="sr">Sim: </span>Farmácias credenciadas</span><span class="i-ok"><span class="sr">Sim: </span>Pagamento após aprovação</span>
       </div>
     </div>
