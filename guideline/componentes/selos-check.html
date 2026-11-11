@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Selos com check · Componente Elevamed</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+body{margin:0;background:var(--ev-off);color:var(--ev-escuro);font:300 16px/1.6 var(--ev-fonte-texto);padding:40px 16px}
+.demo{max-width:var(--ev-container);margin:0 auto}
+/* ---- componente ---- */
+.sel{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;font-size:14px}
+.sel span{display:inline-flex;align-items:center;gap:8px}.ck{color:var(--ev-escuro);flex:none}
+@media (max-width:600px){.sel{flex-direction:column;align-items:flex-start;width:fit-content;margin:0 auto}}
+</style></head><body>
+<!-- Selos com check: SVG inline (nunca imagem em CSS). No celular viram lista. -->
+<div class="demo">
+<div class="sel"><span><svg class="ck" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Médicos independentes</span><span><svg class="ck" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Farmácias credenciadas</span><span><svg class="ck" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Pagamento após aprovação</span></div>
+</div>
+</body></html>

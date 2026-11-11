@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Card de caso real · Componente Elevamed</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+body{margin:0;background:var(--ev-off);color:var(--ev-escuro);font:300 16px/1.6 var(--ev-fonte-texto);padding:40px 16px}
+.demo{max-width:var(--ev-container);margin:0 auto}
+/* ---- componente ---- */
+.casos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.caso{background:#fff;border:1px solid var(--ev-linha);border-radius:var(--ev-raio-card);overflow:hidden}
+.caso-f{position:relative;aspect-ratio:4/3;background:var(--ev-salvia-2)}.caso-f img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;top:10px;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:500}
+.tag.a{left:10px;background:var(--ev-escuro);color:#fff}.tag.d{right:10px;background:var(--ev-salvia);color:var(--ev-escuro)}
+.caso-t{padding:20px;display:flex;flex-direction:column;gap:10px}
+.caso-t .rot{font:400 11px var(--ev-fonte-rotulo);letter-spacing:.2em;color:var(--ev-cinza)}
+.caso-t q{font-size:15px}.caso-t b{font-weight:500;font-size:14px}
+</style></head><body>
+<!-- Card de caso real: Só paciente real com termo assinado. Foto 4:3. -->
+<div class="demo">
+<div class="casos"><article class="caso"><div class="caso-f"><img src="../assets/casos/caso-01.webp" alt="Antes e depois do paciente"><span class="tag a">Antes</span><span class="tag d">Depois</span></div><div class="caso-t"><span class="rot">9 MESES DE TRATAMENTO</span><q>Depoimento nas palavras do paciente.</q><b>Nome, idade</b></div></article></div>
+</div>
+</body></html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Tabela ✓/✗ · Componente Elevamed</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+body{margin:0;background:var(--ev-off);color:var(--ev-escuro);font:300 16px/1.6 var(--ev-fonte-texto);padding:40px 16px}
+.demo{max-width:var(--ev-container);margin:0 auto}
+/* ---- componente ---- */
+.cmp-h,.cmp-r{display:grid;grid-template-columns:1fr 190px 110px}
+.cmp-h>span{display:flex;align-items:center;justify-content:center;min-height:64px}
+.cmp-e{background:var(--ev-escuro);display:flex;align-items:center;justify-content:center}
+.cmp-h .cmp-e{border-radius:10px 10px 0 0}.cmp-r:last-child .cmp-e{border-radius:0 0 10px 10px}
+.cmp-h img{max-height:22px;max-width:calc(100% - 32px)}
+.cmp-h .cmp-o{font-size:12px;font-weight:600;letter-spacing:.12em}
+.cmp-r{border-top:1px solid var(--ev-linha)}.cmp-l{padding:22px 16px}.cmp-o{display:flex;align-items:center;justify-content:center}
+@media (max-width:860px){.cmp-h,.cmp-r{grid-template-columns:1fr 104px 66px}.cmp-l{padding:16px 10px 16px 4px;font-size:14px}}
+</style></head><body>
+<!-- Tabela ✓/✗: Coluna da Elevamed escura com logo claro; lado negativo com ✗ suave. -->
+<div class="demo">
+<div><div class="cmp-h"><span></span><span class="cmp-e"><img src="../assets/logos/logo-claro.webp" alt="Com Elevamed"></span><span class="cmp-o">SEM TRATAR</span></div><div class="cmp-r"><span class="cmp-l">Queda de fios tende a diminuir</span><span class="cmp-e"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="cmp-o"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg></span></div><div class="cmp-r"><span class="cmp-l">Folículos ativos mais protegidos</span><span class="cmp-e"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="cmp-o"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg></span></div><div class="cmp-r"><span class="cmp-l">Mais chance de recuperar, quanto antes começar</span><span class="cmp-e"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="cmp-o"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M10 10l12 12M22 10L10 22" fill="none" stroke="#C97B70" stroke-width="2.4" stroke-linecap="round"/></svg></span></div></div>
+</div>
+</body></html>

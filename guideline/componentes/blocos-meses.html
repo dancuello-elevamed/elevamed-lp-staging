@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Blocos de meses (3 + 1) · Componente Elevamed</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+body{margin:0;background:var(--ev-off);color:var(--ev-escuro);font:300 16px/1.6 var(--ev-fonte-texto);padding:40px 16px}
+.demo{max-width:var(--ev-container);margin:0 auto}
+/* ---- componente ---- */
+.kt-ms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;max-width:420px}
+.kt-m{border:1px solid var(--ev-linha);border-radius:8px;padding:10px 4px;text-align:center;display:flex;flex-direction:column;background:#fff}
+.kt-m span{font-size:12px;color:var(--ev-cinza)}.kt-m b{font-size:13px;font-weight:500}
+.kt-g{background:var(--ev-escuro);border-color:var(--ev-escuro);color:#fff}.kt-g span{color:var(--ev-salvia)}
+</style></head><body>
+<!-- Blocos de meses (3 + 1): Mostra a oferta sem preço. -->
+<div class="demo">
+<div class="kt-ms"><div class="kt-m"><span>Mês 1</span><b>Incluso</b></div><div class="kt-m"><span>Mês 2</span><b>Incluso</b></div><div class="kt-m"><span>Mês 3</span><b>Incluso</b></div><div class="kt-m kt-g"><span>Mês 4</span><b>Grátis</b></div></div>
+</div>
+</body></html>

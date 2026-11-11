@@ -1,0 +1,47 @@
+/* Elevamed — design tokens das landing pages (fonte única de verdade)
+   Uso: <link rel="stylesheet" href="tokens.css"> e use var(--ev-*) no lugar de valores soltos.
+   Fontes: https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap */
+
+:root{
+  /* Cores — marca */
+  --ev-escuro:#213632;      /* texto principal, botões, fundos escuros */
+  --ev-escuro-2:#2F4A44;    /* hover de botão, bordas em fundo escuro */
+  --ev-grafite:#28342F;     /* grafite do brandbook (logo, peças impressas) */
+  --ev-salvia:#CBD9B7;      /* fundo do hero e do CTA final, selos, destaques em fundo escuro */
+  --ev-salvia-2:#EEF2E6;    /* fundos suaves, seção de resultados */
+  --ev-off:#F7F8F3;         /* fundo padrão da página */
+  --ev-branco:#FFFFFF;      /* cards */
+  --ev-linha:#DDE3D2;       /* bordas e divisórias */
+  --ev-cinza:#56675C;       /* texto secundário, eyebrows */
+  --ev-borda-escuro:#56675C;/* borda de card em fundo escuro */
+
+  /* Cores — uso restrito (1 lugar cada) */
+  --ev-ambar:#F5C443;       /* SÓ a faixa LED de oferta */
+  --ev-alerta:#C97B70;      /* SÓ o "X" do lado negativo de comparativos */
+
+  /* Tipografia */
+  --ev-fonte-texto:'Lexend',sans-serif;    /* títulos, textos, botões */
+  --ev-fonte-rotulo:'Michroma',sans-serif; /* eyebrows e rótulos em CAIXA ALTA */
+  --ev-h1:56px;  --ev-h1-mob:32px;
+  --ev-h2:36px;  --ev-h2-mob:28px;
+  --ev-corpo-g:18px; --ev-corpo:16px; --ev-corpo-p:14px; --ev-legenda:12px;
+  --ev-rotulo:11px;  --ev-rotulo-tracking:.24em;
+  --ev-peso-leve:300; --ev-peso-normal:400; --ev-peso-forte:500; /* nunca acima de 500 */
+
+  /* Espaço e grade */
+  --ev-container:1160px;
+  --ev-secao:80px;  --ev-secao-mob:48px;
+  --ev-lateral:24px; --ev-lateral-mob:16px;
+  --ev-gap:20px; --ev-gap-g:28px; --ev-gap-colunas:56px;
+
+  /* Cantos */
+  --ev-raio-pilula:999px; /* botões, selos, chips */
+  --ev-raio-card:10px;
+  --ev-raio-midia:16px;   /* fotos e vídeos */
+
+  /* Sombra (só em destaque) */
+  --ev-sombra:0 12px 32px rgba(33,54,50,.12);
+
+  /* Quebras de tela (para referência em media queries) */
+  --ev-bp-mob:600px; --ev-bp-tablet:900px; --ev-bp-menu:1000px;
+}

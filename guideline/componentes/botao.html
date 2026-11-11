@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Botão principal · Componente Elevamed</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+body{margin:0;background:var(--ev-off);color:var(--ev-escuro);font:300 16px/1.6 var(--ev-fonte-texto);padding:40px 16px}
+.demo{max-width:var(--ev-container);margin:0 auto}
+/* ---- componente ---- */
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--ev-escuro);color:#fff;text-decoration:none;border-radius:var(--ev-raio-pilula);padding:16px 30px;font:500 16px/1.2 var(--ev-fonte-texto);transition:background-color .2s ease,transform .2s ease}
+.cta:hover{background:var(--ev-escuro-2)}.cta:active{transform:translateY(1px)}
+.cta-wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center}.cta-wrap small{font-size:13px;color:var(--ev-cinza)}
+@media (max-width:600px){.cta{width:100%}}
+</style></head><body>
+<!-- Botão principal: Pílula escura; no celular ocupa a largura toda. Sempre leva a avaliacao.html?origem=<slug>. -->
+<div class="demo">
+<div class="cta-wrap"><a class="cta" href="avaliacao.html?origem=SLUG">Começar minha avaliação</a><small>Leva cerca de 5 minutos</small></div>
+</div>
+</body></html>

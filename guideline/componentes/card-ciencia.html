@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Cards de ciência com ícone · Componente Elevamed</title>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+body{margin:0;background:var(--ev-off);color:var(--ev-escuro);font:300 16px/1.6 var(--ev-fonte-texto);padding:40px 16px}
+.demo{max-width:var(--ev-container);margin:0 auto}
+/* ---- componente ---- */
+.ci{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;text-align:center}
+.ci>div{background:#fff;border:1px solid var(--ev-linha);border-radius:var(--ev-raio-card);padding:24px}
+.ci>div:last-child{background:var(--ev-salvia);border-color:var(--ev-salvia)}
+.ci img{width:76px;height:76px;display:block;margin:0 auto 6px}
+.ci span{font:400 13px var(--ev-fonte-rotulo)}.ci strong{display:block;font-weight:500;font-size:18px}.ci small{font-size:14px}
+@media (max-width:600px){.ci img{width:64px;height:64px}}
+</style></head><body>
+<!-- Cards de ciência com ícone: 3 passos; o último em sálvia. -->
+<div class="demo">
+<div class="ci"><div><img src="../assets/icones/ciencia-dht.webp" alt=""><span>01</span><strong>O DHT age</strong><small>e afina seus fios</small></div><div><img src="../assets/icones/ciencia-folicul.webp" alt=""><span>02</span><strong>O folículo enfraquece</strong><small>mas ainda está vivo</small></div><div><img src="../assets/icones/ciencia-bloqueio.webp" alt=""><span>03</span><strong>O tratamento bloqueia</strong><small>e os fios podem voltar</small></div></div>
+</div>
+</body></html>
