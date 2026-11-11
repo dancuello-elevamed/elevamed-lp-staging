@@ -50,15 +50,18 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
   .steps li{margin:0!important}
   .steps{grid-template-columns:repeat(2,1fr)}
   body.p-ja .steps[data-path="ja"],body.p-novo .steps[data-path="novo"],body:not(.p-ja):not(.p-novo) .steps[data-path="novo"]{display:grid}
-  .compare-table{max-width:820px}
+  #compare,.faq-section{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);column-gap:4rem;align-items:start}
+  #compare>div:first-child,.faq-section>div:first-child{position:sticky;top:6rem}
+  .compare-table{font-size:15px}
+  .compare-table>div>div{padding:1rem 1.25rem!important}
+  .compare-table>div:first-child{font-size:10px}
   .proofs{display:grid!important;grid-template-columns:repeat(2,1fr)}
   .proofs>span{grid-column:1/-1}
-  .faq-list{max-width:820px}
   .final-cta{display:grid!important;grid-template-columns:1fr 1fr;column-gap:4rem;align-items:center}
   .final-cta>h2,.final-cta>p{grid-column:1}
   .final-cta>a{grid-column:1;max-width:420px}
   .final-cta>.badges{grid-column:2;grid-row:1/span 3}
-  .transparency>div{max-width:820px}
+  .transparency>div{max-width:none}
   .transparency h2{font-size:1.25rem}
 }
 </style>
@@ -174,6 +177,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
  <div class="flex flex-col gap-2">
   <span class="eyebrow text-ev-cinza">Compare</span>
   <h2 class="text-2xl font-medium text-ev-escuro">O que está incluso em cada caminho</h2>
+  <p class="text-muted">Consulta, receita, entrega e acompanhamento no mesmo plano. Você só paga se o médico aprovar.</p>
  </div>
  <div class="compare-table bg-white rounded-2xl shadow-sm overflow-hidden text-sm">
   <div class="grid grid-cols-[1.3fr_1fr_1fr] bg-ev-escuro text-white eyebrow text-[9px]">
@@ -204,7 +208,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
 </section>
 
 <!-- ═══ DÚVIDAS ═══ -->
-<section id="faq" class="px-4 py-10 bg-ev-off flex flex-col gap-6">
+<section id="faq" class="faq-section px-4 py-10 bg-ev-off flex flex-col gap-6">
  <div class="flex flex-col gap-2">
   <span class="eyebrow text-ev-cinza">Dúvidas</span>
   <h2 class="text-2xl font-medium text-ev-escuro">Antes de começar</h2>
