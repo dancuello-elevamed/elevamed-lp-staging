@@ -30,8 +30,37 @@ body{font-family:Lexend,sans-serif;font-weight:300;color:#1a1c19}
 [data-path]{display:none}
 body.p-ja [data-path="ja"], body.p-novo [data-path="novo"]{display:block}
 body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
-.chip[aria-pressed="true"]{background:#213632;color:#fff;border-color:#213632}
+.path-chip[aria-pressed="true"]{background:#213632;color:#fff;border-color:#213632}
 ::-webkit-scrollbar{display:none}
+
+/* Desktop layout */
+@media (min-width:1024px){
+  .wrap{max-width:none}
+  header .wrap{max-width:1120px}
+  main section{padding-left:max(2rem,calc((100% - 1120px)/2))!important;padding-right:max(2rem,calc((100% - 1120px)/2))!important}
+  main h2{font-size:2.25rem;line-height:1.2}
+  .hero{display:grid!important;grid-template-columns:1.15fr 1fr;column-gap:4rem;row-gap:1.25rem;padding-top:4.5rem!important;padding-bottom:4.5rem!important;align-items:start}
+  .hero>*{grid-column:1;justify-self:stretch}
+  .hero>span:first-child{justify-self:start}
+  .hero h1{font-size:48px!important}
+  .hero .hero-list{grid-column:2;grid-row:1/span 6;align-self:center;padding:2rem;font-size:1rem;gap:1.25rem}
+  .hero .chips{max-width:420px}
+  .hero .hero-cta{max-width:420px}
+  .steps{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .steps li{margin:0!important}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  body.p-ja .steps[data-path="ja"],body.p-novo .steps[data-path="novo"],body:not(.p-ja):not(.p-novo) .steps[data-path="novo"]{display:grid}
+  .compare-table{max-width:820px}
+  .proofs{display:grid!important;grid-template-columns:repeat(2,1fr)}
+  .proofs>span{grid-column:1/-1}
+  .faq-list{max-width:820px}
+  .final-cta{display:grid!important;grid-template-columns:1fr 1fr;column-gap:4rem;align-items:center}
+  .final-cta>h2,.final-cta>p{grid-column:1}
+  .final-cta>a{grid-column:1;max-width:420px}
+  .final-cta>.badges{grid-column:2;grid-row:1/span 3}
+  .transparency>div{max-width:820px}
+  .transparency h2{font-size:1.25rem}
+}
 </style>
 <link rel="stylesheet" href="marca.css">
 </head>
@@ -58,7 +87,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
 </aside>
 
 <!-- ═══ HERO + BIFURCAÇÃO ═══ -->
-<section class="bg-ev-salvia text-ev-escuro px-4 pt-8 pb-7 flex flex-col gap-5">
+<section class="hero bg-ev-salvia text-ev-escuro px-4 pt-8 pb-7 flex flex-col gap-5">
  <span class="self-start inline-flex items-center gap-1.5 bg-ev-salvia-2 px-3 py-1 rounded-full eyebrow text-[10px]">
   <span class="ms text-[14px]">verified_user</span>TDAH em adultos
  </span>
@@ -69,9 +98,9 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
  <!-- Escolha do caminho -->
  <div class="flex flex-col gap-2">
   <p class="text-sm font-medium">Qual é o seu momento?</p>
-  <div class="grid grid-cols-2 gap-2" role="group" aria-label="Escolha seu caminho">
-   <button type="button" class="chip h-14 rounded-2xl border-2 border-ev-escuro/30 bg-ev-salvia-2 font-medium text-sm leading-tight px-2" data-set="ja" aria-pressed="false">Já faço<br/>tratamento</button>
-   <button type="button" class="chip h-14 rounded-2xl border-2 border-ev-escuro/30 bg-ev-salvia-2 font-medium text-sm leading-tight px-2" data-set="novo" aria-pressed="true">Quero<br/>começar</button>
+  <div class="chips grid grid-cols-2 gap-2" role="group" aria-label="Escolha seu caminho">
+   <button type="button" class="path-chip h-14 rounded-2xl border-2 border-ev-escuro/30 bg-ev-salvia-2 font-medium text-sm leading-tight px-2" data-set="ja" aria-pressed="false">Já faço<br/>tratamento</button>
+   <button type="button" class="path-chip h-14 rounded-2xl border-2 border-ev-escuro/30 bg-ev-salvia-2 font-medium text-sm leading-tight px-2" data-set="novo" aria-pressed="true">Quero<br/>começar</button>
   </div>
  </div>
 
@@ -84,14 +113,14 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
  </div>
 
  <!-- O que você recebe -->
- <ul class="flex flex-col gap-2.5 bg-ev-salvia-2/70 p-4 rounded-xl text-sm font-medium">
+ <ul class="hero-list flex flex-col gap-2.5 bg-ev-salvia-2/70 p-4 rounded-xl text-sm font-medium">
   <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Avaliação médica gratuita</li>
   <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Consulta com psiquiatra online, sem fila</li>
   <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Tratamento prescrito pelo médico, com receita digital</li>
   <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Entrega em casa com frete grátis</li>
  </ul>
 
- <div class="flex flex-col gap-2">
+ <div class="hero-cta flex flex-col gap-2">
   <a href="#" data-cta="hero" class="cta h-12 bg-ev-escuro text-white rounded-full font-medium flex items-center justify-center gap-2 shadow-sm active:bg-ev-escuro-2">
    <span data-path="ja">Continuar meu tratamento</span>
    <span data-path="novo">Fazer meu teste gratuito</span>
@@ -110,7 +139,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
 </div>
 
 <!-- ═══ TRANSPARÊNCIA (antes do cartão) ═══ -->
-<section class="px-4 py-8 bg-ev-off">
+<section class="transparency px-4 py-8 bg-ev-off">
  <div class="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-ev-ambar flex flex-col gap-2">
   <h2 class="font-semibold text-ev-escuro flex items-center gap-2"><span class="ms text-[20px]">handshake</span>Combinado claro, antes de tudo</h2>
   <p class="text-sm text-muted">O psiquiatra define o tratamento mais seguro para o seu caso. <strong>Ele pode ser diferente do que você usa hoje ou do que pesquisou.</strong> Se não fizer sentido para você, você não paga o plano.</p>
@@ -124,14 +153,14 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
   <h2 class="text-2xl font-medium text-ev-escuro">4 passos, tudo online</h2>
  </div>
 
- <ol data-path="ja" class="flex-col gap-3">
+ <ol data-path="ja" class="steps flex-col gap-3">
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">01</span><div><h3 class="font-medium">Conte seu histórico</h3><p class="text-sm text-muted">Questionário rápido. Se tiver, envie uma foto da receita ou do laudo atual.</p></div></li>
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">02</span><div><h3 class="font-medium">Consulta por vídeo</h3><p class="text-sm text-muted">Psiquiatra com RQE revisa seu tratamento em até <strong>[X] dias</strong>.</p></div></li>
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">03</span><div><h3 class="font-medium">Receita digital</h3><p class="text-sm text-muted">Se aprovado, receita com assinatura ICP-Brasil no mesmo dia.</p></div></li>
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5"><span class="eyebrow text-base text-ev-escuro">04</span><div><h3 class="font-medium">Entrega e acompanhamento</h3><p class="text-sm text-muted">Em casa em até <strong>[X] dias úteis</strong>, com canal direto para ajustes.</p></div></li>
  </ol>
 
- <ol data-path="novo" class="flex-col gap-3">
+ <ol data-path="novo" class="steps flex-col gap-3">
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">01</span><div><h3 class="font-medium">Teste gratuito</h3><p class="text-sm text-muted">Baseado na escala da OMS (ASRS-1.1), com resultado na hora.</p></div></li>
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">02</span><div><h3 class="font-medium">Consulta por vídeo</h3><p class="text-sm text-muted">Psiquiatra com RQE avalia seu caso em até <strong>[X] dias</strong>, olhando também ansiedade e outras hipóteses.</p></div></li>
   <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">03</span><div><h3 class="font-medium">Receita digital</h3><p class="text-sm text-muted">Se houver indicação, receita com assinatura ICP-Brasil.</p></div></li>
@@ -146,7 +175,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
   <span class="eyebrow text-ev-cinza">Compare</span>
   <h2 class="text-2xl font-medium text-ev-escuro">O que está incluso em cada caminho</h2>
  </div>
- <div class="bg-white rounded-2xl shadow-sm overflow-hidden text-sm">
+ <div class="compare-table bg-white rounded-2xl shadow-sm overflow-hidden text-sm">
   <div class="grid grid-cols-[1.3fr_1fr_1fr] bg-ev-escuro text-white eyebrow text-[9px]">
    <div class="p-3">Item</div><div class="p-3 text-center">Consultório</div><div class="p-3 text-center text-ev-salvia">Elevamed</div>
   </div>
@@ -160,7 +189,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
 </section>
 
 <!-- ═══ PROVAS (placeholder) ═══ -->
-<section class="px-4 py-10 bg-ev-off flex flex-col gap-4">
+<section class="proofs px-4 py-10 bg-ev-off flex flex-col gap-4">
  <span class="eyebrow text-ev-cinza">Quem já passou por aqui</span>
  <!-- PREENCHER com depoimentos reais autorizados. Não inventar. -->
  <div class="bg-white rounded-2xl p-4 shadow-sm text-sm text-muted italic border border-dashed border-ev-linha">[Depoimento real 1 — tema "finalmente entendi", nome e cidade com autorização]</div>
@@ -180,7 +209,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
   <span class="eyebrow text-ev-cinza">Dúvidas</span>
   <h2 class="text-2xl font-medium text-ev-escuro">Antes de começar</h2>
  </div>
- <div class="flex flex-col gap-3">
+ <div class="faq-list flex flex-col gap-3">
   <details class="bg-white rounded-2xl p-4 shadow-sm" open><summary class="font-medium cursor-pointer">Vou receber o mesmo tratamento que uso hoje?</summary><p class="text-sm text-muted pt-2">O psiquiatra revisa seu histórico e define o tratamento mais seguro para você, que pode ser o mesmo ou outro. Envie sua receita atual no questionário para ele avaliar.</p></details>
   <details class="bg-white rounded-2xl p-4 shadow-sm"><summary class="font-medium cursor-pointer">Preciso de laudo ou diagnóstico anterior?</summary><p class="text-sm text-muted pt-2">Não. Se tiver, ajuda. Se não tiver, a avaliação começa do zero.</p></details>
   <details class="bg-white rounded-2xl p-4 shadow-sm"><summary class="font-medium cursor-pointer">Quando eu pago?</summary><p class="text-sm text-muted pt-2">O cartão é só pré-autorizado depois do questionário. A cobrança acontece apenas se o médico aprovar o tratamento.</p></details>
@@ -191,7 +220,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
 </section>
 
 <!-- ═══ CTA FINAL ═══ -->
-<section class="px-4 py-10 bg-ev-salvia text-ev-escuro flex flex-col gap-5">
+<section class="final-cta px-4 py-10 bg-ev-salvia text-ev-escuro flex flex-col gap-5">
  <h2 class="text-[28px] leading-tight font-medium">Você já esperou tempo demais.</h2>
  <p class="text-ev-grafite">Comece agora. Em 4 minutos você sabe o próximo passo.</p>
  <a href="#" data-cta="final" class="cta h-12 bg-ev-escuro text-white rounded-full font-medium flex items-center justify-center gap-2 shadow-md">
@@ -199,7 +228,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
   <span data-path="novo">Fazer meu teste gratuito</span>
   <span class="ms text-[18px]">arrow_forward</span>
  </a>
- <div class="grid grid-cols-2 gap-2 text-[11px] font-medium">
+ <div class="badges grid grid-cols-2 gap-2 text-[11px] font-medium">
   <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">lock</span>Sigilo médico &amp; LGPD</div>
   <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">local_shipping</span>Frete grátis</div>
   <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">badge</span>Psiquiatras com RQE</div>
@@ -274,7 +303,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
     path = p;
     document.body.classList.remove('p-ja','p-novo');
     document.body.classList.add('p-'+p);
-    document.querySelectorAll('.chip').forEach(function(b){
+    document.querySelectorAll('.path-chip').forEach(function(b){
       b.setAttribute('aria-pressed', b.dataset.set === p ? 'true' : 'false');
     });
     updateLinks();
@@ -287,7 +316,7 @@ body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
       a.href = QUIZ + '?' + u.toString();
     });
   }
-  document.querySelectorAll('.chip').forEach(function(b){
+  document.querySelectorAll('.path-chip').forEach(function(b){
     b.addEventListener('click', function(){ setPath(b.dataset.set); });
   });
   setPath(path);
