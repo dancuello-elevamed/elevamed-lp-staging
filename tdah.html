@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta name="robots" content="noindex, nofollow"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Elevamed · Tratamento para TDAH com psiquiatra online</title>
+<meta name="description" content="Consulta com psiquiatra online, receita digital e entrega em casa com frete grátis. Você só paga se o médico aprovar."/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{
+ "ev-escuro":"#213632","ev-escuro-2":"#2F4A44","ev-grafite":"#28342F","ev-cinza":"#56675C",
+ "ev-salvia":"#CBD9B7","ev-salvia-2":"#EEF2E6","ev-off":"#F7F8F3","ev-linha":"#DDE3D2",
+ "ev-ambar":"#F5C443","ev-alerta":"#C97B70","ev-texto-claro":"#DCE5CC",
+ "surface":"#f9faf5","surface-low":"#f3f4ef","surface-mid":"#edeee9","muted":"#424846"}}}};
+</script>
+<style>
+html,body{margin:0;background:#f9faf5;overscroll-behavior:none}
+body{font-family:Lexend,sans-serif;font-weight:300;color:#1a1c19}
+.eyebrow{font-family:Michroma,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;line-height:1;display:inline-block;-webkit-font-smoothing:antialiased}
+.fill{font-variation-settings:'FILL' 1}
+.wrap{max-width:560px;margin:0 auto}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee{animation:marquee 30s linear infinite}
+@media (prefers-reduced-motion:reduce){.marquee{animation:none}}
+/* Bifurcação: conteúdo por caminho */
+[data-path]{display:none}
+body.p-ja [data-path="ja"], body.p-novo [data-path="novo"]{display:block}
+body:not(.p-ja):not(.p-novo) [data-path="novo"]{display:block} /* padrão */
+.chip[aria-pressed="true"]{background:#213632;color:#fff;border-color:#213632}
+::-webkit-scrollbar{display:none}
+</style>
+<link rel="stylesheet" href="marca.css">
+</head>
+<body class="min-h-screen pb-24">
+
+<!-- Header -->
+<header class="sticky top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,.04)]">
+ <div class="wrap h-16 px-4 flex items-center justify-between">
+  <!-- TROCAR pelo logo oficial -->
+  <img src="img/logo.webp" alt="Elevamed" class="h-7 w-auto">
+  <a href="#" data-cta="header" class="cta text-sm font-medium bg-ev-escuro text-white rounded-full px-4 py-2">Começar</a>
+ </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<!-- Faixa -->
+<aside class="bg-ev-escuro text-ev-texto-claro py-2.5 px-3 text-center">
+ <p class="eyebrow text-[10px] flex items-center justify-center gap-1.5">
+  <span class="w-1.5 h-1.5 rounded-full bg-ev-ambar animate-pulse"></span>
+  Psiquiatra online • Receita digital • Frete grátis
+ </p>
+</aside>
+
+<!-- ═══ HERO + BIFURCAÇÃO ═══ -->
+<section class="bg-ev-salvia text-ev-escuro px-4 pt-8 pb-7 flex flex-col gap-5">
+ <span class="self-start inline-flex items-center gap-1.5 bg-ev-salvia-2 px-3 py-1 rounded-full eyebrow text-[10px]">
+  <span class="ms text-[14px]">verified_user</span>TDAH em adultos
+ </span>
+ <h1 class="text-[30px] leading-[1.15] font-medium tracking-tight">
+  Tratamento para TDAH com psiquiatra online e entrega em casa.
+ </h1>
+
+ <!-- Escolha do caminho -->
+ <div class="flex flex-col gap-2">
+  <p class="text-sm font-medium">Qual é o seu momento?</p>
+  <div class="grid grid-cols-2 gap-2" role="group" aria-label="Escolha seu caminho">
+   <button type="button" class="chip h-14 rounded-2xl border-2 border-ev-escuro/30 bg-ev-salvia-2 font-medium text-sm leading-tight px-2" data-set="ja" aria-pressed="false">Já faço<br/>tratamento</button>
+   <button type="button" class="chip h-14 rounded-2xl border-2 border-ev-escuro/30 bg-ev-salvia-2 font-medium text-sm leading-tight px-2" data-set="novo" aria-pressed="true">Quero<br/>começar</button>
+  </div>
+ </div>
+
+ <!-- Mensagem do caminho -->
+ <div data-path="ja">
+  <p class="text-lg text-ev-grafite">Não deixe seu tratamento parar por causa de fila de consulta. Fale com um psiquiatra online e receba em casa, se ele aprovar.</p>
+ </div>
+ <div data-path="novo">
+  <p class="text-lg text-ev-grafite">Não é preguiça. Descubra com um psiquiatra o que acontece com você e, se houver indicação, comece o tratamento sem sair de casa.</p>
+ </div>
+
+ <!-- O que você recebe -->
+ <ul class="flex flex-col gap-2.5 bg-ev-salvia-2/70 p-4 rounded-xl text-sm font-medium">
+  <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Avaliação médica gratuita</li>
+  <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Consulta com psiquiatra online, sem fila</li>
+  <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Tratamento prescrito pelo médico, com receita digital</li>
+  <li class="flex gap-2.5"><span class="ms fill text-[18px]">check_circle</span>Entrega em casa com frete grátis</li>
+ </ul>
+
+ <div class="flex flex-col gap-2">
+  <a href="#" data-cta="hero" class="cta h-12 bg-ev-escuro text-white rounded-full font-medium flex items-center justify-center gap-2 shadow-sm active:bg-ev-escuro-2">
+   <span data-path="ja">Continuar meu tratamento</span>
+   <span data-path="novo">Fazer meu teste gratuito</span>
+   <span class="ms text-[18px]">arrow_forward</span>
+  </a>
+  <p class="text-xs text-center text-ev-grafite">⏱️ Cerca de 4 minutos • <strong>Você só paga se o médico aprovar</strong></p>
+ </div>
+</section>
+
+<!-- Ticker -->
+<div class="bg-ev-ambar text-ev-escuro py-2.5 overflow-hidden select-none" aria-hidden="true">
+ <div class="marquee flex w-max gap-6 eyebrow text-[11px] whitespace-nowrap">
+  <span>Avaliação inclusa ✦ Psiquiatra online ✦ Receita digital ✦ Entrega em casa ✦ Paga só se o médico aprovar ✦</span>
+  <span>Avaliação inclusa ✦ Psiquiatra online ✦ Receita digital ✦ Entrega em casa ✦ Paga só se o médico aprovar ✦</span>
+ </div>
+</div>
+
+<!-- ═══ TRANSPARÊNCIA (antes do cartão) ═══ -->
+<section class="px-4 py-8 bg-ev-off">
+ <div class="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-ev-ambar flex flex-col gap-2">
+  <h2 class="font-semibold text-ev-escuro flex items-center gap-2"><span class="ms text-[20px]">handshake</span>Combinado claro, antes de tudo</h2>
+  <p class="text-sm text-muted">O psiquiatra define o tratamento mais seguro para o seu caso. <strong>Ele pode ser diferente do que você usa hoje ou do que pesquisou.</strong> Se não fizer sentido para você, você não paga o plano.</p>
+ </div>
+</section>
+
+<!-- ═══ COMO FUNCIONA (muda por caminho) ═══ -->
+<section id="como-funciona" class="px-4 py-10 bg-ev-off flex flex-col gap-6 pt-2">
+ <div class="flex flex-col gap-2">
+  <span class="eyebrow text-ev-cinza">Como funciona</span>
+  <h2 class="text-2xl font-medium text-ev-escuro">4 passos, tudo online</h2>
+ </div>
+
+ <ol data-path="ja" class="flex-col gap-3">
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">01</span><div><h3 class="font-medium">Conte seu histórico</h3><p class="text-sm text-muted">Questionário rápido. Se tiver, envie uma foto da receita ou do laudo atual.</p></div></li>
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">02</span><div><h3 class="font-medium">Consulta por vídeo</h3><p class="text-sm text-muted">Psiquiatra com RQE revisa seu tratamento em até <strong>[X] dias</strong>.</p></div></li>
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">03</span><div><h3 class="font-medium">Receita digital</h3><p class="text-sm text-muted">Se aprovado, receita com assinatura ICP-Brasil no mesmo dia.</p></div></li>
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5"><span class="eyebrow text-base text-ev-escuro">04</span><div><h3 class="font-medium">Entrega e acompanhamento</h3><p class="text-sm text-muted">Em casa em até <strong>[X] dias úteis</strong>, com canal direto para ajustes.</p></div></li>
+ </ol>
+
+ <ol data-path="novo" class="flex-col gap-3">
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">01</span><div><h3 class="font-medium">Teste gratuito</h3><p class="text-sm text-muted">Baseado na escala da OMS (ASRS-1.1), com resultado na hora.</p></div></li>
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">02</span><div><h3 class="font-medium">Consulta por vídeo</h3><p class="text-sm text-muted">Psiquiatra com RQE avalia seu caso em até <strong>[X] dias</strong>, olhando também ansiedade e outras hipóteses.</p></div></li>
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5 mb-3"><span class="eyebrow text-base text-ev-escuro">03</span><div><h3 class="font-medium">Receita digital</h3><p class="text-sm text-muted">Se houver indicação, receita com assinatura ICP-Brasil.</p></div></li>
+  <li class="bg-white p-4 rounded-2xl shadow-sm flex gap-3.5"><span class="eyebrow text-base text-ev-escuro">04</span><div><h3 class="font-medium">Entrega e acompanhamento</h3><p class="text-sm text-muted">Em casa em até <strong>[X] dias úteis</strong>, com o médico acompanhando as primeiras semanas.</p></div></li>
+ </ol>
+ <p class="text-[11px] text-ev-cinza">O teste orienta; quem confirma é o médico. Não substitui avaliação clínica.</p>
+</section>
+
+<!-- ═══ COMPARE ═══ -->
+<section id="compare" class="px-4 py-10 bg-surface-mid flex flex-col gap-6">
+ <div class="flex flex-col gap-2">
+  <span class="eyebrow text-ev-cinza">Compare</span>
+  <h2 class="text-2xl font-medium text-ev-escuro">O que está incluso em cada caminho</h2>
+ </div>
+ <div class="bg-white rounded-2xl shadow-sm overflow-hidden text-sm">
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] bg-ev-escuro text-white eyebrow text-[9px]">
+   <div class="p-3">Item</div><div class="p-3 text-center">Consultório</div><div class="p-3 text-center text-ev-salvia">Elevamed</div>
+  </div>
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ev-linha"><div class="p-3">Consulta com psiquiatra</div><div class="p-3 text-center text-ev-alerta">~R$ 850 à parte</div><div class="p-3 text-center font-medium">Inclusa</div></div>
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ev-linha"><div class="p-3">Espera</div><div class="p-3 text-center text-ev-alerta">Semanas ou meses</div><div class="p-3 text-center font-medium">Até [X] dias</div></div>
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ev-linha"><div class="p-3">Receita</div><div class="p-3 text-center">Papel</div><div class="p-3 text-center font-medium">Digital</div></div>
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ev-linha"><div class="p-3">Entrega em casa</div><div class="p-3 text-center text-ev-alerta">✕</div><div class="p-3 text-center font-medium">✓ Frete grátis</div></div>
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ev-linha"><div class="p-3">Acompanhamento</div><div class="p-3 text-center text-ev-alerta">Só no retorno</div><div class="p-3 text-center font-medium">✓ Contínuo</div></div>
+  <div class="grid grid-cols-[1.3fr_1fr_1fr] border-t border-ev-linha"><div class="p-3">Paga só se aprovado</div><div class="p-3 text-center text-ev-alerta">✕</div><div class="p-3 text-center font-medium">✓</div></div>
+ </div>
+</section>
+
+<!-- ═══ PROVAS (placeholder) ═══ -->
+<section class="px-4 py-10 bg-ev-off flex flex-col gap-4">
+ <span class="eyebrow text-ev-cinza">Quem já passou por aqui</span>
+ <!-- PREENCHER com depoimentos reais autorizados. Não inventar. -->
+ <div class="bg-white rounded-2xl p-4 shadow-sm text-sm text-muted italic border border-dashed border-ev-linha">[Depoimento real 1 — tema "finalmente entendi", nome e cidade com autorização]</div>
+ <div class="bg-white rounded-2xl p-4 shadow-sm text-sm text-muted italic border border-dashed border-ev-linha">[Depoimento real 2 — tema "não precisei esperar meses"]</div>
+</section>
+
+<!-- ═══ E SE NÃO FOR TDAH (diferencial) ═══ -->
+<section class="px-4 py-10 bg-ev-escuro text-white flex flex-col gap-3">
+ <span class="eyebrow text-ev-salvia">Sem risco</span>
+ <h2 class="text-2xl font-medium">E se o médico disser que não é TDAH?</h2>
+ <p class="text-ev-texto-claro">Você sai sabendo o que é e com a orientação certa. Às vezes é ansiedade, esgotamento ou outra causa. <strong class="text-white">E você não paga o plano.</strong></p>
+</section>
+
+<!-- ═══ DÚVIDAS ═══ -->
+<section id="faq" class="px-4 py-10 bg-ev-off flex flex-col gap-6">
+ <div class="flex flex-col gap-2">
+  <span class="eyebrow text-ev-cinza">Dúvidas</span>
+  <h2 class="text-2xl font-medium text-ev-escuro">Antes de começar</h2>
+ </div>
+ <div class="flex flex-col gap-3">
+  <details class="bg-white rounded-2xl p-4 shadow-sm" open><summary class="font-medium cursor-pointer">Vou receber o mesmo tratamento que uso hoje?</summary><p class="text-sm text-muted pt-2">O psiquiatra revisa seu histórico e define o tratamento mais seguro para você, que pode ser o mesmo ou outro. Envie sua receita atual no questionário para ele avaliar.</p></details>
+  <details class="bg-white rounded-2xl p-4 shadow-sm"><summary class="font-medium cursor-pointer">Preciso de laudo ou diagnóstico anterior?</summary><p class="text-sm text-muted pt-2">Não. Se tiver, ajuda. Se não tiver, a avaliação começa do zero.</p></details>
+  <details class="bg-white rounded-2xl p-4 shadow-sm"><summary class="font-medium cursor-pointer">Quando eu pago?</summary><p class="text-sm text-muted pt-2">O cartão é só pré-autorizado depois do questionário. A cobrança acontece apenas se o médico aprovar o tratamento.</p></details>
+  <details class="bg-white rounded-2xl p-4 shadow-sm"><summary class="font-medium cursor-pointer">Posso cancelar?</summary><p class="text-sm text-muted pt-2">Sim, antes do envio. Como o tratamento é preparado para você, a produção começa só depois da sua confirmação.</p></details>
+  <details class="bg-white rounded-2xl p-4 shadow-sm"><summary class="font-medium cursor-pointer">A entrega é discreta?</summary><p class="text-sm text-muted pt-2">Sim. Embalagem sem identificação externa, com rastreio.</p></details>
+  <!-- Respostas sobre efeitos e segurança do tratamento: só com revisão do diretor médico -->
+ </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="px-4 py-10 bg-ev-salvia text-ev-escuro flex flex-col gap-5">
+ <h2 class="text-[28px] leading-tight font-medium">Você já esperou tempo demais.</h2>
+ <p class="text-ev-grafite">Comece agora. Em 4 minutos você sabe o próximo passo.</p>
+ <a href="#" data-cta="final" class="cta h-12 bg-ev-escuro text-white rounded-full font-medium flex items-center justify-center gap-2 shadow-md">
+  <span data-path="ja">Continuar meu tratamento</span>
+  <span data-path="novo">Fazer meu teste gratuito</span>
+  <span class="ms text-[18px]">arrow_forward</span>
+ </a>
+ <div class="grid grid-cols-2 gap-2 text-[11px] font-medium">
+  <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">lock</span>Sigilo médico &amp; LGPD</div>
+  <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">local_shipping</span>Frete grátis</div>
+  <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">badge</span>Psiquiatras com RQE</div>
+  <div class="bg-ev-salvia-2 p-2.5 rounded-xl flex items-center gap-2"><span class="ms text-[18px]">verified</span>Receita digital ICP-Brasil</div>
+ </div>
+</section>
+
+</div>
+</main>
+
+<footer class="ft" id="rodape">
+<div class="ft-in">
+<div class="ft-topo">
+<div class="ft-duvida">
+<p class="ft-titulo">Ficou alguma dúvida?</p>
+<a class="ft-ajuda" href="#faq">
+<span class="ft-ico" aria-hidden="true">?</span>
+<span><b>Visite nossa central de ajuda</b><small>Encontre respostas para as suas perguntas</small></span>
+</a>
+</div>
+<nav class="ft-col" aria-label="Tratamentos">
+<p class="ft-rotulo">Tratamentos</p>
+<a href="tratamentos.html">Queda capilar</a>
+<a href="minoxidil.html">Minoxidil</a>
+<a href="tdah.html">TDAH</a>
+</nav>
+<nav class="ft-col" aria-label="Elevamed">
+<p class="ft-rotulo">Elevamed</p>
+<a href="#como-funciona">Como funciona</a>
+<a href="#compare">Compare</a>
+</nav>
+<nav class="ft-col" aria-label="Suporte">
+<p class="ft-rotulo">Suporte</p>
+<a href="#faq">Perguntas frequentes</a>
+<a href="avaliacao.html?origem=tdah-receita-rodape">Começar avaliação</a>
+<a href="termos.html#privacidade">Política de privacidade</a>
+<a href="termos.html#termos-de-uso">Termos de uso</a>
+<a href="promocional.html">Termos promocionais</a>
+</nav>
+</div>
+<div class="ft-marca">
+<img src="img/logo-claro.webp" alt="Elevamed" width="150">
+<p class="ft-assina">Cuidado em outro nível</p>
+<a class="ft-social" href="https://www.instagram.com/elevamedsaude/" rel="noopener" aria-label="Instagram da Elevamed">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+</a>
+</div>
+<div class="ft-legal">
+<div class="ft-farmacia">
+<span class="ft-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+<span><b>Seja uma farmácia credenciada:</b><small><a href="mailto:sejafarmaciaparceira@elevamedbr.com" style="color: inherit; font-weight: 500;">sejafarmaciaparceira@elevamedbr.com</a></small></span>
+</div>
+<p>A Elevamed não é uma farmácia. Os produtos são manipulados por farmácias credenciadas, de acordo com as normas da Anvisa.</p>
+<p class="ft-copy">© 2026 Elevamed. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp humano fixo -->
+<a href="https://wa.me/55[NUMERO]?text=Oi!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20tratamento%20de%20TDAH" target="_blank" rel="noopener"
+   data-cta="whatsapp" class="fixed bottom-5 right-4 z-50 h-12 px-4 rounded-full bg-[#25D366] text-white text-sm font-medium flex items-center gap-2 shadow-lg">
+ <span class="ms text-[20px]">chat</span>Tirar dúvida
+</a>
+
+<script>
+(function(){
+  var QUIZ = 'avaliacao.html';           // destino do quiz
+  var qs = new URLSearchParams(location.search);
+  var path = qs.get('p') === 'ja' ? 'ja' : 'novo';  // ?p=ja força renovação
+
+  function setPath(p){
+    path = p;
+    document.body.classList.remove('p-ja','p-novo');
+    document.body.classList.add('p-'+p);
+    document.querySelectorAll('.chip').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.set === p ? 'true' : 'false');
+    });
+    updateLinks();
+  }
+  function updateLinks(){
+    document.querySelectorAll('a.cta').forEach(function(a){
+      var u = new URLSearchParams(qs);    // repassa utm/gclid
+      u.set('origem','tdah-receita-'+a.dataset.cta);
+      u.set('caminho', path);
+      a.href = QUIZ + '?' + u.toString();
+    });
+  }
+  document.querySelectorAll('.chip').forEach(function(b){
+    b.addEventListener('click', function(){ setPath(b.dataset.set); });
+  });
+  setPath(path);
+})();
+</script>
+</body>
+</html>
