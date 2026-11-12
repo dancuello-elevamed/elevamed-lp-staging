@@ -293,14 +293,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div style="flex: 1 1 420px; min-width: 0; background: #213632; color: #FFFFFF; border-radius: 10px; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
         <span style="font-family: 'Michroma', sans-serif; font-size: 11px; letter-spacing: 0.22em; color: #CBD9B7;">O QUE ESPERAR, SEM ANSIEDADE</span>
-        <p style="margin: 0; font-size: 20px; font-weight: 500;">Cabelo não cresce da noite para o dia. Veja o caminho real.</p>
+        <p style="margin: 0; font-size: 20px; font-weight: 500;">Veja em 8 segundos o que o bloqueador faz.</p>
         <div class="cic">
-          <div class="cic-v"><video id="cic-vid" src="video/ciclo-capilar.mp4" poster="img/ciclo-capilar-poster.webp" muted loop playsinline autoplay preload="metadata" aria-label="Animação das fases do ciclo de crescimento do fio"></video><span class="cic-tag" id="cic-tag" aria-hidden="true">Fase anágena · crescimento</span></div>
-          <div class="cic-bs" role="group" aria-label="Fases do ciclo do fio"><button type="button" class="cic-b" data-t="0"><b>1</b>Anágena</button><button type="button" class="cic-b" data-t="6.3"><b>2</b>Catágena</button><button type="button" class="cic-b" data-t="12.2"><b>3</b>Telógena</button><button type="button" class="cic-b" data-t="15.8"><b>4</b>Novo ciclo</button></div>
-          <div class="cic-x" aria-live="polite"><strong id="cic-n">Fase anágena</strong><span class="cic-d" id="cic-d">2 a 6 anos</span><p id="cic-t">O fio cresce sem parar, nutrido pelos vasos na base do folículo. Cerca de 85% a 90% dos seus fios estão nesta fase agora.</p></div>
-          <small class="cic-cr">Animação: Perolo31, supervisão Dr. Álvaro Vargas Nevado (Wikimedia Commons), <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.pt" target="_blank" rel="noopener">CC BY-SA 3.0</a>. Legendas adaptadas.</small>
+          <div class="cic-v"><video id="cic-vid" src="video/dht-mecanismo.mp4" poster="img/dht-mecanismo-poster.webp" muted loop playsinline autoplay preload="metadata" aria-label="Animação: o DHT encolhe o folículo e o bloqueador protege o fio"></video><span class="cic-tag" id="cic-tag" aria-hidden="true">Fio saudável</span></div>
+          <div class="cic-bs" role="group" aria-label="Etapas do mecanismo"><button type="button" class="cic-b" data-t="0"><b>1</b>Fio saudável</button><button type="button" class="cic-b" data-t="1.2"><b>2</b>DHT age</button><button type="button" class="cic-b" data-t="3.8"><b>3</b>Bloqueio</button><button type="button" class="cic-b" data-t="6"><b>4</b>Fio volta</button></div>
+          <div class="cic-x" aria-live="polite"><strong id="cic-n">Fio saudável</strong><span class="cic-d" id="cic-d">Antes</span><p id="cic-t">O folículo está cheio e o fio cresce grosso e firme.</p></div>
+          
         </div>
-        <p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; color: #CBD9B7;">Por isso o resultado aparece entre o 3º e o 4º mês: o tratamento age no próximo ciclo do fio.</p>
+        <p style="margin: 6px 0 0; font-size: 15px; font-weight: 500; color: #CBD9B7;">Resultados variam de pessoa para pessoa. Tratamento sempre a critério médico.</p>
         <span style="margin-top:10px;padding-top:18px;border-top:1px solid #3a4f49;font-family:'Michroma',sans-serif;font-size:11px;letter-spacing:.2em;color:#CBD9B7">E NO SEU TRATAMENTO</span>
         <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;" role="group" aria-label="Escolha o mês do tratamento">
           <button type="button" class="fase-btn" data-i="0">Mês 1</button><button type="button" class="fase-btn" data-i="1">Mês 4</button><button type="button" class="fase-btn" data-i="2">Mês 12</button>
@@ -462,11 +462,11 @@ const D=[["Mês 1", "Adaptação", "Primeiras semanas", "Nada visível ainda, e 
 const B=document.querySelectorAll('.fase-btn');
 function set(i){B.forEach((b,k)=>{b.setAttribute('aria-pressed',k===i);b.classList.toggle('on',k===i)});['f-mes','f-nome','f-dur','f-txt'].forEach((id,j)=>{const el=document.getElementById(id);if(el)el.textContent=D[i][j]})}
 B.forEach(b=>b.addEventListener('click',()=>set(+b.dataset.i)));set(0);
-const CP=[[0, "Anágena", "Crescimento", "2 a 6 anos", "O fio cresce sem parar, nutrido pelos vasos na base do folículo. Cerca de 85% a 90% dos seus fios estão nesta fase agora."], [6.3, "Catágena", "Transição", "2 a 3 semanas", "O folículo encolhe e o fio para de crescer. É uma pausa curta antes do repouso."], [12.2, "Telógena", "Repouso e queda", "Cerca de 3 meses", "O fio se solta e cai. Perder de 50 a 100 fios por dia é normal: são os fios desta fase."], [15.8, "Novo ciclo", "Volta a crescer", "Recomeça", "O mesmo folículo produz um fio novo. Na calvície, o DHT encurta o crescimento a cada ciclo e o fio volta mais fino. É aqui que o tratamento age."]];
+const CP=[[0,"Fio saudável","Antes","Antes","O folículo está cheio e o fio cresce grosso e firme."],[1.2,"DHT age","Encolhimento","A cada ciclo","O DHT se liga ao folículo e ele encolhe. O fio nasce mais fino a cada ciclo."],[3.8,"Bloqueio","Tratamento","Com o bloqueador","A finasterida ou a dutasterida reduz o DHT. Uma barreira protege o folículo."],[6,"Fio volta","Recuperação","Do 3º ao 4º mês","Protegido, o folículo volta a crescer e o fio engrossa. Por isso o kit tem 4 meses."]];
 (function(){const v=document.getElementById('cic-vid');if(!v)return;const bs=document.querySelectorAll('.cic-b');let cur=-1;
 function show(i){if(i===cur)return;cur=i;const p=CP[i];bs.forEach((b,k)=>{b.classList.toggle('on',k===i);b.setAttribute('aria-pressed',k===i)});
-document.getElementById('cic-n').textContent=i===3?'Novo ciclo':'Fase '+p[1].toLowerCase();document.getElementById('cic-d').textContent=p[3];document.getElementById('cic-t').textContent=p[4];
-document.getElementById('cic-tag').textContent=(i===3?'Novo ciclo':'Fase '+p[1].toLowerCase())+' · '+p[2].toLowerCase();}
+document.getElementById('cic-n').textContent=p[1];document.getElementById('cic-d').textContent=p[3];document.getElementById('cic-t').textContent=p[4];
+document.getElementById('cic-tag').textContent=p[1]+' · '+p[2].toLowerCase();}
 function at(t){let i=0;CP.forEach((p,k)=>{if(t>=p[0])i=k});return i}
 v.addEventListener('timeupdate',()=>show(at(v.currentTime)));
 bs.forEach((b,k)=>b.addEventListener('click',()=>{v.currentTime=CP[k][0]+.05;show(k);v.play().catch(()=>{})}));
