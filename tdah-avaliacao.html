@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Elevamed · Avaliação inicial TDAH</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Michroma&display=swap" rel="stylesheet"/>
+<style>
+:root{--esc:#213632;--esc2:#2F4A44;--gra:#28342F;--cin:#56675C;--sal:#CBD9B7;--sal2:#EEF2E6;--off:#F7F8F3;--lin:#DDE3D2;--amb:#F5C443}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--off);color:var(--gra);font:300 16px/1.6 Lexend,sans-serif;-webkit-font-smoothing:antialiased}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--lin);background:var(--off);position:sticky;top:0;z-index:5}
+header img{height:22px}
+header small{font-size:12px;color:var(--cin)}
+main{max-width:640px;margin:0 auto;padding:40px 20px 80px}
+h1{font-weight:500;font-size:clamp(28px,5vw,40px);line-height:1.15;letter-spacing:-.02em;color:var(--esc);margin:0 0 14px}
+h2{font-weight:500;font-size:clamp(22px,4vw,28px);line-height:1.25;letter-spacing:-.01em;color:var(--esc);margin:0 0 8px}
+p{margin:0 0 16px}
+.sub{color:var(--cin);font-size:14px;margin-bottom:20px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border-radius:999px;border:0;background:var(--esc);color:#fff;font:500 16px Lexend,sans-serif;cursor:pointer;text-decoration:none;padding:0 22px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--esc);border:1.5px solid var(--esc)}
+.btn.start{width:auto;justify-content:space-between;min-width:220px}
+.btn.start span.arr{width:32px;height:32px;border-radius:50%;background:var(--sal);color:var(--esc);display:grid;place-items:center}
+.stack{display:flex;flex-direction:column;gap:10px}
+.opt{width:100%;text-align:left;background:#fff;border:1.5px solid var(--lin);border-radius:14px;padding:16px 18px;font:400 15px Lexend,sans-serif;color:var(--gra);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--cin)}
+.opt[aria-pressed="true"]{border-color:var(--esc);background:var(--sal2);font-weight:500}
+.progress-label{font-size:12px;color:var(--cin);margin-bottom:6px;display:flex;justify-content:space-between}
+.bar{height:4px;background:var(--lin);border-radius:4px;margin-bottom:28px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--esc);width:0;transition:width .3s ease}
+.back{background:none;border:0;color:var(--cin);font:400 14px Lexend,sans-serif;cursor:pointer;padding:8px 0;margin-top:18px}
+.note{background:var(--sal);border-radius:14px;padding:16px 18px;font-size:14px;margin-bottom:20px}
+.note b{display:block;color:var(--esc);margin-bottom:2px}
+.check{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1.5px solid var(--lin);border-radius:12px;padding:14px 16px;font-size:14px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--esc);margin-top:2px;flex:none}
+.check a,.link{color:var(--esc);font-weight:500}
+label.f{display:block;font-size:14px;font-weight:500;color:var(--esc);margin:14px 0 6px}
+input.t,textarea.t{width:100%;border:1.5px solid var(--lin);border-radius:12px;padding:14px 16px;font:300 15px Lexend,sans-serif;background:#fff;color:var(--gra)}
+input.t:focus,textarea.t:focus,.opt:focus-visible,.btn:focus-visible{outline:2px solid var(--esc);outline-offset:2px}
+.drop{border:1.5px dashed var(--cin);border-radius:14px;padding:22px;text-align:center;background:#fff;font-size:14px;cursor:pointer}
+.pill{display:inline-block;background:var(--sal);color:var(--esc);font-size:12px;font-weight:500;padding:4px 12px;border-radius:999px;margin-bottom:14px}
+details{margin-top:26px;font-size:14px;color:var(--cin)}
+summary{cursor:pointer}
+.tiny{font-size:12px;color:var(--cin);margin-top:14px}
+.step{animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.step{animation:none}.bar i{transition:none}}
+@media (min-width:1024px){main{padding-top:72px}}
+</style>
+</head>
+<body>
+<header>
+ <a href="tdah.html"><img src="img/logo.webp" alt="Elevamed"></a>
+ <small>Avaliação inicial · TDAH</small>
+</header>
+<main id="app" aria-live="polite"></main>
+
+<script>
+(function(){
+  // Answer scale shared by the six ASRS-18 Part A items
+  var SCALE = ['Nunca','Raramente','Às vezes','Frequentemente','Muito frequentemente'];
+  // Part A items; "min" is the lowest option index that scores one point (WHO shaded boxes)
+  var ASRS = [
+    {q:'Com que frequência você tem dificuldade para finalizar os últimos detalhes de um projeto, depois de concluir as partes mais difíceis?', min:2},
+    {q:'Com que frequência você tem dificuldade para colocar as coisas em ordem quando precisa realizar uma tarefa que exige organização?', min:2},
+    {q:'Com que frequência você tem problemas para lembrar de compromissos ou obrigações?', min:2},
+    {q:'Quando precisa realizar uma tarefa que exige muita reflexão, com que frequência você evita ou adia o início?', min:3},
+    {q:'Com que frequência você fica mexendo as mãos ou os pés, ou se remexendo na cadeira, quando precisa ficar sentado(a) por muito tempo?', min:3},
+    {q:'Com que frequência você se sente excessivamente ativo(a) e compelido(a) a fazer coisas, como se estivesse com um motor ligado?', min:3}
+  ];
+  var HINT = 'Escolha a opção que mais se aproxima da sua experiência.';
+  var params = new URLSearchParams(location.search);
+  var state = {answers:{}, history:[]};
+  var app = document.getElementById('app');
+
+  // Progress estimate per screen (worst case path has 9 question screens)
+  var ORDER = ['sex','pregnancy','diagnosis','medication','medInfo','report','asrs0','asrs1','asrs2','asrs3','asrs4','asrs5'];
+
+  function go(id, push){
+    if(push !== false && state.current) state.history.push(state.current);
+    state.current = id;
+    render(id);
+    window.scrollTo(0,0);
+    track('quiz_step', {step:id});
+  }
+  function back(){ if(state.history.length){ state.current = state.history.pop(); render(state.current); } }
+  function track(name, data){ try{ (window.dataLayer = window.dataLayer || []).push(Object.assign({event:name, quiz:'tdah'}, data||{})); }catch(e){} }
+
+  function progress(id){
+    var i = ORDER.indexOf(id); if(i < 0) return '';
+    var pct = Math.round(((i+1)/ORDER.length)*100);
+    return '<div class="progress-label"><span>No seu ritmo</span><span>'+pct+'%</span></div><div class="bar"><i style="width:'+pct+'%"></i></div>';
+  }
+  function backBtn(){ return state.history.length ? '<button class="back" data-act="back">← Voltar</button>' : ''; }
+
+  function question(id, title, options, onPick, hint){
+    var html = progress(id) + '<div class="step"><h2>'+title+'</h2><p class="sub">'+(hint||HINT)+'</p><div class="stack">';
+    options.forEach(function(o,i){
+      var sel = state.answers[id] === i ? 'true' : 'false';
+      html += '<button class="opt" data-i="'+i+'" aria-pressed="'+sel+'">'+o+'</button>';
+    });
+    app.innerHTML = html + '</div>' + backBtn() + '</div>';
+    app.querySelectorAll('.opt').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = +b.dataset.i; state.answers[id] = i;
+        app.querySelectorAll('.opt').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+        setTimeout(function(){ onPick(i); }, 180);
+      });
+    });
+    wireBack();
+  }
+  function wireBack(){ var b = app.querySelector('[data-act="back"]'); if(b) b.addEventListener('click', back); }
+
+  function asrsScore(){
+    return ASRS.reduce(function(sum, item, i){ var a = state.answers['asrs'+i]; return sum + (a >= item.min ? 1 : 0); }, 0);
+  }
+
+  var screens = {
+    intro: function(){
+      app.innerHTML = '<div class="step"><h1>Um passo para entender melhor o seu dia a dia.</h1>'+
+        '<p class="sub" style="font-size:16px">Responda pensando em como essas situações aparecem na sua rotina. Uma pergunta por vez, com espaço para você.</p>'+
+        '<button class="btn start" data-act="next">Começar <span class="arr">→</span></button>'+
+        '<details><summary>Como funciona esta avaliação</summary><p style="margin-top:10px">São poucas perguntas sobre seu momento de saúde e, se for o caso, seis perguntas da escala de rastreio da OMS para TDAH em adultos (ASRS-18, parte A). O resultado orienta o próximo passo. Quem confirma qualquer diagnóstico é o médico, em consulta.</p></details></div>';
+      app.querySelector('[data-act="next"]').addEventListener('click', function(){ track('quiz_start'); go('consent'); });
+    },
+    consent: function(){
+      app.innerHTML = '<div class="step"><h1>Antes de começar</h1>'+
+        '<p class="sub" style="font-size:16px">Esta etapa organiza o caminho para uma avaliação médica. A triagem não é consulta, não gera diagnóstico e não indica medicamento automaticamente.</p>'+
+        '<div class="note"><b>Ambiente de homologação</b>Esta é uma versão de teste. Use somente dados fictícios: isto não é um atendimento real.</div>'+
+        '<p class="tiny" style="margin:0 0 10px">A Elevamed é a controladora dos dados de saúde tratados nesta avaliação.</p>'+
+        '<div class="stack"><label class="check"><input type="checkbox" id="c1"> <span>Li e aceito os <a href="termos.html#termos-de-uso" target="_blank">Termos de Uso</a>.</span></label>'+
+        '<label class="check"><input type="checkbox" id="c2"> <span>Li e aceito a <a href="termos.html#privacidade" target="_blank">Política de Privacidade para tratamento de dados de saúde</a>.</span></label></div>'+
+        '<div style="margin-top:18px"><button class="btn" id="go" disabled>Continuar para a avaliação</button></div>'+
+        '<p class="tiny" style="text-align:center"><a class="link" href="#">Já tem uma conta? Entrar</a></p>'+backBtn()+'</div>';
+      var c1=app.querySelector('#c1'), c2=app.querySelector('#c2'), b=app.querySelector('#go');
+      function upd(){ b.disabled = !(c1.checked && c2.checked); }
+      c1.addEventListener('change',upd); c2.addEventListener('change',upd);
+      b.addEventListener('click', function(){ go('sex'); });
+      wireBack();
+    },
+    sex: function(){
+      question('sex','Qual é o seu sexo?',['Feminino','Masculino'], function(i){ go(i===0 ? 'pregnancy' : 'diagnosis'); });
+    },
+    pregnancy: function(){
+      question('pregnancy','Você está grávida, amamentando ou tentando engravidar?',['Sim','Não'], function(i){ go(i===0 ? 'endPregnancy' : 'diagnosis'); });
+    },
+    diagnosis: function(){
+      question('diagnosis','Você possui diagnóstico prévio de TDAH?',['Sim','Não'], function(i){ go(i===0 ? 'medication' : 'asrs0'); });
+    },
+    medication: function(){
+      question('medication','Você está em uso de algum medicamento?',['Sim','Não'], function(i){ go(i===0 ? 'medInfo' : 'report'); });
+    },
+    medInfo: function(){
+      var a = state.answers.med || {};
+      app.innerHTML = progress('medInfo') + '<div class="step"><h2>Conte sobre a sua medicação atual</h2><p class="sub">O psiquiatra usa essas informações para avaliar o seu caso com segurança.</p>'+
+        '<label class="f" for="m1">Nome do medicamento</label><input class="t" id="m1" value="'+(a.name||'')+'">'+
+        '<label class="f" for="m2">Posologia (dose e horário)</label><input class="t" id="m2" placeholder="Ex.: 1 vez ao dia, pela manhã" value="'+(a.dose||'')+'">'+
+        '<label class="f" for="m3">Há quanto tempo usa</label><input class="t" id="m3" placeholder="Ex.: 8 meses" value="'+(a.time||'')+'">'+
+        '<div style="margin-top:22px"><button class="btn" id="go" disabled>Continuar</button></div>'+backBtn()+'</div>';
+      var f = ['#m1','#m2','#m3'].map(function(s){ return app.querySelector(s); }), b = app.querySelector('#go');
+      function upd(){ b.disabled = !f.every(function(x){ return x.value.trim(); }); }
+      f.forEach(function(x){ x.addEventListener('input', upd); }); upd();
+      b.addEventListener('click', function(){ state.answers.med = {name:f[0].value, dose:f[1].value, time:f[2].value}; go('report'); });
+      wireBack();
+    },
+    report: function(){
+      app.innerHTML = progress('report') + '<div class="step"><h2>Anexe o laudo ou relatório do seu diagnóstico</h2><p class="sub">PDF ou foto legível. Se não tiver o documento agora, tudo bem: você segue para a teleconsulta e o médico avalia o seu caso.</p>'+
+        '<label class="drop" for="file"><b style="color:var(--esc)">Toque para escolher o arquivo</b><br><span id="fname">PDF, JPG ou PNG</span></label>'+
+        '<input type="file" id="file" accept=".pdf,image/*" hidden>'+
+        '<div class="stack" style="margin-top:20px"><button class="btn" id="go" disabled>Enviar e continuar</button>'+
+        '<button class="btn ghost" id="skip">Não tenho o documento agora</button></div>'+backBtn()+'</div>';
+      var file = app.querySelector('#file'), b = app.querySelector('#go');
+      file.addEventListener('change', function(){ if(file.files[0]){ app.querySelector('#fname').textContent = file.files[0].name; b.disabled = false; } });
+      b.addEventListener('click', function(){ state.answers.report = 'attached'; go('teleconsult'); });
+      app.querySelector('#skip').addEventListener('click', function(){ state.answers.report = 'none'; go('teleconsult'); });
+      wireBack();
+    },
+    teleconsult: function(){ track('quiz_result', {result:'teleconsult', score: state.current}); account('Seu próximo passo é a teleconsulta com psiquiatra.', 'Crie sua conta para salvar a avaliação e agendar a consulta. O médico revisa suas respostas antes de falar com você.'); },
+    endPregnancy: function(){
+      track('quiz_result', {result:'pregnancy'});
+      app.innerHTML = '<div class="step"><span class="pill">Avaliação encerrada</span><h1>Neste momento, o melhor cuidado é com seu médico de confiança.</h1>'+
+        '<p class="sub" style="font-size:16px">Durante a gestação, a amamentação ou a tentativa de engravidar, o acompanhamento de TDAH precisa ser feito de forma presencial e integrada ao seu pré-natal. Por segurança, não seguimos com esta avaliação online.</p>'+
+        '<div class="stack"><a class="btn ghost" href="tdah.html">Voltar para a página inicial</a></div>'+backBtn()+'</div>';
+      wireBack();
+    },
+    endNegative: function(){
+      track('quiz_result', {result:'negative', score: asrsScore()});
+      app.innerHTML = '<div class="step"><span class="pill">Resultado do rastreio</span><h1>Suas respostas indicam baixa probabilidade de TDAH.</h1>'+
+        '<p class="sub" style="font-size:16px">Isso não quer dizer que o que você sente não é real. Cansaço, ansiedade, sono ruim e sobrecarga também afetam a atenção. Se as dificuldades atrapalham sua rotina, vale conversar com um médico de confiança.</p>'+
+        '<p class="tiny">O ASRS-18 é um instrumento de rastreio. Não confirma nem descarta diagnóstico.</p>'+
+        '<div class="stack" style="margin-top:18px"><button class="btn ghost" id="redo">Refazer avaliação</button><a class="btn ghost" href="tdah.html">Voltar para a página inicial</a></div></div>';
+      app.querySelector('#redo').addEventListener('click', restart);
+    }
+  };
+  ASRS.forEach(function(item, i){
+    screens['asrs'+i] = function(){
+      question('asrs'+i, item.q, SCALE, function(){
+        if(i < ASRS.length-1) return go('asrs'+(i+1));
+        go(asrsScore() >= 4 ? 'positive' : 'endNegative');
+      });
+    };
+  });
+  screens.positive = function(){
+    track('quiz_result', {result:'positive', score: asrsScore()});
+    account('Suas respostas indicam a necessidade de uma avaliação com psiquiatra.', 'No rastreio da OMS, seus sintomas aparecem com frequência compatível com TDAH em adultos. O teste orienta; quem confirma é o médico. Crie sua conta para salvar a avaliação e agendar a teleconsulta.');
+  };
+
+  function account(title, text){
+    app.innerHTML = '<div class="step"><span class="pill">Avaliação concluída</span><h1>'+title+'</h1>'+
+      '<p class="sub" style="font-size:16px">'+text+'</p>'+
+      '<div class="stack"><button class="btn" data-acc="google">Continuar com Google</button>'+
+      '<button class="btn ghost" data-acc="email">Criar conta com e-mail e senha</button>'+
+      '<button class="btn ghost" id="redo">Refazer avaliação</button></div>'+
+      '<p class="tiny" style="text-align:center"><a class="link" href="#">Já tem uma conta? Entrar</a></p>'+
+      '<p class="tiny">Nome, e-mail pessoal, telefone e senha são coletados na página segura da Elevamed, não nesta tela.</p></div>';
+    app.querySelectorAll('[data-acc]').forEach(function(b){ b.addEventListener('click', function(){ track('quiz_account', {method:b.dataset.acc, origem: params.get('origem')||''}); b.textContent='Staging: aqui entra a criação de conta'; }); });
+    app.querySelector('#redo').addEventListener('click', restart);
+  }
+  function restart(){ state = {answers:{}, history:[]}; go('intro', false); }
+
+  function render(id){ (screens[id] || screens.intro)(); }
+  state.current = 'intro'; render('intro');
+})();
+</script>
+</body>
+</html>
