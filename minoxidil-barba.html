@@ -56,6 +56,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-rotulo);font-size:.95rem;letter-spacing:.14em;color:var(--escuro)}
 .logo svg{width:28px;height:28px}
 .topo .btn{min-height:42px;padding:0 20px;font-size:.9rem}
+.menu{display:flex;gap:22px;font-size:.9rem}
+.menu a{text-decoration:none;color:var(--texto)}
+.menu a:hover{color:var(--escuro);text-decoration:underline}
+@media (max-width:900px){.menu{display:none}}
 
 /* hero */
 .hero{padding-block:56px 72px}
@@ -230,6 +234,12 @@ details p{padding:0 0 20px;color:var(--suave);max-width:62ch}
 <header class="topo">
   <div class="w">
     <a class="logo" href="#topo"><img src="img/logo.webp" alt="Elevamed" width="156" height="21" style="width:156px;height:auto;display:block"></a>
+    <nav class="menu" aria-label="Menu">
+      <a href="#como">Como funciona</a>
+      <a href="#protocolo">Protocolo</a>
+      <a href="tratamentos.html">Tratamentos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
     <a class="btn" href="barba-avaliacao.html?origem=minoxidil-barba">Fazer avaliação gratuita</a>
   </div>
 </header>
