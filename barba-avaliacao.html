@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TBNN8FQJ');</script>
+<!-- End Google Tag Manager -->
+<script src="rastreio.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Elevamed — avaliação médica para barba</title>
+<meta name="description" content="Avaliação médica online para barba falhada, em cerca de 3 minutos.">
+<meta name="theme-color" content="#213632">
+<link rel="icon" href="img/simbolo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+<style>
+:focus-visible{outline:2px solid #213632;outline-offset:3px;border-radius:6px}
+h1,h2{letter-spacing:-.02em;text-wrap:balance}
+.nav{position:sticky;top:0;z-index:10}
+.opcao,.tipo{transition:border-color .15s ease,background-color .15s ease}
+@media (hover:hover){.opcao:hover,.tipo:hover{border-color:#213632}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBNN8FQJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="nav"><div class="wrap navrow">
+  <a href="minoxidil-barba.html"><img src="img/logo.webp" alt="Elevamed" width="140" height="19"></a>
+  <span class="mini" id="contador">Leva cerca de 3 minutos</span>
+</div></header>
+
+<main class="wrap" style="max-width:640px;padding:32px 20px 64px">
+  <div class="barra" aria-hidden="true"><i id="progresso" style="width:0%"></i></div>
+  <div id="tela" class="col" style="margin-top:28px" aria-live="polite"></div>
+  <div id="acoes" class="linha" style="margin-top:24px;gap:12px">
+    <button class="btn contorno" type="button" id="voltar">Voltar</button>
+    <button class="btn grande" type="button" id="avancar" style="flex:1 1 200px">Continuar</button>
+  </div>
+  <p class="mini" style="margin-top:28px">Suas respostas são confidenciais e usadas apenas pela equipe médica para avaliar o seu caso. <a href="termos.html">Política de Privacidade</a></p>
+</main>
+
+<script src="comum.js"></script>
+<script>
+/* Padrões de barba: rosto de frente, falhas na cor da pele */
+const BARBA=[
+ {n:'Falhas nas bochechas',d:'Bigode e queixo fecham, mas os lados ficam vazios.',ok:true},
+ {n:'Bigode não liga ao queixo',d:'Falta fio nos cantos da boca.',ok:true},
+ {n:'Barba rala por inteiro',d:'Cresce em todo lugar, mas fina e clara.',ok:true},
+ {n:'Quase só bigode e queixo',d:'O resto do rosto quase não tem fio.',ok:true},
+ {n:'Falhas redondas em placas',d:'Círculos lisos que apareceram de repente.',ok:false}
+];
+function avatarBarba(k){
+ const P='#E3D5C1',H='#213632';
+ const barba='M13 30 L19 30 Q21 45 32 47 Q43 45 45 30 L51 30 L51 35 Q49 57 32 59 Q15 57 13 35 Z';
+ const bigode='<path d="M23 42 Q32 37 41 42 Q32 40.5 23 42 Z" fill="'+H+'"/><path d="M22.5 42.3 Q32 36 41.5 42.3 L41 43.6 Q32 39.6 23 43.6 Z" fill="'+H+'"/>';
+ let pelos='',op=1;
+ if(k===3){pelos='<path d="M26 49 Q32 52 38 49 L37 56 Q32 58.5 27 56 Z" fill="'+H+'"/>'+bigode;}
+ else{
+  const furos=[
+   '<ellipse cx="18" cy="40" rx="5" ry="7" fill="'+P+'"/><ellipse cx="46" cy="40" rx="5" ry="7" fill="'+P+'"/>',
+   '<circle cx="22.5" cy="47" r="3.6" fill="'+P+'"/><circle cx="41.5" cy="47" r="3.6" fill="'+P+'"/>',
+   '',
+   '',
+   '<circle cx="19" cy="43" r="3.6" fill="'+P+'"/><circle cx="40" cy="53" r="3" fill="'+P+'"/><circle cx="46" cy="38" r="2.6" fill="'+P+'"/>'
+  ][k];
+  if(k===2)op=.42;
+  pelos='<g opacity="'+op+'"><path d="'+barba+'" fill="'+H+'"/>'+bigode+'</g>'+furos;
+ }
+ return '<svg width="68" height="68" viewBox="0 0 64 64" aria-hidden="true">'+
+  '<ellipse cx="11.5" cy="33" rx="3" ry="5.5" fill="'+P+'"/><ellipse cx="52.5" cy="33" rx="3" ry="5.5" fill="'+P+'"/>'+
+  '<ellipse cx="32" cy="34" rx="20" ry="25" fill="'+P+'"/>'+
+  '<path d="M12 30 Q11 8 32 7 Q53 8 52 30 Q49 17 32 16 Q15 17 12 30 Z" fill="'+H+'"/>'+
+  '<circle cx="25" cy="29" r="1.6" fill="'+H+'"/><circle cx="39" cy="29" r="1.6" fill="'+H+'"/>'+
+  pelos+
+  '<path d="M27 46 Q32 48 37 46" fill="none" stroke="#9C6B5A" stroke-width="1.4" stroke-linecap="round"/>'+
+  '</svg>';
+}
+</script>
+<script>
+const $=id=>document.getElementById(id);
+const R={};
+const q=new URLSearchParams(location.search);
+if(q.get('tipo')!==null&&BARBA[+q.get('tipo')])R.tipo=+q.get('tipo');
+R.email=sessionStorage.getItem('ev-email')||'';
+
+const PASSOS=[
+ {id:'tipo',tipo:'avatar',t:'Qual desenho parece mais com a sua barba?',s:'Pense em como ela fica depois de 2 a 3 semanas sem fazer.'},
+ {id:'sexo',tipo:'unica',t:'Qual é o seu sexo biológico?',s:'Alguns medicamentos têm indicações diferentes para homens e mulheres.',o:['Masculino','Feminino']},
+ {id:'idade',tipo:'numero',t:'Qual é a sua idade?',s:'O tratamento online é para maiores de 18 anos.'},
+ {id:'tempo',tipo:'unica',t:'Há quanto tempo a barba é assim?',o:['Sempre foi assim','Piorou nos últimos meses','Começou a falhar há pouco tempo']},
+ {id:'familia',tipo:'unica',t:'Os homens da sua família têm barba cheia?',s:'Pai, avôs e irmãos. A genética pesa no formato da barba.',o:['Sim, a maioria','Alguns sim, outros não','Não, também têm barba rala','Não sei']},
+ {id:'ja',tipo:'multi',t:'Você já usou algum tratamento?',s:'Marque todos que se aplicam.',o:['Nunca usei','Minoxidil na barba','Óleo ou balm de barba','Suplemento ou vitamina','Microagulhamento (dermaroller)','Outro']},
+ {id:'saude',tipo:'multi',t:'Você tem ou já teve alguma destas condições?',s:'Isso ajuda o médico a escolher um tratamento seguro.',o:['Problema no coração ou pressão alta/baixa','Doença no fígado','Dermatite, acne ou pele sensível na região da barba','Alergia a algum medicamento de uso na pele','Nenhuma destas']},
+ {id:'remedios',tipo:'texto',t:'Usa algum medicamento hoje?',s:'Escreva o nome e a dose, se souber. Deixe em branco se não usa nenhum.',opcional:true},
+ {id:'fotos',tipo:'fotos',t:'Envie fotos da sua barba',s:'Três fotos com boa luz: de frente, lado direito e lado esquerdo.',opcional:true},
+ {id:'contato',tipo:'contato',t:'Para onde o médico envia o seu plano?'}
+];
+let i=R.tipo!==undefined?1:0;
+
+function bloqueio(){
+ if(R.tipo!==undefined&&!BARBA[R.tipo].ok)return['Seu caso pede uma avaliação diferente','Falhas redondas que surgem de repente podem ter outra causa, como a alopecia areata. O ideal é uma consulta presencial com dermatologista antes de usar minoxidil.'];
+ if(R.sexo==='Feminino')return['Vamos cuidar de você de outro jeito','O excesso de pelos no rosto em mulheres tem causas próprias, e este protocolo foi feito para a barba masculina. Procure um dermatologista para avaliar o seu caso.'];
+ if(R.idade!==undefined&&R.idade<18)return['O tratamento online é para maiores de 18 anos','Para menores, a avaliação deve ser presencial, com um responsável. Procure um dermatologista.'];
+ return null;
+}
+
+function opcoes(p){
+ const multi=p.tipo==='multi',sel=R[p.id]||(multi?[]:null);
+ return '<div class="col" style="gap:10px" role="'+(multi?'group':'radiogroup')+'">'+p.o.map(o=>{
+  const on=multi?sel.includes(o):sel===o;
+  return '<button type="button" class="opcao'+(on?' on':'')+'" role="'+(multi?'checkbox':'radio')+'" aria-checked="'+on+'" data-v="'+o+'">'+o+'</button>';}).join('')+'</div>';
+}
+
+let iniciou=false,ultimaEtapa=-1;
+function desenhar(){
+ const b=bloqueio();
+ if(b){evento('quiz_nao_elegivel',{quiz_etapa:i+1});return final(b[0],b[1],false);}
+ if(i>=PASSOS.length)return resultado();
+ const p=PASSOS[i];
+ $('progresso').style.width=Math.round(i/PASSOS.length*100)+'%';
+ $('contador').textContent='Etapa '+(i+1)+' de '+PASSOS.length;
+ if(!iniciou){iniciou=true;evento('quiz_iniciado');}
+ if(i>ultimaEtapa){ultimaEtapa=i;evento('quiz_etapa',{quiz_etapa:i+1,quiz_total:PASSOS.length});}
+ let h='<span class="rotulo cinza">AVALIAÇÃO MÉDICA</span><h2>'+p.t+'</h2>'+(p.s?'<p class="leve">'+p.s+'</p>':'');
+ if(p.tipo==='avatar')h+='<div class="tipos">'+BARBA.map((t,k)=>'<button type="button" class="tipo'+(R.tipo===k?' on':(R.tipo!==undefined?' apagado':''))+'" role="radio" aria-checked="'+(R.tipo===k)+'" data-k="'+k+'">'+avatarBarba(k)+'<strong>'+t.n+'</strong><span>'+t.d+'</span></button>').join('')+'</div>';
+ if(p.tipo==='unica'||p.tipo==='multi')h+=opcoes(p);
+ if(p.tipo==='numero')h+='<label class="campo">Idade<input type="number" inputmode="numeric" min="1" max="110" id="campo" value="'+(R.idade??'')+'"></label>';
+ if(p.tipo==='texto')h+='<label class="campo">Medicamentos<textarea id="campo" rows="4">'+(R.remedios||'')+'</textarea></label>';
+ if(p.tipo==='fotos')h+='<label class="campo">Fotos (até 3)<input type="file" id="campo" accept="image/*" multiple></label><span class="mini">As fotos vão para o prontuário e só a equipe médica tem acesso.</span>';
+ if(p.tipo==='contato')h+='<label class="campo">Nome completo<input id="nome" autocomplete="name" value="'+(R.nome||'')+'"></label>'+
+  '<label class="campo">E-mail<input type="email" id="email" autocomplete="email" value="'+(R.email||'')+'"></label>'+
+  '<label class="campo">WhatsApp<input type="tel" id="zap" autocomplete="tel" placeholder="(00) 00000-0000" value="'+(R.zap||'')+'"></label>'+
+  '<label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5"><input type="checkbox" id="lgpd" style="width:20px;height:20px;margin-top:2px"'+(R.lgpd?' checked':'')+'> Autorizo a Elevamed a usar meus dados de saúde para a avaliação médica, conforme a <a href=\"termos.html\">Política de Privacidade</a> e a LGPD.</label>';
+ h+='<span class="erro" id="erro" hidden></span>';
+ $('tela').innerHTML=h;
+ $('acoes').hidden=false;$('voltar').hidden=i===0;
+ $('avancar').textContent=i===PASSOS.length-1?'Enviar para o médico':'Continuar';
+ window.scrollTo({top:0});
+}
+
+$('tela').addEventListener('click',e=>{
+ const p=PASSOS[i];if(!p)return;
+ const t=e.target.closest('.tipo');if(t){R.tipo=+t.dataset.k;return desenhar();}
+ const o=e.target.closest('.opcao');if(!o)return;
+ const v=o.dataset.v;
+ if(p.tipo==='multi'){let s=R[p.id]||[];const exc=v==='Nunca usei'||v==='Nenhuma destas';
+  if(s.includes(v))s=s.filter(x=>x!==v);else s=exc?[v]:s.filter(x=>x!=='Nunca usei'&&x!=='Nenhuma destas').concat(v);R[p.id]=s;}
+ else R[p.id]=v;
+ desenhar();
+});
+
+function erro(m){const e=$('erro');e.textContent=m;e.hidden=false;}
+
+$('avancar').addEventListener('click',()=>{
+ const p=PASSOS[i];
+ if(p.tipo==='avatar'&&R.tipo===undefined)return erro('Selecione uma opção.');
+ if(p.tipo==='unica'&&!R[p.id])return erro('Selecione uma opção.');
+ if(p.tipo==='multi'&&!(R[p.id]||[]).length)return erro('Selecione ao menos uma opção.');
+ if(p.tipo==='numero'){const v=parseInt($('campo').value,10);if(!v||v<1||v>110)return erro('Digite uma idade válida.');R.idade=v;}
+ if(p.tipo==='texto')R.remedios=$('campo').value.trim();
+ if(p.tipo==='fotos')R.fotos=$('campo').files.length;
+ if(p.tipo==='contato'){
+  R.nome=$('nome').value.trim();R.email=$('email').value.trim();R.zap=$('zap').value.trim();R.lgpd=$('lgpd').checked;
+  if(R.nome.length<3)return erro('Digite seu nome.');
+  if(!/^\S+@\S+\.\S+$/.test(R.email))return erro('Digite um e-mail válido.');
+  if(R.zap.replace(/\D/g,'').length<10)return erro('Digite um WhatsApp com DDD.');
+  if(!R.lgpd)return erro('Para seguir, autorize o uso dos dados para a avaliação.');
+ }
+ i++;desenhar();
+});
+$('voltar').addEventListener('click',()=>{if(i>0){i--;desenhar();}});
+
+function final(t,s,ok){
+ $('progresso').style.width='100%';$('acoes').hidden=true;$('contador').textContent='';
+ $('tela').innerHTML='<img src="img/simbolo.webp" alt="" width="40"><h2>'+t+'</h2><p class="leve">'+s+'</p>'+(ok?'':'<a class="btn grande" href="minoxidil-barba.html">Voltar para a página</a>');
+}
+
+function resultado(){
+ const alerta=(R.saude||[]).filter(x=>x!=='Nenhuma destas').length>0;
+ salvarLead(Object.assign({origem:'avaliacao-barba',lp:q.get('origem')||'',padraoBarba:BARBA[R.tipo].n},R,{tipo:undefined},{rastreio:origemDoClique()}));
+ evento('quiz_concluido');
+ $('progresso').style.width='100%';$('acoes').hidden=true;$('contador').textContent='Avaliação enviada';
+ $('tela').innerHTML=
+  '<span class="rotulo cinza">AVALIAÇÃO ENVIADA</span><h2>Pronto, '+(R.nome.split(' ')[0]||'')+'! Seu caso está com o médico</h2>'+
+  '<p class="leve">Um médico vai analisar suas respostas e, se o tratamento for indicado, prescrever a fórmula para a sua barba. Você recebe tudo no e-mail e no WhatsApp.</p>'+
+  (alerta?'<div class="card" style="background:#EEF2E6;border:none"><strong style="font-weight:500">Atenção para o médico</strong><p class="leve" style="font-size:14px">Você marcou condições de saúde que pedem cuidado na escolha da fórmula. O médico vai levar isso em conta e pode falar com você antes de prescrever.</p></div>':'')+
+  '<div class="card"><span class="rotulo cinza">PROTOCOLO INDICADO PARA '+BARBA[R.tipo].n.toUpperCase()+'</span>'+
+  '<strong style="font-size:22px;font-weight:500">Kit barba · 4 meses</strong>'+
+  '<p class="leve" style="font-size:14px">Minoxidil manipulado para aplicar na barba, uma vez por dia, durante 4 meses.</p>'+
+  '<ul class="leve" style="font-size:14px;margin:0;padding-left:18px;display:grid;gap:4px"><li>Avaliação médica inclusa</li><li>4º mês grátis</li><li>Desconto na primeira parcela</li><li>Frete grátis</li></ul>'+
+  '<a class="btn grande" href="#checkout" data-integracao="checkout" onclick="evento(\'checkout_iniciado\')">Reservar meu kit</a>'+
+  '<span class="mini">Você só é cobrado se o médico aprovar o tratamento. Cancelamento possível antes do envio.</span></div>'+
+  '<a class="linkbtn" href="minoxidil-barba.html#protocolo">Ver como aplicar o creme enquanto isso</a>';
+ window.scrollTo({top:0});
+}
+desenhar();
+</script>
+</body>
+</html>
